@@ -1,0 +1,30 @@
+{
+    "name": "mlibc",
+    "description": "Portable C standard library",
+    "git-url": "https://github.com/OBOS-dev/mlibc.git",
+    "git-commit": "master",
+    "depends": [ "bootstrap-gcc", "bootstrap-binutils" ],
+    "patches": [
+        {
+            "patch": "patches/mlibc-cross-file.txt.patch",
+            "modifies": "mlibc/cross-file.txt"
+        }
+    ],
+    "bootstrap-commands": [
+        [
+            "meson",
+                "setup",
+                ".", "${repo_directory}/mlibc/",
+                "--cross-file", "${repo_directory}/mlibc/cross-file.txt",
+                "--prefix", "${prefix}/usr/",
+                "--buildtype", "debugoptimized",
+                "--wipe"
+        ]
+    ],
+    "build-commands": [
+        [ "meson", "compile" ]
+    ],
+    "install-commands": [
+        [ "meson", "install" ]
+    ]
+}

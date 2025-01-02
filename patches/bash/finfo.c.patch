@@ -1,0 +1,23 @@
+diff --git a/home/oberrow/bash-5.2.37/examples/loadables/finfo.c b/home/oberrow/Code/bash-5.2.37/examples/loadables/finfo.c
+index 8c278c3..f716835 100644
+--- a/home/oberrow/bash-5.2.37/examples/loadables/finfo.c
++++ b/home/oberrow/Code/bash-5.2.37/examples/loadables/finfo.c
+@@ -280,8 +280,18 @@ struct stat *st;
+ 	char	*owner;
+ 	int	ma, mi, d;
+ 
++#if defined(major)
+ 	ma = major (st->st_rdev);
++#else
++    ma = INT_MAX;
++#endif
++
++#if defined(minor)
+ 	mi = minor (st->st_rdev);
++#else
++    mi = INT_MAX;
++#endif
++
+ #if defined (makedev)
+ 	d = makedev (ma, mi);
+ #else

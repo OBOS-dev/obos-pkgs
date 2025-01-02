@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/gcc/config/obos.h
-@@ -0,0 +1,31 @@
+@@ -0,0 +1,33 @@
 +/* Useful if you wish to make target-specific GCC changes. */
 +#undef TARGET_OBOS
 +#define TARGET_OBOS 1
@@ -13,11 +13,13 @@
 +/* Files that are linked before user code.
 +   The %s tells GCC to look for these files in the library directory. */
 +#undef STARTFILE_SPEC
-+#define STARTFILE_SPEC "crt0.o%s crti.o%s crtbegin.o%s"
++#define STARTFILE_SPEC "%{!shared:crt0.o%s} crti.o%s %{shared:crtbeginS.o%s;:crtbegin.o%s}"
 +
 +/* Files that are linked after user code. */
 +#undef ENDFILE_SPEC
-+#define ENDFILE_SPEC "crtend.o%s crtn.o%s"
++#define ENDFILE_SPEC "%{shared:crtendS.o%s;:crtend.o%s} crtn.o%s"
++
++#define GNU_USER_DYNAMIC_LINKER64 "/usr/lib/ld.so"
 +
 +/* Additional predefined macros. */
 +#undef TARGET_OS_CPP_BUILTINS

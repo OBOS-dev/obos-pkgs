@@ -22,7 +22,8 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/binutils-2.42/configure",
+        [
+            "${repo_directory}/binutils-2.42/configure",
                 "--prefix=${prefix}",
                 "--target=x86_64-obos",
                 "--disable-nls",

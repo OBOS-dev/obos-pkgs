@@ -1,0 +1,33 @@
+{
+    "name": "bash",
+    "description": "Bourne Again SHell",
+    "url": "https://ftp.gnu.org/gnu/bash/bash-5.2.37.tar.gz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/bash/config.sub.patch",
+            "modifies": "bash-5.2.37/support/config.sub"
+        },
+        {
+            "patch": "patches/bash/tparam.c.patch",
+            "modifies": "bash-5.2.37/lib/termcap/tparam.c"
+        },
+        {
+            "patch": "patches/bash/termcap.c.patch",
+            "modifies": "bash-5.2.37/lib/termcap/termcap.c"
+        },
+        {
+            "patch": "patches/bash/finfo.c.patch",
+            "modifies": "bash-5.2.37/examples/loadables/finfo.c"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/bash-5.2.37/configure", "--prefix", "${prefix}", "--host=x86_64-obos", "--without-bash-malloc", "bash_cv_getcwd_malloc=yes" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}
