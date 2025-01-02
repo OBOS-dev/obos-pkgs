@@ -1,0 +1,18 @@
+--- a/gas/configure.tgt
++++ b/gas/configure.tgt
+@@ -267,6 +267,7 @@ case ${generic_target} in
+   i386-*-*nt*)				fmt=coff em=pe ;;
+   i386-*-rdos*)				fmt=elf ;;
+   i386-*-darwin*)			fmt=macho ;;
++  i386-*-obos*)                         fmt=elf em=linux ;;
+ 
+   ia16-*-elf*)				fmt=elf ;;
+ 
+@@ -301,6 +302,7 @@ case ${generic_target} in
+   m68k-*-gnu*)				fmt=elf ;;
+   m68k-*-netbsd*)			fmt=elf em=nbsd ;;
+   m68k-*-haiku*)			fmt=elf em=haiku ;;
++  m68k-*-obos*)			        fmt=elf em=linux ;;
+ 
+   s12z-*-*)				fmt=elf ;;
+ 

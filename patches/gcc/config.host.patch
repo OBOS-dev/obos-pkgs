@@ -1,0 +1,37 @@
+--- a/libgcc/config.host
++++ b/libgcc/config.host
+@@ -311,6 +311,11 @@ case ${host} in
+     extra_parts="$extra_parts vtv_start.o vtv_end.o vtv_start_preinit.o vtv_end_preinit.o"
+   fi
+   ;;
++*-*-obos*)
++  extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o"
++  tmake_file="$tmake_file t-crtstuff-pic"
++  tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver t-libgcc-pic"
++  ;;
+ *-*-lynxos*)
+   tmake_file="$tmake_file t-lynx $cpu_type/t-crtstuff t-crtstuff-pic t-libgcc-pic"
+   extra_parts="crtbegin.o crtbeginS.o crtend.o crtendS.o"
+@@ -1012,6 +1017,22 @@ m68k*-*-netbsdelf*)
+ 	;;
+ m68k*-*-openbsd*)
+ 	;;
++m68k-*-obos*)
++#	tmake_file="$tmake_file m68k/t-floatlib m68k/t-linux
++#	if test x$ac_cv_sjlj_exceptions != xyes; then
++#            tmake_file="$tmake_file m68k/t-slibgcc-elf-ver"
++#        fi"
++	;;
++x86_64-*-obos*)
++#	extra_parts="$extra_parts crti.o crtbegin.o crtend.o crtn.o"
++#	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
++        tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
++        case ${host} in
++          x86_64-*-rtems*)
++            extra_parts="$extra_parts crti.o crtn.o"
++            ;;
++        esac
++	;;
+ m68k-*-uclinux*)	# Motorola m68k/ColdFire running uClinux with uClibc
+ 	tmake_file="$tmake_file m68k/t-floatlib m68k/t-linux"
+ 	md_unwind_header=m68k/linux-unwind.h

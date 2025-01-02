@@ -1,0 +1,49 @@
+--- a/gcc/config.gcc
++++ b/gcc/config.gcc
+@@ -722,6 +722,16 @@ x86_cpus="generic intel"
+ 
+ # Common parts for widely ported systems.
+ case ${target} in
++*-*-obos*)
++	extra_options="$extra_options gnu-user.opt"
++	gas=yes
++	gnu_ld=yes
++	default_use_cxa_atexit=yes
++	use_gcc_stdint=provide
++#	thread_file=posix
++#	enable_threads=no
++#	tmake_file="${tmake_file} t-slibgcc"
++	;;
+ *-*-darwin*)
+   tmake_file="t-darwin "
+   tm_file="${tm_file} darwin.h"
+@@ -2397,6 +2407,18 @@ m68k-*-elf* | fido-*-elf*)
+ 		;;
+ 	esac
+ 	;;
++m68k-*-obos*)
++	tm_file="${tm_file} elfos.h gnu-user.h glibc-stdint.h m68k/obos.h"
++	default_m68k_cpu=68020
++	default_cf_cpu=5475
++#	with_arch=${with_arch:-m68k}
++#	extra_options="${extra_options} m68k/ieee.opt"
++	tm_defines="${tm_defines} MOTOROLA=1"
++#	tmake_file="${tmake_file} m68k/t-floatlib m68k/t-mlibs"
++  ;;
++x86_64-*-obos*)
++	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h glibc-stdint.h i386/i386elf.h i386/x86-64.h obos.h"
++	;;
+ m68k*-*-netbsdelf*)
+ 	default_m68k_cpu=68020
+ 	default_cf_cpu=5475
+@@ -2411,8 +2433,8 @@ m68k-*-uclinux*)		# Motorola m68k/ColdFire running uClinux
+ 	default_cf_cpu=5206
+ 	tm_file="${tm_file} elfos.h gnu-user.h linux.h glibc-stdint.h flat.h m68k/linux.h m68k/uclinux.h ./sysroot-suffix.h"
+ 	extra_options="${extra_options} m68k/uclinux.opt"
+- 	tm_defines="${tm_defines} MOTOROLA=1"
+-	tmake_file="m68k/t-floatlib m68k/t-uclinux m68k/t-mlibs"
++	tm_defines="${tm_defines} MOTOROLA=1"
++	tmake_file="${tmake_file} m68k/t-floatlib m68k/t-linux m68k/t-mlibs"
+ 	;;
+ m68k-*-linux*)			# Motorola m68k's running GNU/Linux
+ 				# with ELF format using glibc 2

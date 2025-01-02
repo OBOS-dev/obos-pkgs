@@ -1,0 +1,39 @@
+{
+    "name": "bootstrap-binutils",
+    "description": "Cross-compiler used to link packages.",
+    "url": "https://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.lz",
+    "depends": [],
+    "patches": [
+        {
+            "patch": "patches/binutils/config.bfd.patch",
+            "modifies": "binutils-2.42/bfd/config.bfd"
+        },
+        {
+            "patch": "patches/binutils/config.sub.patch",
+            "modifies": "binutils-2.42/config.sub"
+        },
+        {
+            "patch": "patches/binutils/gas_configure.tgt.patch",
+            "modifies": "binutils-2.42/gas/configure.tgt"
+        },
+        {
+            "patch": "patches/binutils/ld_configure.tgt.patch",
+            "modifies": "binutils-2.42/ld/configure.tgt"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/binutils-2.42/configure",
+                "--prefix=${prefix}",
+                "--target=x86_64-obos",
+                "--disable-nls",
+                "--with-sysroot=${prefix}",
+                "--disable-werror"
+        ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install" ]
+    ]
+}

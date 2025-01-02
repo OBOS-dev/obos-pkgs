@@ -1,0 +1,26 @@
+--- a/bfd/config.bfd
++++ b/bfd/config.bfd
+@@ -603,6 +603,13 @@ case "${targ}" in
+     targ_selvecs="x86_64_elf64_sol2_vec iamcu_elf32_vec i386_coff_vec i386_pei_vec x86_64_pe_vec x86_64_pei_vec"
+     want64=true
+     ;;
++#endif
++#ifdef BFD64
++  x86_64-*-obos*)
++    targ_defvec=x86_64_elf64_vec
++    targ_selvecs=i386_elf32_vec
++    want64=true
++    ;;
+ #endif
+   i[3-7]86-*-nto*)
+     targ_defvec=i386_elf32_vec
+@@ -846,6 +853,9 @@ case "${targ}" in
+   m68*-*-haiku*)
+     targ_defvec=m68k_elf32_vec
+     ;;
++  m68*-*-obos*)
++    targ_defvec=m68k_elf32_vec
++    ;;
+   m68hc11-*-* | m6811-*-*)
+     targ_defvec=m68hc11_elf32_vec
+     targ_selvecs="m68hc11_elf32_vec m68hc12_elf32_vec"
