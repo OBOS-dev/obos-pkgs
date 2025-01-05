@@ -1,0 +1,21 @@
+{
+    "name": "coreutils",
+    "description": "GNU Coreutils",
+    "url": "https://ftp.gnu.org/gnu/coreutils/coreutils-9.5.tar.xz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/coreutils/config.sub.patch",
+            "modifies": "coreutils-9.5/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/coreutils-9.5/configure", "--prefix", "${prefix}", "--host=x86_64-obos", "CPPFLAGS=-DSLOW_BUT_NO_HACKS=1" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}

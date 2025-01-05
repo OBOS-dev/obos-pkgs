@@ -1,5 +1,3 @@
-diff --git a/home/oberrow/bash-5.2.37/examples/loadables/finfo.c b/home/oberrow/Code/bash-5.2.37/examples/loadables/finfo.c
-index 8c278c3..f716835 100644
 --- a/home/oberrow/bash-5.2.37/examples/loadables/finfo.c
 +++ b/home/oberrow/Code/bash-5.2.37/examples/loadables/finfo.c
 @@ -280,8 +280,18 @@ struct stat *st;
