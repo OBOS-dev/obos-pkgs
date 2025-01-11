@@ -1,0 +1,21 @@
+{
+    "name": "grep",
+    "description": "Searches for a string in input file(s).",
+    "url": "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/grep/config.sub.patch",
+            "modifies": "grep-3.11/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/grep-3.11/configure", "--prefix", "${prefix}", "--host=x86_64-obos" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}
