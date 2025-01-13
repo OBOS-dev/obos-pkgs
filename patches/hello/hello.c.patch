@@ -1,0 +1,21 @@
+diff --git a/src/hello.c b/src/hello.c
+index 2e7d38e..260d02b 100644
+--- a/src/hello.c
++++ b/src/hello.c
+@@ -156,15 +156,8 @@ main (int argc, char *argv[])
+ 
+   parse_options(argc, argv, &greeting_msg);
+ 
+-  len = strlen(greeting_msg) + 1;
+-  mb_greeting = xmalloc(len * sizeof(wchar_t));
+-  len = mbsrtowcs(mb_greeting, &greeting_msg, len, &mbstate);
+-  if (len == (size_t)-1)
+-    error (EXIT_FAILURE, errno, _("conversion to a multibyte string failed"));
+-
+   /* Print greeting message and exit. */
+-  wprintf (L"%ls\n", mb_greeting);
+-  free(mb_greeting);
++  printf ("%s\n", greeting_msg);
+ 
+   exit (EXIT_SUCCESS);
+ }
