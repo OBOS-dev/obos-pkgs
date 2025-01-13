@@ -1,0 +1,21 @@
+{
+    "name": "diffutils",
+    "description": "Finds differences between files",
+    "url": "https://ftp.gnu.org/gnu/diffutils/diffutils-3.10.tar.xz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/diffutils/config.sub.patch",
+            "modifies": "diffutils-3.10/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/diffutils-3.10/configure", "--prefix", "${prefix}", "--host=x86_64-obos" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}
