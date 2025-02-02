@@ -44,7 +44,7 @@
                 "--disable-nls", "--enable-languages=c,c++",
                 "--disable-shared",
                 "--disable-multilib",
-                "--with-sysroot=${prefix}"
+                "--with-sysroot=${target_prefix}"
         ]
     ],
     "build-commands": [
@@ -54,5 +54,6 @@
     "install-commands": [
         [ "make", "-j${nproc}", "install-gcc" ],
         [ "make", "-j${nproc}", "install-target-libgcc" ]
-    ]
+    ],
+    "host-package": 1
 }

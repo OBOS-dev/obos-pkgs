@@ -27,7 +27,7 @@
                 "--prefix=${prefix}",
                 "--target=x86_64-obos",
                 "--disable-nls",
-                "--with-sysroot=${prefix}",
+                "--with-sysroot=${target_prefix}",
                 "--disable-werror"
         ]
     ],
@@ -36,5 +36,6 @@
     ],
     "install-commands": [
         [ "make", "-j${nproc}", "install" ]
-    ]
+    ],
+    "host-package": 1
 }

@@ -16,7 +16,7 @@
                 "setup",
                 ".", "${repo_directory}/mlibc/",
                 "--cross-file", "${repo_directory}/mlibc/cross-file.txt",
-                "--prefix", "${prefix}/usr/",
+                "--prefix", "${prefix}",
                 "--buildtype", "debugoptimized",
                 "--wipe"
         ]
@@ -25,6 +25,7 @@
         [ "meson", "compile" ]
     ],
     "install-commands": [
-        [ "meson", "install" ]
+        [ "meson", "install" ],
+        [ "cp", "${prefix}/lib/ld.so", "${prefix}/lib/ld64.so.1" ]
     ]
 }
