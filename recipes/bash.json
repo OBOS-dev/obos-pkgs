@@ -22,7 +22,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/bash-5.2.37/configure", "--prefix", "${prefix}", "--host=x86_64-obos", "--without-bash-malloc", "bash_cv_getcwd_malloc=yes" ]
+        [ "${repo_directory}/bash-5.2.37/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--without-bash-malloc", "bash_cv_getcwd_malloc=yes" ]
     ],
     "build-commands": [
         [ "make", "all" ]

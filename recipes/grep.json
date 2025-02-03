@@ -10,7 +10,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/grep-3.11/configure", "--prefix", "${prefix}", "--host=x86_64-obos" ]
+        [ "${repo_directory}/grep-3.11/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
     ],
     "build-commands": [
         [ "make", "all" ]

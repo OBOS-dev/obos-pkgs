@@ -25,7 +25,7 @@
         [
             "${repo_directory}/binutils-2.42/configure",
                 "--prefix=${prefix}",
-                "--target=x86_64-obos",
+                "--target=${target_triplet}",
                 "--disable-nls",
                 "--with-sysroot=${target_prefix}",
                 "--disable-werror"

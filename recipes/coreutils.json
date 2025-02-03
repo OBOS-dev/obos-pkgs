@@ -10,7 +10,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/coreutils-9.5/configure", "--prefix", "${prefix}", "--host=x86_64-obos", "CPPFLAGS=-DSLOW_BUT_NO_HACKS=1" ]
+        [ "${repo_directory}/coreutils-9.5/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "CPPFLAGS=-DSLOW_BUT_NO_HACKS=1" ]
     ],
     "build-commands": [
         [ "make", "all" ]
