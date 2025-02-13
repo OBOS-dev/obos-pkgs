@@ -2,3 +2,6 @@
 /pkgs
 /bootstrap
 /repos
+/host_pkgs
+/obos.iso
+/settings.json

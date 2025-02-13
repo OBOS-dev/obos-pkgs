@@ -49,7 +49,8 @@
     ],
     "build-commands": [
         [ "make", "-j${nproc}", "inhibit_libc=true", "all-gcc" ],
-        [ "make", "-j${nproc}", "inhibit_libc=true", "all-target-libgcc" ]
+        [ "make", "-j${nproc}", "inhibit_libc=true", "all-target-libgcc" ],
+        []
     ],
     "install-commands": [
         [ "make", "-j${nproc}", "install-gcc" ],

@@ -1,0 +1,4 @@
+{
+    "cross-compile": 1,
+    "target-triplet": "x86_64-obos"
+}

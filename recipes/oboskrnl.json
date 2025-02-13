@@ -1,0 +1,37 @@
+{
+    "name": "oboskrnl",
+    "description": "OBOS kernel and drivers",
+    "git-url": "https://github.com/OBOS-dev/obos",
+    "git-commit": "master",
+    "depends": [ "bootstrap-gcc", "bootstrap-binutils" ],
+    "patches": [
+        {
+            "patch": "patches/obos-configure.sh.diff",
+            "modifies": "obos/obos-configure.sh"
+        }
+    ],
+    "bootstrap-commands": [
+       [ "chmod", "+x", "${repo_directory}/obos/obos-configure.sh" ],
+       [
+            "${repo_directory}/obos/obos-configure.sh",
+            "${target_triplet}", "${repo_directory}/obos"
+       ],
+       [ "chmod", "+x", "${repo_directory}/obos/dependencies/hyper/hyper_install-linux-x86_64" ]
+    ],
+    "build-commands": [
+        [ "mkdir", "tar" ],
+        [ "mkdir", "tar/mnt" ],
+        [ "mkdir", "tar/dev" ],
+        [ "tar", "-Hustar", "-Ctar", "-cf", "${repo_directory}/obos/config/initrd.tar", "." ],
+        [ "cmake", "--build", "." ],
+        [ "cp", "${repo_directory}/obos/out/uart", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/ahci", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/slowfat", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/r8169", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/bochs_vbe", "tar/" ],
+        [ "tar", "-Hustar", "-Ctar", "-cf", "${repo_directory}/obos/config/initrd.tar", "." ],
+        [ "cmake", "--build", "." ]
+    ],
+    "comment1": "Do nothing.",
+    "install-commands": []
+}

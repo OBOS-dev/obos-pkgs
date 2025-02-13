@@ -1,7 +1,7 @@
 {
     "name": "mlibc",
     "description": "Portable C standard library",
-    "git-url": "https://github.com/OBOS-dev/mlibc.git",
+    "git-url": "https://github.com/OBOS-dev/mlibc",
     "git-commit": "master",
     "depends": [ "bootstrap-gcc", "bootstrap-binutils" ],
     "patches": [
@@ -26,6 +26,12 @@
     ],
     "install-commands": [
         [ "meson", "install" ],
-        [ "cp", "${prefix}/lib/ld.so", "${prefix}/lib/ld64.so.1" ]
+        [ "cp", "${prefix}/lib/ld.so", "${prefix}/lib/ld64.so.1" ],
+        [ "rm", "-rf", "${prefix}/usr" ],
+        [ "mkdir", "${prefix}/usr" ],
+        [ "rm", "-rf", "${prefix}/usr/include" ],
+        [ "rm", "-rf", "${prefix}/usr/lib" ],
+        [ "ln", "-s", "${prefix}/include", "${prefix}/usr" ],
+        [ "ln", "-s", "${prefix}/lib", "${prefix}/usr" ]
     ]
 }
