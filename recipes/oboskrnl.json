@@ -14,14 +14,14 @@
        [ "chmod", "+x", "${repo_directory}/obos/obos-configure.sh" ],
        [
             "${repo_directory}/obos/obos-configure.sh",
-            "${target_triplet}", "${repo_directory}/obos"
+            "${target_triplet}", "${repo_directory}/obos/"
        ],
        [ "chmod", "+x", "${repo_directory}/obos/dependencies/hyper/hyper_install-linux-x86_64" ]
     ],
     "build-commands": [
-        [ "mkdir", "tar" ],
-        [ "mkdir", "tar/mnt" ],
-        [ "mkdir", "tar/dev" ],
+        [ "mkdir", "-p", "tar" ],
+        [ "mkdir", "-p", "tar/mnt" ],
+        [ "mkdir", "-p", "tar/dev" ],
         [ "tar", "-Hustar", "-Ctar", "-cf", "${repo_directory}/obos/config/initrd.tar", "." ],
         [ "cmake", "--build", "." ],
         [ "cp", "${repo_directory}/obos/out/uart", "tar/" ],
