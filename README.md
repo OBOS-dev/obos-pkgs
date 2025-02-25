@@ -3,4 +3,4 @@ These packages are built using `obos-strap`, you probably should not use it for 
 ## Building
 - Clone the repository, and enter it's directory
 - To build a specific package, run: `./obos.strap install pkg-name`
-- To build the entire repository, run: `./obos-strap install-all`
+- To build the entire repository, run: `./obos-strap install all`
