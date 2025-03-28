@@ -1,0 +1,21 @@
+{
+    "name": "ncurses",
+    "description": "GNU ncurses library",
+    "url": "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/ncurses/config.sub",
+            "modifies": "ncurses-6.5/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/ncurses-6.5/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}

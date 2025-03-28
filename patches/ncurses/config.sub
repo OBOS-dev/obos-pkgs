@@ -1,0 +1,11 @@
+--- 1/config.sub	2025-03-28 19:04:31.808720961 -0400
++++ 2/config.sub	2025-03-28 17:22:37.538427305 -0400
+@@ -1737,7 +1737,7 @@
+ 	# Now accept the basic system types.
+ 	# The portable systems comes first.
+ 	# Each alternative MUST end in a * to match a version number.
+-	gnu* | android* | bsd* | mach* | minix* | genix* | ultrix* | irix* \
++	gnu* | obos* | android* | bsd* | mach* | minix* | genix* | ultrix* | irix* \
+ 	     | *vms* | esix* | aix* | cnk* | sunos | sunos[34]* \
+ 	     | hpux* | unos* | osf* | luna* | dgux* | auroraux* | solaris* \
+ 	     | sym* |  plan9* | psp* | sim* | xray* | os68k* | v88r* \
