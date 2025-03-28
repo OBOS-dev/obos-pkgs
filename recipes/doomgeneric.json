@@ -1,0 +1,23 @@
+{
+    "name": "doomgeneric",
+    "description": "DOOM Video Game",
+    "git-url": "https://github.com/OBOS-dev/doomgeneric",
+    "git-commit": "master",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/build-doom.sh.patch",
+            "modifies": "doomgeneric/build-doom.sh"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "chmod", "+x", "${repo_directory}/doomgeneric/build-doom.sh" ]
+    ],
+    "comment1": "doomgeneric does not support out-of-tree builds, so we need to use a script to cd into the right directory",
+    "build-commands": [
+        [ "${repo_directory}/doomgeneric/build-doom.sh", "${repo_directory}/doomgeneric", "${target_triplet}" ]
+    ],
+    "install-commands": [
+        [ "cp", "${repo_directory}/doomgeneric/doomgeneric/doomgeneric", "${prefix}/bin/doomgeneric" ]
+    ]
+}

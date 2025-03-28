@@ -1,0 +1,5 @@
+--- /dev/null	2025-03-16 15:28:58.158810011 -0400
++++ build-doom.sh	2025-03-16 15:42:50.889493864 -0400
+@@ -0,0 +1,2 @@
++cd $1/doomgeneric/
++make -f Makefile.obos TARGET=$2 all
