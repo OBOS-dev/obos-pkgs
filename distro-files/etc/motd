@@ -1,0 +1,3 @@
+Booted OBOS, launching a shell.
+Report issues at https://github.com/OBOS-dev/obos/issues, pull requests are welcome!
+Run 'sync' then 'powerctl' to shutdown.o

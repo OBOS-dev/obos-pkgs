@@ -1,0 +1,8 @@
+--- /dev/null	2025-03-28 15:53:22.194939146 -0400
++++ configure-libstdc++.sh	2025-03-28 18:42:34.004226740 -0400
+@@ -0,0 +1,5 @@
++#!/bin/bash
++cd $1/libstdc++-v3/
++rm aclocal.m4
++rm ../config/override.m4
++autoreconf
