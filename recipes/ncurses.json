@@ -2,7 +2,7 @@
     "name": "ncurses",
     "description": "GNU ncurses library",
     "url": "https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz",
-    "depends": [ "mlibc" ],
+    "depends": [ "libstdc++", "mlibc" ],
     "patches": [
         {
             "patch": "patches/ncurses/config.sub",
