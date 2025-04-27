@@ -1,7 +1,7 @@
 {
     "name": "bootstrap-gcc",
     "description": "Cross-compiler used to compile mlibc.",
-    "url": "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz",
     "depends": [ "bootstrap-binutils" ],
     "patches": [
         {

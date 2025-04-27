@@ -1,7 +1,7 @@
 {
     "name": "bootstrap-binutils",
     "description": "Cross-compiler used to link packages.",
-    "url": "https://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.lz",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/binutils/binutils-2.42.tar.lz",
     "depends": [],
     "patches": [
         {
