@@ -18,6 +18,7 @@
                 "--cross-file", "${repo_directory}/mlibc/cross-file.txt",
                 "--prefix", "${prefix}",
                 "--buildtype", "debugoptimized",
+		"-Duse_freestnd_hdrs=enabled",
                 "--wipe"
         ]
     ],
