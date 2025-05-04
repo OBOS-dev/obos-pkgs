@@ -1,7 +1,7 @@
 {
     "name": "diffutils",
     "description": "Finds differences between files",
-    "url": "https://ftp.gnu.org/gnu/diffutils/diffutils-3.10.tar.xz",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/diffutils/diffutils-3.10.tar.xz",
     "depends": [ "mlibc" ],
     "patches": [
         {

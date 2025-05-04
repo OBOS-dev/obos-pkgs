@@ -1,0 +1,11 @@
+--- configure	2025-05-04 09:10:40.011637107 -0400
++++ configure_new	2025-05-04 09:10:32.599679592 -0400
+@@ -6801,7 +6801,7 @@
+ 		fi
+ 		cf_cv_rm_so_locs=yes
+ 		;;
+-	(linux*|gnu*|k*bsd*-gnu)
++	(linux*|gnu*|k*bsd*-gnu|obos*)
+ 		if test "$DFT_LWR_MODEL" = "shared" && test -n "$LD_RPATH_OPT" ; then
+ 			LOCAL_LDFLAGS="${LD_RPATH_OPT}\$(LOCAL_LIBDIR)"
+ 			LOCAL_LDFLAGS2="$LOCAL_LDFLAGS"

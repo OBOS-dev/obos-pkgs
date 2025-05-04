@@ -1,7 +1,7 @@
 {
     "name": "grep",
     "description": "Searches for a string in input file(s).",
-    "url": "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/grep/grep-3.11.tar.xz",
     "depends": [ "mlibc" ],
     "patches": [
         {
