@@ -1,0 +1,21 @@
+{
+    "name": "which",
+    "description": "Utility to find which executable is executed when entered on the shell prompt.",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/which/which-2.23.tar.gz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/which/config.sub.patch",
+            "modifies": "which-2.23/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/which-2.23/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}

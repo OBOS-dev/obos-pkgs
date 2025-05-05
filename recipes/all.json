@@ -10,7 +10,10 @@
         "diffutils",
         "grep",
         "hello",
-        "oboskrnl"
+        "oboskrnl",
+	"doomgeneric",
+	"ncurses",
+	"which"
     ],
     "patches": [
         {
@@ -36,6 +39,8 @@
              "cp",
              "${repo_directory}/obos/out/mem-usage",
              "${repo_directory}/obos/out/klog-level",
+             "${repo_directory}/obos/out/mount",
+             "${repo_directory}/obos/out/umount",
              "${repo_directory}/obos/out/obos-gettime",
              "${repo_directory}/obos/out/fork-test",
              "${repo_directory}/obos/out/powerctl",
