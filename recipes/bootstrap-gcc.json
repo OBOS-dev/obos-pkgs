@@ -1,6 +1,6 @@
 {
     "name": "bootstrap-gcc",
-    "description": "Cross-compiler used to compile mlibc.",
+    "description": "Bootstrap cross-compiler used to compile mlibc.",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz",
     "depends": [ "bootstrap-binutils" ],
     "patches": [
@@ -39,12 +39,14 @@
     ],
     "bootstrap-commands": [
         [ "${repo_directory}/gcc-14.2.0/configure",
-                "--prefix=${prefix}",
+                "--prefix=${prefix}/bootstrap-gcc/",
                 "--target=${target_triplet}",
                 "--disable-nls", "--enable-languages=c,c++",
                 "--disable-shared",
                 "--disable-multilib",
-                "--with-sysroot=${target_prefix}"
+                "--with-sysroot=${target_prefix}/bootstrap-gcc",
+		"--without-headers",
+		"--program-prefix=bootstrap-${target_triplet}-"
         ]
     ],
     "build-commands": [

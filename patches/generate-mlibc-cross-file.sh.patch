@@ -1,0 +1,19 @@
+--- /dev/null	2025-05-02 16:01:35.411373803 -0400
++++ ./generate-mlibc-cross-file.sh	2025-05-04 20:23:10.387270367 -0400
+@@ -0,0 +1,16 @@
++#/bin/bash
++target_triplet=$1
++compiler_prefix=$2
++echo "[binaries]
++c = '$compiler_prefix-$target_triplet-gcc'
++cpp = '$compiler_prefix-$target_triplet-g++'
++ar = '$target_triplet-ar'
++windres = '$target_triplet-windres'
++strip = '$target_triplet-strip'
++
++[host_machine]
++system = '${target_triplet##*-}'
++cpu_family = '${target_triplet%-*}'
++cpu = '${target_triplet%-*}'
++endian = 'little'
++" > ../cross-file.txt

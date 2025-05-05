@@ -6,16 +6,18 @@
     "depends": [ "bootstrap-gcc", "bootstrap-binutils" ],
     "patches": [
         {
-            "patch": "patches/mlibc-cross-file.txt.patch",
-            "modifies": "mlibc/cross-file.txt"
+            "patch": "patches/generate-mlibc-cross-file.sh.patch",
+            "modifies": "mlibc/generate-mlibc-cross-file.sh"
         }
     ],
     "bootstrap-commands": [
-        [
+        [ "chmod", "+x", "${repo_directory}/mlibc/generate-mlibc-cross-file.sh" ],
+	[ "${repo_directory}/mlibc/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/bootstrap" ],
+	[
             "meson",
                 "setup",
                 ".", "${repo_directory}/mlibc/",
-                "--cross-file", "${repo_directory}/mlibc/cross-file.txt",
+                "--cross-file", "../cross-file.txt",
                 "--prefix", "${prefix}",
                 "--buildtype", "debugoptimized",
 		"-Duse_freestnd_hdrs=enabled",

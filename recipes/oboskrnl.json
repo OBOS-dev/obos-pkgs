@@ -3,7 +3,7 @@
     "description": "OBOS kernel and drivers",
     "git-url": "https://github.com/OBOS-dev/obos",
     "git-commit": "master",
-    "depends": [ "bootstrap-gcc", "bootstrap-binutils" ],
+    "depends": [ "cross-gcc", "bootstrap-binutils" ],
     "patches": [
         {
             "patch": "patches/obos-configure.sh.diff",

@@ -1,0 +1,35 @@
+{
+    "name": "cross-gcc",
+    "description": "Cross-compiler used to compile packages.",
+    "url": "https://github.com/OBOS-dev/obos/archive/244eec76e74ea96a813cac7bb79a520048e6ebc6.tar.gz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/configure-libstdc++.sh.patch",
+            "modifies": "configure-libstdc++.sh"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "chmod", "+x", "${repo_directory}/configure-libstdc++.sh" ],
+        [ "${repo_directory}/gcc-14.2.0/configure",
+                "--prefix=${prefix}",
+                "--target=${target_triplet}",
+                "--disable-nls", "--enable-languages=c,c++",
+                "--disable-shared",
+                "--disable-multilib",
+                "--with-sysroot=${target_prefix}"
+        ],
+	[ "${repo_directory}/configure-libstdc++.sh", "${repo_directory}/gcc-14.2.0/", "${bootstrap_directory}/cross-gcc" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}", "all-gcc" ],
+        [ "make", "-j${nproc}", "all-target-libgcc" ],
+        [ "make", "-j${nproc}", "all-target-libstdc++-v3" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install-gcc" ],
+        [ "make", "-j${nproc}", "install-target-libgcc" ],
+        [ "make", "-j${nproc}", "install-target-libstdc++-v3" ]
+    ],
+    "host-package": 1
+}
