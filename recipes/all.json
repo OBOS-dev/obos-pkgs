@@ -31,7 +31,7 @@
          [ "cp", "-Lr", "${prefix}/usr/", "${bootstrap_directory}/oboskrnl/tar/" ],
          [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/lib" ],
          [ "cp", "${prefix}/lib/ld64.so.1", "${bootstrap_directory}/oboskrnl/tar/lib/" ],
-         [ "${repo_directory}/install-distro-files.sh", "${prefix}/..", "${prefix}" ],
+         [ "${repo_directory}/install-distro-files.sh", "${prefix}/..", "${bootstrap_directory}/oboskrnl/tar" ],
          [
              "cp",
              "${repo_directory}/obos/out/mem-usage",
