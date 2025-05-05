@@ -1,0 +1,6 @@
+--- /dev/null	2025-05-02 16:01:35.411373803 -0400
++++ generate-initrd.sh	2025-05-05 06:46:49.833095327 -0400
+@@ -0,0 +1,3 @@
++#!/bin/bash
++cd $2/oboskrnl/tar
++tar -Hustar -cf "$1/obos/config/initrd.tar" *

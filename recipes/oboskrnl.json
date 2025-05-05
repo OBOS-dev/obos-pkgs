@@ -2,16 +2,21 @@
     "name": "oboskrnl",
     "description": "OBOS kernel and drivers",
     "git-url": "https://github.com/OBOS-dev/obos",
-    "git-commit": "master",
+    "git-commit": "io-system-rewrite",
     "depends": [ "cross-gcc", "bootstrap-binutils" ],
     "patches": [
         {
             "patch": "patches/obos-configure.sh.diff",
             "modifies": "obos/obos-configure.sh"
+        },
+	{
+            "patch": "patches/generate-initrd.sh.patch",
+            "modifies": "generate-initrd.sh"
         }
     ],
     "bootstrap-commands": [
        [ "chmod", "+x", "${repo_directory}/obos/obos-configure.sh" ],
+       [ "chmod", "+x", "${repo_directory}/generate-initrd.sh" ],
        [
             "${repo_directory}/obos/obos-configure.sh",
             "${target_triplet}", "${repo_directory}/obos/"
@@ -22,14 +27,16 @@
         [ "mkdir", "-p", "tar" ],
         [ "mkdir", "-p", "tar/mnt" ],
         [ "mkdir", "-p", "tar/dev" ],
-        [ "tar", "-Hustar", "-Ctar", "-cf", "${repo_directory}/obos/config/initrd.tar", "." ],
+	[ "${repo_directory}/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
         [ "cmake", "--build", "." ],
         [ "cp", "${repo_directory}/obos/out/uart", "tar/" ],
         [ "cp", "${repo_directory}/obos/out/ahci", "tar/" ],
         [ "cp", "${repo_directory}/obos/out/slowfat", "tar/" ],
         [ "cp", "${repo_directory}/obos/out/r8169", "tar/" ],
         [ "cp", "${repo_directory}/obos/out/bochs_vbe", "tar/" ],
-        [ "tar", "-Hustar", "-Ctar", "-cf", "${repo_directory}/obos/config/initrd.tar", "." ],
+        [ "cp", "${repo_directory}/obos/out/libps2", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/i8042", "tar/" ],
+	[ "${repo_directory}/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
         [ "cmake", "--build", "." ]
     ],
     "comment1": "Do nothing.",

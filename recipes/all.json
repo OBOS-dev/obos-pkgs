@@ -23,26 +23,27 @@
     ],
     "build-commands": [],
     "install-commands": [
-        [ "rm", "-rf", "${prefix}/usr/bin" ],
-        [ "rm", "-rf", "${prefix}/usr/share" ],
-        [ "ln", "-s", "${prefix}/bin", "${prefix}/usr" ],
-        [ "ln", "-s", "${prefix}/share", "${prefix}/usr" ],
-        [ "rm", "-rf", "${bootstrap_directory}/oboskrnl/tar/usr" ],
-        [ "cp", "-Lr", "${prefix}/usr/", "${bootstrap_directory}/oboskrnl/tar/" ],
-        [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/lib" ],
-        [ "cp", "${prefix}/lib/ld64.so.1", "${bootstrap_directory}/oboskrnl/tar/lib/" ],
-        [ "${repo_directory}/install-distro-files.sh", "${prefix}/..", "${prefix}" ],
-        [
-            "cp",
-            "${repo_directory}/obos/out/mem-usage",
-            "${repo_directory}/obos/out/klog-level",
-            "${repo_directory}/obos/out/obos-gettime",
-            "${repo_directory}/obos/out/fork-test",
-            "${repo_directory}/obos/out/powerctl",
-            "${bootstrap_directory}/oboskrnl/tar/usr/bin/"
-       ],
-       [ "tar", "-Hustar", "-C${bootstrap_directory}/oboskrnl/tar", "-cf", "${repo_directory}/obos/config/initrd.tar", "." ],
-       [ "cmake", "--build", "${bootstrap_directory}/oboskrnl" ],
-       [ "cp", "${repo_directory}/obos/out/obos.iso", "${target_prefix}/.." ]
+         [ "rm", "-rf", "${prefix}/usr/bin" ],
+         [ "rm", "-rf", "${prefix}/usr/share" ],
+         [ "ln", "-s", "${prefix}/bin", "${prefix}/usr" ],
+         [ "ln", "-s", "${prefix}/share", "${prefix}/usr" ],
+         [ "rm", "-rf", "${bootstrap_directory}/oboskrnl/tar/usr" ],
+         [ "cp", "-Lr", "${prefix}/usr/", "${bootstrap_directory}/oboskrnl/tar/" ],
+         [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/lib" ],
+         [ "cp", "${prefix}/lib/ld64.so.1", "${bootstrap_directory}/oboskrnl/tar/lib/" ],
+         [ "${repo_directory}/install-distro-files.sh", "${prefix}/..", "${prefix}" ],
+         [
+             "cp",
+             "${repo_directory}/obos/out/mem-usage",
+             "${repo_directory}/obos/out/klog-level",
+             "${repo_directory}/obos/out/obos-gettime",
+             "${repo_directory}/obos/out/fork-test",
+             "${repo_directory}/obos/out/powerctl",
+             "${bootstrap_directory}/oboskrnl/tar/usr/bin/"
+        ],
+	[ "cp", "${repo_directory}/obos/out/init",  "${bootstrap_directory}/oboskrnl/tar/" ],
+	[ "${repo_directory}/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
+        [ "cmake", "--build", "${bootstrap_directory}/oboskrnl" ],
+        [ "cp", "${repo_directory}/obos/out/obos.iso", "${target_prefix}/.." ]
     ]
 }
