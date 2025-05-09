@@ -1,0 +1,24 @@
+{
+    "name": "binutils",
+    "description": "Cross-compiler used to link packages.",
+    "url": "https://github.com/OBOS-dev/obos/archive/244eec76e74ea96a813cac7bb79a520048e6ebc6.tar.gz",
+    "depends": [ "mlibc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [
+            "${repo_directory}/binutils-2.42/configure",
+            "--target=${target_triplet}",
+            "--prefix=${prefix}",
+        	"--host=${target_triplet}",
+            "--disable-nls",
+            "--with-build-sysroot=${prefix}",
+            "--disable-werror"
+        ]  
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install" ]
+    ]
+}
