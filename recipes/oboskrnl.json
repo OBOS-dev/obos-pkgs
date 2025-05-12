@@ -2,7 +2,7 @@
     "name": "oboskrnl",
     "description": "OBOS kernel and drivers",
     "git-url": "https://github.com/OBOS-dev/obos",
-    "git-commit": "io-system-rewrite",
+    "git-commit": "master",
     "depends": [ "cross-gcc", "bootstrap-binutils" ],
     "patches": [
         {
