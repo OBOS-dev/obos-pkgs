@@ -2,7 +2,7 @@
     "name": "ncurses",
     "description": "GNU ncurses library",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/ncurses/ncurses-6.5.tar.gz",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/ncurses/config.sub.patch",

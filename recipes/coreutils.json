@@ -2,7 +2,7 @@
     "name": "coreutils",
     "description": "GNU Coreutils",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/coreutils/coreutils-9.5.tar.xz",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/coreutils/config.sub.patch",

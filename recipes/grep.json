@@ -2,7 +2,7 @@
     "name": "grep",
     "description": "Searches for a string in input file(s).",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/grep/grep-3.11.tar.xz",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/grep/config.sub.patch",
