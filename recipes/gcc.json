@@ -1,0 +1,27 @@
+{
+    "name": "gcc",
+    "description": "Compiler used to compile",
+    "url": "https://github.com/OBOS-dev/obos/archive/244eec76e74ea96a813cac7bb79a520048e6ebc6.tar.gz",
+    "depends": [ "cross-gcc", "binutils", "libgmp", "libmpfr", "libmpc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${repo_directory}/gcc-14.2.0/configure",
+                "--with-build-sysroot=${prefix}",
+                "--target=${target_triplet}",
+                "--prefix=${prefix}",
+                "--with-sysroot=/",
+                "--disable-nls", "--enable-languages=c,c++",
+                "--disable-shared",
+                "--disable-multilib",
+                "--host=${target_triplet}"
+        ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}", "all-gcc" ],
+        [ "make", "-j${nproc}", "all-target-libgcc" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install-gcc" ],
+        [ "make", "-j${nproc}", "install-target-libgcc" ]
+    ]
+}
