@@ -1,0 +1,26 @@
+{
+    "name": "libmpfr",
+    "description": "Multi-precision floating-point compuation library",
+    "url": "https://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz",
+    "depends": [ "cross-gcc", "libgmp" ],
+    "patches": [
+        {
+            "patch": "patches/libmpfr/config.sub.patch",
+            "modifies": "mpfr-4.2.2/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ 
+            "${repo_directory}/mpfr-4.2.2/configure",
+            "--prefix", "${prefix}",
+            "--host=${target_triplet}",
+            "CC=${target_triplet}-gcc"
+	    ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "name": "libgmp",
+    "description": "GNU MP Bignum Library",
+    "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.lz",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+	    {
+            "patch": "patches/libgmp/configfsf.sub.patch",
+            "modifies": "gmp-6.3.0/configfsf.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ 
+            "${repo_directory}/gmp-6.3.0/configure",
+		    "--prefix", "${prefix}",
+		    "--host=${target_triplet}" 
+        ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}
