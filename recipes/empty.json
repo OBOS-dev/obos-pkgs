@@ -1,0 +1,9 @@
+{
+    "name": "empty",
+    "description": "Template recipe",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [],
+    "install-commands": []
+}
