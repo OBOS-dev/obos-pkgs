@@ -1,7 +1,6 @@
 {
     "name": "cross-gcc",
     "description": "Cross-compiler used to compile packages.",
-    "url": "https://github.com/OBOS-dev/obos/archive/244eec76e74ea96a813cac7bb79a520048e6ebc6.tar.gz",
     "depends": [ "mlibc" ],
     "patches": [
         {

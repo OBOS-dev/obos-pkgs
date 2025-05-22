@@ -1,7 +1,6 @@
 {
     "name": "gcc",
     "description": "Compiler used to compile",
-    "url": "https://github.com/OBOS-dev/obos/archive/244eec76e74ea96a813cac7bb79a520048e6ebc6.tar.gz",
     "depends": [ "cross-gcc", "binutils", "libgmp", "libmpfr", "libmpc" ],
     "patches": [],
     "bootstrap-commands": [

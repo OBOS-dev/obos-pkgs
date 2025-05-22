@@ -1,8 +1,6 @@
 {
     "name": "all",
     "description": "All packages.",
-    "comment1": "Use OBOS' first commit, as obos-strap doesn't support having sourceless packages",
-    "url": "https://github.com/OBOS-dev/obos/archive/244eec76e74ea96a813cac7bb79a520048e6ebc6.tar.gz",
     "depends": [
         "cross-gcc",
         "bash",
