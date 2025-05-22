@@ -40,7 +40,7 @@
         [ "cmake", "--build", "." ]
     ],
     "run-commands": [
-        [ "qemu-system-x86_64", "-drive", "format=raw,file=obos.iso", "-M", "q35", "-m", "1G", "-enable-kvm", "-cpu", "host"  ]
+        [ "qemu-system-x86_64", "-drive", "format=raw,file=obos.iso", "-M", "q35", "-m", "1G", "-enable-kvm", "-cpu", "host", "-debugcon", "file:/dev/stdout", "-monitor", "stdio", "-smp", "2"  ]
     ],
     "comment1": "Do nothing.",
     "install-commands": []
