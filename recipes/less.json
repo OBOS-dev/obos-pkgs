@@ -1,0 +1,23 @@
+{
+    "name": "less",
+    "description": "UNIX less command",
+    "url": "https://ftpmirror.gnu.org/gnu/less/less-668.tar.gz",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/less/obos-pkgs-run-autoconf.sh.patch",
+            "modifies": "less-668/obos-pkgs-run-autoconf.sh"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "chmod", "+x", "${repo_directory}/less-668/obos-pkgs-run-autoconf.sh" ],
+        [ "${repo_directory}/less-668/obos-pkgs-run-autoconf.sh", "${repo_directory}/less-668", "${repo_directory}/.." ],
+        [ "${repo_directory}/less-668/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "CC=${target_triplet}-gcc" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}
