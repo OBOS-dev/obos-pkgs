@@ -9,9 +9,11 @@
         "grep",
         "hello",
         "oboskrnl",
-	"doomgeneric",
-	"ncurses",
-	"which"
+        "doomgeneric",
+        "ncurses",
+        "which",
+        "file",
+        "less"
     ],
     "patches": [
         {
