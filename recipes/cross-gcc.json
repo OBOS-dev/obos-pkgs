@@ -5,7 +5,8 @@
     "patches": [
         {
             "patch": "patches/configure-libstdc++.sh.patch",
-            "modifies": "configure-libstdc++.sh"
+            "modifies": "configure-libstdc++.sh",
+            "delete-file": 1
         }
     ],
     "bootstrap-commands": [

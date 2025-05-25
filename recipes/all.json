@@ -18,7 +18,8 @@
     "patches": [
         {
             "patch": "patches/install-distro-files.sh.patch",
-            "modifies": "install-distro-files.sh"
+            "modifies": "install-distro-files.sh",
+            "delete-file": 1
         }
     ],
     "bootstrap-commands": [
