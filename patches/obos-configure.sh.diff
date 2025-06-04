@@ -1,8 +1,9 @@
 --- /dev/null	2025-02-06 14:14:25.919247704 -0500
 +++ configure_obos.sh	2025-02-06 17:24:29.809509421 -0500
-@@ -0,0 +1,12 @@
+@@ -0,0 +1,13 @@
 +#!/bin/bash
 +export target_triplet="$1"
++rm -rf *
 +touch $2/config/initrd.tar
 +cmake \
 +-B . \
