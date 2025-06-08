@@ -1,0 +1,21 @@
+{
+    "name": "nano",
+    "description": "NANO Text Editor",
+    "depends": [ "cross-gcc", "ncurses" ],
+    "url": "https://www.nano-editor.org/dist/v8/nano-8.4.tar.xz",
+    "patches": [
+        {
+            "modifies": "nano-8.4/config.sub",
+            "patch": "patches/nano/config.sub.patch"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/nano-8.4/configure", "gl_cv_func_strcasecmp_works=true", "--prefix=${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "all", "LIBS= -lncursesw -ltinfow " ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ]
+}

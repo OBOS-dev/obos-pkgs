@@ -13,7 +13,8 @@
         "ncurses",
         "which",
         "file",
-        "less"
+        "less",
+        "nano"
     ],
     "patches": [
         {
