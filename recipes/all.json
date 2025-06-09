@@ -14,7 +14,8 @@
         "which",
         "file",
         "less",
-        "nano"
+        "nano",
+        "gcc"
     ],
     "patches": [
         {
@@ -31,6 +32,7 @@
          [ "rm", "-rf", "${prefix}/usr/bin" ],
          [ "rm", "-rf", "${prefix}/usr/share" ],
          [ "ln", "-s", "${prefix}/bin", "${prefix}/usr" ],
+         [ "ln", "-s", "${prefix}/libexec", "${prefix}/usr" ],
          [ "ln", "-s", "${prefix}/share", "${prefix}/usr" ],
          [ "rm", "-rf", "${bootstrap_directory}/oboskrnl/tar/usr" ],
          [ "cp", "-Lr", "${prefix}/usr/", "${bootstrap_directory}/oboskrnl/tar/" ],
