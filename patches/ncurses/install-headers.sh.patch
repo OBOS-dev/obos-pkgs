@@ -1,0 +1,5 @@
+--- /dev/null	2025-06-10 09:53:37.682901502 -0400
++++ install-headers.sh	2025-06-10 12:33:10.493966094 -0400
+@@ -0,0 +1,2 @@
++#!/bin/bash
++cp $1/include/ncursesw/* $1/include/

@@ -8,26 +8,33 @@
             "patch": "patches/ncurses/config.sub.patch",
             "modifies": "ncurses-6.5/config.sub"
         },
-	{
+    	{
             "patch": "patches/ncurses/configure.patch",
             "modifies": "ncurses-6.5/configure"
+        },
+        {
+            "patch": "patches/ncurses/install-headers.sh.patch",
+            "modifies": "ncurses-6.5/install-headers.sh"
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/ncurses-6.5/configure",
-		"--prefix", "${prefix}",
-		"--with-termlib",
-		"--host=${target_triplet}",
-		"--with-terminfo-dirs=/share/terminfo:/usr/share/terminfo",
-		"--with-shared",
-		"--enable-widec",
-		"--without-normal"
-	]
+        [
+            "${repo_directory}/ncurses-6.5/configure",
+		    "--prefix", "${prefix}",
+		    "--with-termlib",
+    		"--host=${target_triplet}",
+	    	"--with-terminfo-dirs=/share/terminfo:/usr/share/terminfo",
+		    "--with-shared",
+    		"--enable-widec",
+	    	"--without-normal"
+	    ],
+        [ "chmod", "+x", "ncurses-6.5/install-headers.sh" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install" ]
+        [ "make", "install" ],
+        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${prefix}" ]
     ]
 }
