@@ -1,21 +1,18 @@
 {
     "name": "all",
-    "description": "All packages.",
+    "description": "Minimal distribution packages.",
     "depends": [
         "cross-gcc",
         "bash",
         "coreutils",
         "diffutils",
         "grep",
-        "hello",
         "oboskrnl",
-        "doomgeneric",
         "ncurses",
         "which",
         "file",
         "less",
         "nano",
-        "all",
         "generate-iso"
     ],
     "patches": [],
