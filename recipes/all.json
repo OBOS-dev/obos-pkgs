@@ -15,7 +15,7 @@
         "file",
         "less",
         "nano",
-        "all",
+        "gcc",
         "generate-iso"
     ],
     "patches": [],
