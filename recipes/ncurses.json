@@ -14,7 +14,8 @@
         },
         {
             "patch": "patches/ncurses/install-headers.sh.patch",
-            "modifies": "ncurses-6.5/install-headers.sh"
+            "modifies": "ncurses-6.5/install-headers.sh",
+            "delete-file": 1
         }
     ],
     "bootstrap-commands": [
@@ -28,7 +29,7 @@
     		"--enable-widec",
 	    	"--without-normal"
 	    ],
-        [ "chmod", "+x", "ncurses-6.5/install-headers.sh" ]
+        [ "chmod", "+x", "${repo_directory}/ncurses-6.5/install-headers.sh" ]
     ],
     "build-commands": [
         [ "make", "all" ]
