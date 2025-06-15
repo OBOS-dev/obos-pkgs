@@ -7,7 +7,7 @@ index 87fae05..7c71660 100644
  /* If OSPEED is 0, we use this as the actual baud rate.  */
  int tputs_baud_rate;
 -__private_extern__ char PC = '\0';
-+static __private_extern__ char PC = '\0';
++ __private_extern__ char PC = '\0';
  
  /* Actual baud rate if positive;
     - baud rate / 100 if negative.  */

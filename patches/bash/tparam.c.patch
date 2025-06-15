@@ -16,8 +16,8 @@ index c4bff08..d43df32 100644
  
 -__private_extern__ char *BC;
 -__private_extern__ char *UP;
-+extern __private_extern__ char *BC;
-+extern __private_extern__ char *UP;
++ __private_extern__ char *BC;
++ __private_extern__ char *UP;
  
  static char tgoto_buf[50];
  
