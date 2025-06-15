@@ -37,5 +37,6 @@
     "install-commands": [
         [ "make", "-j${nproc}", "install" ]
     ],
-    "host-package": 1
+    "host-package": 1,
+    "host-provides": "${target_triplet}-ld"
 }
