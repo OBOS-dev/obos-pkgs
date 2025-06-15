@@ -1,5 +1,5 @@
 {
-    "name": "all",
+    "name": "minimal",
     "description": "Minimal distribution packages.",
     "depends": [
         "cross-gcc",
