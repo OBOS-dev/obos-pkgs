@@ -5,19 +5,22 @@
     "depends": [ "cross-gcc" ],
     "patches": [
         {
-            "patch": "patches/file/obos-pkgs-run-autoconf.sh.patch",
-            "modifies": "file-FILE5_46/obos-pkgs-run-autoconf.sh"
+            "patch": "patches/file/apprentice.c.patch",
+            "modifies": "file-FILE5_46/src/apprentice.c"
         }
     ],
     "bootstrap-commands": [
-        [ "chmod", "+x", "${repo_directory}/file-FILE5_46/obos-pkgs-run-autoconf.sh" ],
-        [ "${repo_directory}/file-FILE5_46/obos-pkgs-run-autoconf.sh", "${repo_directory}/file-FILE5_46/", "${repo_directory}/.." ],
-        [ "${repo_directory}/file-FILE5_46/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+        [ "cd", "${repo_directory}/file-FILE5_46/" ],
+        [ "autoreconf", "--install" ],
+        [ "autoconf" ],
+        [ "patch", "./config.sub", "../../patches/file/config.sub.patch" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "${repo_directory}/file-FILE5_46/configure", "--prefix", "/usr", "--host=${target_triplet}" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install" ]
+        [ "make", "install", "prefix=${prefix}" ]
     ]
 }

@@ -2,16 +2,8 @@
     "name": "generate-iso",
     "description": "Generates the obos ISO",
     "depends": [],
-    "patches": [
-        {
-            "patch": "patches/install-distro-files.sh.patch",
-            "modifies": "install-distro-files.sh",
-            "delete-file": 1
-        }
-    ],
-    "bootstrap-commands": [
-        [ "chmod", "+x", "${repo_directory}/install-distro-files.sh" ]
-    ],
+    "patches": [],
+    "bootstrap-commands": [],
     "build-commands": [],
     "install-commands": [
          [ "rm", "-rf", "${prefix}/usr/bin" ],
@@ -25,7 +17,7 @@
          [ "cp", "-Lr", "${prefix}/usr/", "${bootstrap_directory}/oboskrnl/tar/" ],
          [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/lib" ],
          [ "cp", "${prefix}/lib/ld64.so.1", "${bootstrap_directory}/oboskrnl/tar/lib/" ],
-         [ "${repo_directory}/install-distro-files.sh", "${prefix}/..", "${bootstrap_directory}/oboskrnl/tar" ],
+         [ "cp", "-r", "${prefix}/../distro-files/*", "${bootstrap_directory}/oboskrnl/tar" ],
          [
              "cp",
              "${repo_directory}/obos/out/mem-usage",

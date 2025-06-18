@@ -1,0 +1,11 @@
+--- a/src/apprentice.c	2025-06-18 18:09:25.634069073 -0400
++++ b/src/apprentice.c	2025-06-18 18:09:32.338027923 -0400
+@@ -589,7 +589,7 @@
+ 	ms->magwarn_max = FILE_MAGWARN_MAX;
+ #ifdef USE_C_LOCALE
+ 	ms->c_lc_ctype = newlocale(LC_CTYPE_MASK, "C", 0);
+-	assert(ms->c_lc_ctype != NULL);
++//	assert(ms->c_lc_ctype != NULL);
+ #endif
+ 	return ms;
+ free:
