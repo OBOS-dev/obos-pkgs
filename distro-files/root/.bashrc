@@ -1,3 +1,1 @@
-export PS1='\u@obos:\w\\$ '
-export HOME=~
-
+alias ls='ls --color=auto'
