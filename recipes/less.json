@@ -5,11 +5,10 @@
     "depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "export", "OLD_PWD=$$PWD" ],
         [ "cd", "${repo_directory}/less-668/" ],
         [ "autoreconf", "--install" ],
         [ "autoconf" ],
-        [ "cd", "$$OLD_PWD" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
         [ "${repo_directory}/less-668/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "CC=${target_triplet}-gcc" ]
     ],
     "build-commands": [

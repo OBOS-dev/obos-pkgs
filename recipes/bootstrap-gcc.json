@@ -44,7 +44,7 @@
                 "--disable-nls", "--enable-languages=c,c++",
                 "--disable-shared",
                 "--disable-multilib",
-                "--with-sysroot=${target_prefix}/bootstrap-gcc",
+                "--with-sysroot=${target_prefix}",
 		"--without-headers",
 		"--program-prefix=bootstrap-${target_triplet}-"
         ]
