@@ -38,12 +38,17 @@
         [ "cp", "${repo_directory}/obos/out/bochs_vbe", "tar/" ],
         [ "cp", "${repo_directory}/obos/out/libps2", "tar/" ],
         [ "cp", "${repo_directory}/obos/out/i8042", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/extfs", "tar/" ],
         [ "${repo_directory}/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
         [ "cmake", "--build", "." ]
     ],
     "run-commands": [
         [ "qemu-system-x86_64", "-drive", "format=raw,file=obos.iso", "-M", "q35", "-m", "1G", "-enable-kvm", "-cpu", "host", "-debugcon", "file:/dev/stdout", "-monitor", "stdio", "-smp", "2", "-s"  ]
     ],
-    "comment1": "Do nothing.",
-    "install-commands": []
+    "install-commands": [
+        [ "cd", "${repo_directory}/obos/out" ],
+        [ "cp", "fork-test", "klog-level", "mem-usage", "mkswap", "mount", "obos-gettime", "powerctl", "swapon", "sync-anon", "umount", "${prefix}/bin" ],
+        [ "cp", "init", "${prefix}/../distro-files/" ],
+        [ "cd", "${bootstrap_directory}/oboskrnl" ]
+    ]
 }

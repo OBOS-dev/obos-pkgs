@@ -1,0 +1,66 @@
+{
+    "name": "generate-disk",
+    "description": "Generates an OBOS hard disk.",
+    "depends": [ "oboskrnl" ],
+    "patches": [
+        {
+            "patch": "patches/hyper.disk.cfg.patch",
+            "modifies": "hyper.disk.cfg",
+            "delete-file": 1
+        }
+    ],
+    "bootstrap-commands": [
+        [ "export", "OBOS_IMG=`realpath ${repo_directory}/../obos.img`" ],
+        [ "rm", "-f", "$$OBOS_IMG" ],
+        [ "fallocate", "-l4GiB", "$$OBOS_IMG" ],
+        [ "sgdisk", "--new=1:264192:+128M", "--typecode=1:EF00", "--largest-new=2", "$$OBOS_IMG" ],
+        [ "export", "EFI_LOOP=`losetup -f`" ],
+        [ "losetup", "--offset=0x8100000", "--sizelimit=0x8000000", "--sector-size=512", "$$EFI_LOOP", "$$OBOS_IMG" ],
+        [ "export", "ROOT_LOOP=`losetup -f`" ],
+        [ "losetup", "--offset=0x10100000", "--sizelimit=0xEFEFBC00", "--sector-size=512", "$$ROOT_LOOP", "$$OBOS_IMG" ],
+        [ "mkdir", "-p", "efi_mnt" ],
+        [ "mkdir", "-p", "root_mnt" ],
+        [ "mkfs.fat", "$$EFI_LOOP" ],
+        [ "mkfs.ext2", "$$ROOT_LOOP" ],
+        [ "mount", "$$EFI_LOOP", "efi_mnt" ],
+        [ "mount", "$$ROOT_LOOP", "root_mnt" ],
+        [ "echo", "Disk image at $$OBOS_IMG" ]
+    ],
+    "build-commands": [
+        [ "cp", "-Lr", "${prefix}/usr", "root_mnt/" ],
+        [ "cp", "-Lr", "${repo_directory}/../distro-files/*", "root_mnt/" ],
+        [ "cd", "root_mnt" ],
+        [ "ln", "-s", "usr/bin", "bin" ],
+        [ "ln", "-s", "usr/lib", "lib" ],
+        [ "cd", ".." ],
+        [ "mkdir", "-p", "root_mnt/dev" ],
+        [ "mkdir", "-p", "efi_mnt/EFI/BOOT" ],
+        [ "cp", "${repo_directory}/obos/dependencies/hyper/BOOTX64.efi", "efi_mnt/EFI/BOOT" ],
+        [ "cp", "${repo_directory}/hyper.disk.cfg", "efi_mnt/hyper.cfg" ],
+        [ "mkdir", "-p", "efi_mnt/obos" ],
+        [ "rm", "-r", "tar" ],
+        [ "mkdir", "tar" ],
+        [ "cp", "${repo_directory}/obos/out/initrd", "${repo_directory}/obos/out/oboskrnl", "efi_mnt/obos" ],
+        [ "cp", "${repo_directory}/obos/out/uart", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/ahci", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/slowfat", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/r8169", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/bochs_vbe", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/libps2", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/i8042", "tar/" ],
+        [ "cp", "${repo_directory}/obos/out/extfs", "tar/" ],
+        [ "cd", "tar" ],
+        [ "mkdir", "-p", "dev" ],
+        [ "tar", "-H", "ustar", "-cf", "../initrd.tar", "*" ],
+        [ "cd", ".." ],
+        [ "cp", "initrd.tar", "efi_mnt/obos/" ]
+    ],
+    "install-commands": [
+        [ "echo", "Unmounting temporary mounts for obos.img" ],
+        [ "umount", "-d", "./efi_mnt" ],
+        [ "umount", "-d", "./root_mnt" ]
+    ],
+    "run-commands": [
+        [ "qemu-system-x86_64", "-drive", "format=raw,file=obos.img", "-M", "q35", "-m", "1G", "-enable-kvm", "-cpu", "host", "-debugcon", "file:/dev/stdout", "-monitor", "stdio", "-smp", "2", "-s", "-bios", "/usr/share/ovmf/OVMF.fd"  ]
+    ]
+}

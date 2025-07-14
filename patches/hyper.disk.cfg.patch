@@ -1,0 +1,29 @@
+--- /dev/null   	2025-07-14 11:11:43.724410394 -0400
++++ hyper.disk.cfg	2025-07-14 14:33:47.926611260 -0400
+@@ -0,0 +1,26 @@
++default-entry = "OBOS"
++
++[OBOS]
++protocol=ultra
++higher-half-exclusive=true
++kernel-as-module=true
++video-mode=auto
++cmdline='-initrd-module=initrd -initrd-driver-module=initrd_driver --root-fs-partid sda2 --working-set-cap=8388608 --load-modules=/libps2,/slowfat,/extfs --initial-swap-size=67108864 --log-level=4 --init-args /usr/bin/bash --login'
++
++binary:
++	path="/obos/oboskrnl"
++	allocate-anywhere=true
++
++page-table:
++	levels=4
++	constraint=exactly
++	null-guard=true
++
++module:
++	type="file"
++	path="/obos/initrd.tar"
++	name="initrd"
++module:
++	type="file"
++	path="/obos/initrd"
++	name="initrd_driver"

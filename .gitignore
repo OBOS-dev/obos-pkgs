@@ -5,3 +5,6 @@
 /host_pkgs
 /obos.iso
 /settings.json
+/distro-files/init
+/obos.img
+
