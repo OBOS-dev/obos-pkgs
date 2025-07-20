@@ -35,6 +35,10 @@
         {
             "patch": "patches/gcc/obos.h.patch",
             "modifies": "gcc-14.2.0/gcc/config/obos.h"
+        },
+        {
+            "patch": "patches/gcc/gcc.cc.patch",
+            "modifies": "gcc-14.2.0/gcc/gcc/gcc.cc"
         }
     ],
     "bootstrap-commands": [
