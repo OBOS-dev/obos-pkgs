@@ -15,7 +15,10 @@
         "file",
         "less",
         "nano",
+        "binutils",
         "gcc",
+        "libcjson",
+        "obos-strap",
         "generate-iso"
     ],
     "patches": [],
