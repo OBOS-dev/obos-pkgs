@@ -19,6 +19,7 @@
         "gcc",
         "libcjson",
         "obos-strap",
+        "make",
         "generate-iso"
     ],
     "patches": [],

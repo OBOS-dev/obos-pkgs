@@ -24,6 +24,7 @@
         [ "make", "all", "CFLAGS=-DNEED_EXTERN_PC=1" ]
     ],
     "install-commands": [
-        [ "make", "install" ]
+        [ "make", "install" ],
+        [ "ln", "-sr", "${prefix}/bin/bash", "${prefix}/bin/sh" ]
     ]
 }

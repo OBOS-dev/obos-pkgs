@@ -1,0 +1,21 @@
+{
+    "name": "make",
+    "description": "GNU make",
+    "depends": [ "mlibc" ],
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/make/make-4.4.1.tar.lz",
+    "patches": [
+        {
+            "patch": "patches/make/config.sub.patch",
+            "modifies": "make-4.4.1/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/make-4.4.1/configure", "--host=${target_triplet}", "--disable-posix-spawn", "--prefix=/usr" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ]
+    ]
+}
