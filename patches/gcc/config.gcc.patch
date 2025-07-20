@@ -10,8 +10,8 @@
 +	gnu_ld=yes
 +	default_use_cxa_atexit=yes
 +	use_gcc_stdint=provide
-+#	thread_file=posix
-+#	enable_threads=no
++	thread_file=posix
++	enable_threads=yes
 +#	tmake_file="${tmake_file} t-slibgcc"
 +	;;
  *-*-darwin*)
