@@ -7,7 +7,7 @@
     "git-commit": "master",
     "bootstrap-commands": [
         [ "cmake", "-DCMAKE_C_COMPILER=x86_64-obos-gcc",
-        "-DCMAKE_PREFIX_PATH=${prefix}", "-DCMAKE_FIND_ROOT_PATH=${prefix}",
+        "-DCMAKE_FIND_ROOT_PATH=${prefix}",
         "-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER",
         "-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY",
         "-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY",
