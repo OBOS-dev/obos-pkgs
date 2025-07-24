@@ -1,0 +1,25 @@
+{
+    "name": "libsdl3-sound",
+    "description": "An abstract soundfile decoder",
+    "depends": [ "mlibc", "libsdl3" ],
+    "git-url": "https://github.com/icculus/SDL_sound",
+    "git-commit": "main",
+    "patches": [
+        {
+            "patch": "patches/SDL3/toolchain.cmake.patch",
+            "modifies": "SDL_sound/build-scripts/cmake-toolchain-obos-x86_64.cmake"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cmake", "-B.", "-S${repo_directory}/SDL_sound",
+          "-DCMAKE_INSTALL_PREFIX=${prefix}",
+          "--toolchain", "${repo_directory}/SDL_sound/build-scripts/cmake-toolchain-obos-x86_64.cmake"
+        ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", ".", "--parallel=2" ]
+    ],
+    "install-commands": [
+        [ "cmake", "--install", "." ]
+    ]
+}
