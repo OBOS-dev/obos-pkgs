@@ -43,7 +43,16 @@
         [ "cmake", "--build", "." ]
     ],
     "run-commands": [
-        [ "qemu-system-x86_64", "-drive", "format=raw,file=obos.iso", "-M", "q35", "-m", "2G", "-enable-kvm", "-cpu", "host", "-debugcon", "file:/dev/stdout", "-monitor", "stdio", "-smp", "2", "-s", "-bios", "/usr/share/ovmf/OVMF.fd" ]
+        [ "qemu-system-x86_64",
+          "-drive", "format=raw,file=obos.iso",
+          "-M", "q35",
+          "-m", "2G",
+          "-enable-kvm", "-cpu", "host",
+          "-debugcon", "file:/dev/stdout", "-monitor", "stdio",
+          "-smp", "2", "-s",
+          "-bios", "/usr/share/ovmf/OVMF.fd",
+          "-audio", "driver=sdl,model=hda"
+         ]
     ],
     "install-commands": [
         [ "cd", "${repo_directory}/obos/out" ],
