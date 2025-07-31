@@ -13,7 +13,8 @@
     "bootstrap-commands": [
         [ "cmake", "-B.", "-S${repo_directory}/SDL_sound",
           "-DCMAKE_INSTALL_PREFIX=${prefix}",
-          "--toolchain", "${repo_directory}/SDL_sound/build-scripts/cmake-toolchain-obos-x86_64.cmake"
+          "--toolchain", "${repo_directory}/SDL_sound/build-scripts/cmake-toolchain-obos-x86_64.cmake",
+          "-DSDLSOUND_DECODER_MIDI:BOOL=ON"
         ]
     ],
     "build-commands": [
