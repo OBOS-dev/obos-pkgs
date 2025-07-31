@@ -15,6 +15,7 @@
         "-DOBOS_STRAP_ENABLE_GIT=1",
         "-DOBOS_STRAP_MLIBC=1",
         "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-GNinja",
         "-S${repo_directory}/obos-strap" ]
     ],
     "build-commands": [

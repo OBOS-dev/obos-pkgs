@@ -17,7 +17,7 @@
     "bootstrap-commands": [
         [ "cmake", "-B.", "-S${repo_directory}/SDL_mixer", 
           "-DCMAKE_INSTALL_PREFIX=${prefix}", 
-          "--toolchain", "${repo_directory}/SDL_mixer/build-scripts/cmake-toolchain-obos-x86_64.cmake"
+          "--toolchain", "${repo_directory}/SDL_mixer/build-scripts/cmake-toolchain-obos-x86_64.cmake", "-GNinja"
         ]
     ],
     "build-commands": [

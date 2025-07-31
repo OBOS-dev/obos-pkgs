@@ -3,7 +3,7 @@
     "description": "DOOM Video Game",
     "git-url": "https://github.com/OBOS-dev/doomgeneric",
     "git-commit": "master",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "cross-gcc", "libsdl3-sound" ],
     "patches": [
         {
             "patch": "patches/build-doom.sh.patch",
