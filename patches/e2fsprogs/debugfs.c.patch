@@ -1,0 +1,14 @@
+index b9f248be..43b6d8b4 100644
+--- a/debugfs/debugfs.c
++++ b/debugfs/debugfs.c
+@@ -45,6 +45,10 @@ extern char *optarg;
+ #define BUFSIZ 8192
+ #endif
+ 
++#if __obos__ && !defined(makedev)
++#define makedev(x,y) (0)
++#endif
++
+ #ifdef CONFIG_JBD_DEBUG		/* Enabled by configure --enable-jbd-debug */
+ int journal_enable_debug = -1;
+ #endif

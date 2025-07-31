@@ -20,6 +20,7 @@
         "libcjson",
         "obos-strap",
         "make",
+        "e2fsprogs",
         "generate-iso"
     ],
     "patches": [],

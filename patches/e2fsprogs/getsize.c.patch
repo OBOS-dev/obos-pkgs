@@ -1,0 +1,14 @@
+index 7a6e6fd8..53aa954b 100644
+--- a/lib/blkid/getsize.c
++++ b/lib/blkid/getsize.c
+@@ -172,6 +172,10 @@ blkid_loff_t blkid_get_dev_size(int fd)
+ #endif
+ 			if (S_ISREG(st.st_mode))
+ 				return st.st_size;
++#if defined(__obos__)
++			if (S_ISBLK(st.st_mode))
++				return st.st_size;
++#endif
+ 	}
+ 
+ 	/*

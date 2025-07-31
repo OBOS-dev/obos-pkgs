@@ -1,0 +1,14 @@
+index 624efc03..3d75c8f1 100644
+--- a/misc/create_inode.c
++++ b/misc/create_inode.c
+@@ -316,8 +316,10 @@ errcode_t do_mknod_internal(ext2_filsys fs, ext2_ino_t cwd, const char *name,
+ 	ext2fs_inode_xtime_set(&inode, i_mtime, now);
+ 
+ 	if (filetype != S_IFIFO) {
++#ifndef __obos__
+ 		devmajor = major(st_rdev);
+ 		devminor = minor(st_rdev);
++#endif
+ 
+ 		if ((devmajor < 256) && (devminor < 256)) {
+ 			inode.i_block[0] = devmajor * 256 + devminor;

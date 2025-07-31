@@ -1,0 +1,13 @@
+diff --git a/lib/blkid/devname.c b/lib/blkid/devname.c
+index 6a21963c..9dac9cce 100644
+--- a/lib/blkid/devname.c
++++ b/lib/blkid/devname.c
+@@ -40,6 +40,9 @@
+ #include <sys/sysmacros.h>
+ #endif
+ #include <time.h>
++#if __obos__ && !defined(makedev)
++#define makedev(x,y) (0)
++#endif
+ 
+ #include "blkidP.h"
