@@ -1,12 +1,12 @@
---- a/gcc/gcc.cc	2025-07-19 22:39:43.442126297 -0400
-+++ b/gcc/gcc.cc	2025-07-19 22:39:17.829743809 -0400
+--- a/gcc/gcc.cc	2025-07-31 11:20:12.533856856 -0400
++++ b/gcc/gcc.cc	2025-07-31 11:20:28.210366487 -0400
 @@ -4782,8 +4782,9 @@
       decoded_options[0].arg.  */
  
    gcc_libexec_prefix = standard_libexec_prefix;
 -#ifndef VMS
 +#if !defined(VMS) && !defined(__obos__)
-   /* FIXME: make_relative_prefix doesn't yet work for VMS and OBOS.  */
+   /* FIXME: make_relative_prefix doesn't yet work for VMS.  */
 +  /* TODO(oberrow): fix make_relative_prefix for obos */
    if (!gcc_exec_prefix)
      {

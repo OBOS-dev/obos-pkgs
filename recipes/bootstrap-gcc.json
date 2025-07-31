@@ -38,7 +38,7 @@
         },
         {
             "patch": "patches/gcc/gcc.cc.patch",
-            "modifies": "gcc-14.2.0/gcc/gcc/gcc.cc"
+            "modifies": "gcc-14.2.0/gcc/gcc.cc"
         }
     ],
     "bootstrap-commands": [
