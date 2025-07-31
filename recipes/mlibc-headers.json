@@ -28,6 +28,8 @@
     ],
     "build-commands": [],
     "install-commands": [
-        [ "meson", "install" ]
+        [ "meson", "install" ],
+        [ "mkdir", "${prefix}/usr" ],
+        [ "ln", "-s", "${prefix}/include", "${prefix}/usr/include" ]
     ]
 }
