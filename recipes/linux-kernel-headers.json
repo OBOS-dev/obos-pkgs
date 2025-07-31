@@ -1,0 +1,15 @@
+{
+    "name": "linux-kernel-headers",
+    "description": "Linux kernel headers",
+    "depends": [],
+    "patches": [],
+    "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.38.tar.xz",
+    "bootstrap-commands": [],
+    "build-commands": [],
+    "install-commands": [
+        [ "cd", "${repo_directory}/linux-6.12.38" ],
+        [ "export", "target_triplet=${target_triplet}" ],
+        [ "make", "headers_install", "ARCH=$${target_triplet%-*}", "INSTALL_HDR_PATH=${prefix}" ],
+        [ "cd", "${bootstrap_directory}/linux-kernel-headers" ]
+    ]
+}
