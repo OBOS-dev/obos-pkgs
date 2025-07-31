@@ -7,9 +7,11 @@
     "build-commands": [],
     "install-commands": [
          [ "rm", "-rf", "${prefix}/usr/bin" ],
+         [ "rm", "-rf", "${prefix}/usr/sbin" ],
          [ "rm", "-rf", "${prefix}/usr/share" ],
          [ "rm", "-rf", "${prefix}/usr/libexec" ],
-         [ "ln", "-s", "${prefix}/bin", "${prefix}/usr" ],
+         [ "ln", "-s", "${prefix}/bin", "${prefix}/usr/bin" ],
+         [ "ln", "-s", "${prefix}/sbin", "${prefix}/usr/sbin" ],
          [ "mkdir", "-p", "${prefix}/libexec" ],
          [ "ln", "-s", "${prefix}/libexec", "${prefix}/usr" ],
          [ "ln", "-s", "${prefix}/share", "${prefix}/usr" ],
