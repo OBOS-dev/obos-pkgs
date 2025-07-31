@@ -12,7 +12,8 @@
                 "--disable-nls", "--enable-languages=c,c++",
                 "--disable-shared",
                 "--disable-multilib",
-                "--host=${target_triplet}"
+                "--host=${target_triplet}",
+                "--enable-threads=posix"
         ]
     ],
     "build-commands": [

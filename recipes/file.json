@@ -15,6 +15,7 @@
         [ "autoconf" ],
         [ "patch", "./config.sub", "../../patches/file/config.sub.patch" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "echo", "$$PWD" ],
         [ "${repo_directory}/file-FILE5_46/configure", "--prefix", "/usr", "--host=${target_triplet}" ]
     ],
     "build-commands": [
