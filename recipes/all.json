@@ -21,6 +21,7 @@
         "obos-strap",
         "make",
         "e2fsprogs",
+        "libglm",
         "generate-iso"
     ],
     "patches": [],
