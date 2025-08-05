@@ -63,6 +63,5 @@
         [ "make", "-j${nproc}", "install-gcc" ],
         [ "make", "-j${nproc}", "install-target-libgcc" ]
     ],
-    "host-package": 1,
-    "host-provides": "${target_triplet}-gcc"
+    "host-package": 1
 }
