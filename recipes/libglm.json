@@ -1,0 +1,17 @@
+{
+    "name": "libglm",
+    "description": "OpenGL Mathematics (GLM)",
+    "git-url": "https://github.com/g-truc/glm",
+    "git-commit": "1.0.1",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cmake", "-S${repo_directory}/glm", "-B.", "-DGLM_BUILD_TESTS=OFF", "-DBUILD_SHARED_LIBS=OFF", "-DCMAKE_INSTALL_PREFIX=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "install-commands": [
+        [ "cmake", "--install", "." ]
+    ]
+}
