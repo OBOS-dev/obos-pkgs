@@ -1,21 +1,21 @@
 {
-    "name": "libglm",
-    "description": "OpenGL Mathematics (GLM)",
-    "git-url": "https://github.com/g-truc/glm",
-    "git-commit": "1.0.1",
+    "name": "libcglm",
+    "description": "C OpenGL Mathematics (GLM)",
+    "git-url": "https://github.com/recp/cglm",
+    "git-commit": "v0.9.6",
     "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/SDL3/toolchain.cmake.patch",
-            "modifies": "glm/toolchain.cmake"
+            "modifies": "cglm/toolchain.cmake"
         }
     ],
     "bootstrap-commands": [
         [ "cmake",
-            "-S${repo_directory}/glm", "-B.",
-            "-DGLM_BUILD_TESTS=OFF", "-DBUILD_SHARED_LIBS=OFF",
+            "-S${repo_directory}/cglm", "-B.",
+            "-DCGLM_USE_TEST=OFF", "-DCGLM_SHARED=OFF", "-DCGLM_STATIC=OFF",
             "-DCMAKE_INSTALL_PREFIX=${prefix}",
-            "--toolchain=${repo_directory}/glm/toolchain.cmake",
+            "--toolchain=${repo_directory}/cglm/toolchain.cmake",
             "-GNinja" ]
     ],
     "build-commands": [
