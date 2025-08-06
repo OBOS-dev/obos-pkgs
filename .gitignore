@@ -3,6 +3,7 @@
 /bootstrap
 /repos
 /host_pkgs
+/bin_pkgs
 /obos.iso
 /settings.json
 /distro-files/init

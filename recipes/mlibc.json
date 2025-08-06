@@ -22,6 +22,9 @@
     ],
     "install-commands": [
         [ "meson", "install" ],
+        [ "meson", "configure", "--prefix", "${bin_package_prefix}/usr" ],
+        [ "meson", "install" ],
+        [ "meson", "configure", "--prefix", "${prefix}" ],
         [ "rm", "-rf", "${prefix}/usr" ],
         [ "mkdir", "${prefix}/usr" ],
         [ "rm", "-rf", "${prefix}/usr/include" ],

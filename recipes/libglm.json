@@ -22,6 +22,7 @@
         [ "cmake", "--build", "." ]
     ],
     "install-commands": [
-        [ "cmake", "--install", "." ]
+        [ "cmake", "--install", "." ],
+        [ "cmake", "--install", "--prefix=${bin_package_prefix}/usr", "." ]
     ]
 }

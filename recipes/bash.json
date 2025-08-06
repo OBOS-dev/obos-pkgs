@@ -25,6 +25,9 @@
     ],
     "install-commands": [
         [ "make", "install" ],
-        [ "ln", "-sr", "${prefix}/bin/bash", "${prefix}/bin/sh" ]
+        [ "mkdir", "-p", "${bin_package_prefix}/usr" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ],
+        [ "ln", "-sr", "${prefix}/bin/bash", "${prefix}/bin/sh" ],
+        [ "ln", "-sr", "${bin_package_prefix}/usr/bin/bash", "${bin_package_prefix}/usr/bin/sh" ]
     ]
 }

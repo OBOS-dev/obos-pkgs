@@ -18,6 +18,8 @@
         [ "${repo_directory}/doomgeneric/build-doom.sh", "${repo_directory}/doomgeneric", "${target_triplet}" ]
     ],
     "install-commands": [
-        [ "cp", "${repo_directory}/doomgeneric/doomgeneric/doomgeneric", "${prefix}/bin/doomgeneric" ]
+        [ "cp", "${repo_directory}/doomgeneric/doomgeneric/doomgeneric", "${prefix}/bin/doomgeneric" ],
+        [ "mkdir", "-p", "${bin_package_prefix}/usr/bin" ],
+        [ "cp", "${repo_directory}/doomgeneric/doomgeneric/doomgeneric", "${bin_package_prefix}/usr/bin/doomgeneric" ]
     ]
 }

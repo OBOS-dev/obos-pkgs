@@ -36,6 +36,8 @@
     ],
     "install-commands": [
         [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ],
         [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${prefix}" ]
+        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${bin_package_prefix}/usr" ]
     ]
 }

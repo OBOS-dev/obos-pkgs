@@ -18,6 +18,7 @@
         [ "cmake", "--build", ".", "--parallel=2" ]
     ],
     "install-commands": [
-        [ "cmake", "--install", "." ]
+        [ "cmake", "--install", "." ],
+        [ "cmake", "--install", ".", "--prefix=${bin_package_prefix}/usr" ]
     ]
 }
