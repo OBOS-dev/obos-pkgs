@@ -58,6 +58,7 @@
         [ "cd", "${repo_directory}/obos/out" ],
         [ "cp", "fork-test", "klog-level", "mem-usage", "mkswap", "mount", "obos-gettime", "powerctl", "swapon", "sync-anon", "umount", "${prefix}/bin" ],
         [ "cp", "init", "${prefix}/../distro-files/" ],
-        [ "cd", "${bootstrap_directory}/oboskrnl" ]
+        [ "cd", "${bootstrap_directory}/oboskrnl" ],
+        [ "cp", "${repo_directory}/obos/out/obos.iso", "${bootstrap_directory}/../" ]
     ]
 }
