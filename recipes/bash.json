@@ -11,7 +11,7 @@
         {
             "patch": "patches/bash/tparam.c.patch",
             "modifies": "bash-5.2.37/lib/termcap/tparam.c"
-	},
+        },
         {
             "patch": "patches/bash/finfo.c.patch",
             "modifies": "bash-5.2.37/examples/loadables/finfo.c"
