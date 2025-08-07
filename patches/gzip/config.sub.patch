@@ -1,0 +1,10 @@
+--- a/build-aux/config.sub	2025-08-07 06:57:24.004582780 -0400
++++ b/build-aux/config.sub	2025-08-07 06:57:31.696632946 -0400
+@@ -2109,6 +2109,7 @@
+ 	| solaris* \
+ 	| solidbsd* \
+ 	| sortix* \
++	| obos* \
+ 	| storm-chaos* \
+ 	| sunos \
+ 	| sunos[34]* \

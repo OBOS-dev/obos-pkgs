@@ -1,0 +1,22 @@
+{
+    "name": "gzip",
+    "description": "GNU Gzip",
+    "url": "https://ftpmirror.gnu.org/gzip/gzip-1.14.tar.gz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/gzip/config.sub.patch",
+            "modifies": "gzip-1.14/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/gzip-1.14/configure", "--host=x86_64-obos", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+    ]
+}
