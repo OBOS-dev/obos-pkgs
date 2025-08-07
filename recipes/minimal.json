@@ -13,6 +13,8 @@
         "file",
         "less",
         "nano",
+        "tar",
+        "gzip",
         "generate-iso"
     ],
     "patches": [],

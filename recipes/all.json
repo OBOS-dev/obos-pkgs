@@ -22,6 +22,8 @@
         "make",
         "e2fsprogs",
         "libglm",
+        "tar",
+        "gzip",
         "generate-iso"
     ],
     "patches": [],
