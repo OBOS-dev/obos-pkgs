@@ -1,0 +1,22 @@
+{
+    "name": "tar",
+    "description": "GNU Tar",
+    "url": "https://ftpmirror.gnu.org/tar/tar-1.35.tar.xz",
+    "depends": [ "mlibc" ],
+    "patches": [
+        {
+            "patch": "patches/tar/config.sub.patch",
+            "modifies": "tar-1.35/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/tar-1.35/configure", "--host=x86_64-obos", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+    ]
+}
