@@ -1,0 +1,11 @@
+--- a/tools/var.c
++++ b/tools/var.c
+@@ -16,6 +16,8 @@
+ 
+ #include "gdbmtool.h"
+ 
++#include <strings.h>
++
+ #define VARF_DFL    0x00   /* Default flags -- everything disabled */
+ #define VARF_SET    0x01   /* Variable is set */
+ #define VARF_INIT   0x02   /* Variable is initialized */

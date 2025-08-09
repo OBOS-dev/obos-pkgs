@@ -1,0 +1,11 @@
+--- a/tools/gdbmapp.h
++++ b/tools/gdbmapp.h
+@@ -21,6 +21,8 @@
+ # include <locale.h>
+ #endif
+ 
++#include <unistd.h>
++
+ #ifndef GDBM_PRINTFLIKE
+ # define GDBM_PRINTFLIKE(fmt,narg) __attribute__ ((__format__ (__printf__, fmt, narg)))
+ #endif

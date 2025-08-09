@@ -1,0 +1,30 @@
+{
+    "name": "libgdbm",
+    "description": "GNU dbm.",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/gdbm/gdbm-1.25.tar.gz",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/gdbm/config.sub.patch",
+            "modifies": "gdbm-1.25/build-aux/config.sub"
+        },
+        {
+            "patch": "patches/gdbm/var.c.patch",
+            "modifies": "gdbm-1.25/tools/var.c"
+        },
+        {
+            "patch": "patches/gdbm/gdbmapp.h.patch",
+            "modifies": "gdbm-1.25/tools/gdbmapp.h"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+    ]
+}
