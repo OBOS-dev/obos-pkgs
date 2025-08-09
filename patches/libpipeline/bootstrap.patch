@@ -1,0 +1,13 @@
+diff --git a/bootstrap b/bootstrap
+index ac9433e..0bdf735 100755
+--- a/bootstrap
++++ b/bootstrap
+@@ -528,7 +528,7 @@ prepare_GNULIB_SRCDIR ()
+       if test -n "$GNULIB_REFDIR" && test -d "$GNULIB_REFDIR"/.git; then
+         # Use GNULIB_REFDIR as a reference.
+         echo "$0: getting gnulib files..."
+-        git submodule update --init --reference "$GNULIB_REFDIR" "$gnulib_path"\
++        git submodule update --init --reference --depth=1 "$GNULIB_REFDIR" "$gnulib_path"\
+           || exit $?
+       else
+         # GNULIB_REFDIR is not set or not usable. Ignore it.

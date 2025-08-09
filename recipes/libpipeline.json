@@ -1,0 +1,26 @@
+{
+    "name": "libpipeline",
+    "description": "libpipeline",
+    "url": "https://gitlab.com/libpipeline/libpipeline/-/archive/1.5.8/libpipeline-1.5.8.tar.bz2",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "modifies": "libpipeline-1.5.8/bootstrap",
+            "patch": "patches/libpipeline/bootstrap.patch"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/libpipeline-1.5.8/" ],
+        [ "./bootstrap" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/libpipeline-1.5.8/build-aux/config.sub" ],
+        [ "${repo_directory}/libpipeline-1.5.8/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+    ]
+}
