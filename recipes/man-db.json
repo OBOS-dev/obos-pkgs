@@ -1,0 +1,34 @@
+{
+    "name": "man-db",
+    "description": "Manual Pager",
+    "url": "https://gitlab.com/man-db/man-db/-/archive/2.13.1/man-db-2.13.1.tar.bz2",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "modifies": "man-db-2.13.1/bootstrap",
+            "patch": "patches/libpipeline/bootstrap.patch"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/man-db-2.13.1/" ],
+        [ "./bootstrap" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/man-db-2.13.1/build-aux/config.sub" ],
+        [ 
+            "${repo_directory}/man-db-2.13.1/configure",
+            "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig/", 
+            "--prefix", "/",
+            "--host=${target_triplet}",
+            "--disable-manual", "--disable-setuid", "--disable-nls", 
+            "--docdir=/usr/share/doc/man-db-2.9.4",
+            "--with-pager=/usr/bin/less" 
+        ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "DESTDIR=${bin_package_prefix}/usr", "install" ]
+    ]
+}
