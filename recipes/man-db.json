@@ -17,7 +17,7 @@
         [ 
             "${repo_directory}/man-db-2.13.1/configure",
             "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig/", 
-            "--prefix", "/",
+            "--prefix", "/usr",
             "--host=${target_triplet}",
             "--disable-manual", "--disable-setuid", "--disable-nls", 
             "--docdir=/usr/share/doc/man-db-2.9.4",
