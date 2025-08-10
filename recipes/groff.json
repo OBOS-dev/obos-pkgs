@@ -10,13 +10,13 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/groff-1.23.0/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--target=${target_triplet}", "--without-x" ]
+        [ "${repo_directory}/groff-1.23.0/configure", "--prefix", "/usr", "--host=${target_triplet}", "--target=${target_triplet}", "--without-x" ]
     ],
     "build-commands": [
         [ "make", "GROFFBIN=groff", "GROFF_BIN_PATH=/usr/bin" ]
     ],
     "install-commands": [
-        [ "make", "install" ],
+        [ "make", "install", "prefix=${prefix}" ],
         [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
     ]
 }
