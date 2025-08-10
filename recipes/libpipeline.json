@@ -14,13 +14,13 @@
         [ "./bootstrap" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/libpipeline-1.5.8/build-aux/config.sub" ],
-        [ "${repo_directory}/libpipeline-1.5.8/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+        [ "${repo_directory}/libpipeline-1.5.8/configure", "--prefix", "/usr", "--host=${target_triplet}" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install" ],
+        [ "make", "install", "prefix=${prefix}" ],
         [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
     ]
 }
