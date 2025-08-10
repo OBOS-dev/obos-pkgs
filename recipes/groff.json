@@ -1,0 +1,22 @@
+{
+    "name": "groff",
+    "description": "GNU 'roff'",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/groff/groff-1.23.0.tar.gz",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/groff/config.sub.patch",
+            "modifies": "groff-1.23.0/build-aux/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/groff-1.23.0/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--target=${target_triplet}", "--without-x" ]
+    ],
+    "build-commands": [
+        [ "make", "GROFFBIN=groff", "GROFF_BIN_PATH=/usr/bin" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+    ]
+}
