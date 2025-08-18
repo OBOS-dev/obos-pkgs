@@ -4,6 +4,7 @@
     "depends": [ "bootstrap-gcc", "bootstrap-binutils", "mlibc-headers" ],
     "patches": [],
     "bootstrap-commands": [
+        [ "rmdir", "${bin_package_prefix}" ],
 	    [
             "meson",
             "setup",
@@ -15,7 +16,8 @@
             "--wipe",
             "-Dlinux_kernel_headers=${prefix}/include",
             "-Dno_headers=true"
-        ]
+        ],
+        [ "mkdir", "${bin_package_prefix}" ]
     ],
     "build-commands": [
         [ "meson", "compile" ]

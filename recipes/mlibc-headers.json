@@ -13,6 +13,7 @@
     "bootstrap-commands": [
         [ "chmod", "+x", "${repo_directory}/mlibc/generate-mlibc-cross-file.sh" ],
     	[ "${repo_directory}/mlibc/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/bootstrap" ],
+        [ "rmdir", "${bin_package_prefix}" ],
 	    [
             "meson",
             "setup",
@@ -24,7 +25,8 @@
             "--wipe",
             "-Dheaders_only=true",
             "-Dlinux_kernel_headers=${prefix}/include"
-        ]
+        ],
+        [ "mkdir", "${bin_package_prefix}" ]
     ],
     "build-commands": [],
     "install-commands": [
