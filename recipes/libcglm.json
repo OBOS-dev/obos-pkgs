@@ -14,7 +14,7 @@
         [ "cmake",
             "-S${repo_directory}/cglm", "-B.",
             "-DCGLM_USE_TEST=OFF", "-DCGLM_SHARED=OFF", "-DCGLM_STATIC=OFF",
-            "-DCMAKE_INSTALL_PREFIX=${prefix}",
+            "-DCMAKE_INSTALL_PREFIX=/",
             "--toolchain=${repo_directory}/cglm/toolchain.cmake",
             "-GNinja" ]
     ],
@@ -22,7 +22,9 @@
         [ "cmake", "--build", "." ]
     ],
     "install-commands": [
+        [ "export", "DESTDIR=${prefix}" ],
         [ "cmake", "--install", "." ],
-        [ "cmake", "--install", ".", "--prefix=${bin_package_prefix}/usr" ]
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
     ]
 }

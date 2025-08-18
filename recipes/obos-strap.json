@@ -11,7 +11,7 @@
         "-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER",
         "-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY",
         "-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY",
-        "-DCMAKE_INSTALL_PREFIX=${prefix}",
+        "-DCMAKE_INSTALL_PREFIX=/",
         "-DOBOS_STRAP_ENABLE_GIT=1",
         "-DOBOS_STRAP_MLIBC=1",
         "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
@@ -22,7 +22,9 @@
         [ "cmake", "--build", "." ]
     ],
     "install-commands": [
+        [ "export", "DESTDIR=${prefix}" ],
+        [ "cmake", "--install", "." ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
         [ "cmake", "--install", "." ]
-        [ "cmake", "--install", ".", "--prefix=${bin_package_prefix}/usr" ]
     ]
 }

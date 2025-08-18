@@ -16,7 +16,7 @@
     ],
     "bootstrap-commands": [
         [ "cmake", "-B.", "-S${repo_directory}/SDL_mixer", 
-          "-DCMAKE_INSTALL_PREFIX=${prefix}", 
+          "-DCMAKE_INSTALL_PREFIX=/", 
           "--toolchain", "${repo_directory}/SDL_mixer/build-scripts/cmake-toolchain-obos-x86_64.cmake", "-GNinja"
         ]
     ],
@@ -24,7 +24,9 @@
         [ "cmake", "--build", ".", "--parallel=2" ]
     ],
     "install-commands": [
+        [ "export", "DESTDIR=${prefix}" ],
         [ "cmake", "--install", "." ],
-        [ "cmake", "--install", ".", "--prefix=${bin_package_prefix}/usr" ]
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
     ]
 }
