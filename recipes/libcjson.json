@@ -6,15 +6,17 @@
     "git-commit": "v1.7.18",
     "patches": [],
     "bootstrap-commands": [
-        [ "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_C_COMPILER=${target_triplet}-gcc", "-S${repo_directory}/cJSON", "-DCMAKE_INSTALL_PREFIX=/", "-DENABLE_CJSON_TEST=OFF", "-GNinja" ]
+        [ "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_C_COMPILER=${target_triplet}-gcc", "-S${repo_directory}/cJSON", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DENABLE_CJSON_TEST=OFF", "-GNinja" ]
     ],
     "build-commands": [
         [ "cmake", "--build", "." ]
     ],
     "install-commands": [
-        [ "export", "DESTDIR=${prefix}" ],
         [ "cmake", "--install", "." ],
         [ "export", "DESTDIR=${bin_package_prefix}" ],
-        [ "cmake", "--install", "." ]
+        [ "cmake", "--install", "." ],
+        [ "cd", "${bin_package_prefix}" ],
+        [ "mv", "./${prefix}/*", "${bin_package_prefix}" ],
+        [ "rm", "-r", "`echo ${bin_package_prefix} | cut -d/ -f2`" ]
     ]
 }
