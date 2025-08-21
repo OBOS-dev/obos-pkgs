@@ -35,6 +35,7 @@
         [ "meson", "install" ],
         [ "meson", "configure", "--prefix", "${prefix}" ],
         [ "mkdir", "${prefix}/usr" ],
+        [ "rm", "${prefix}/usr/include" ],
         [ "ln", "-s", "${prefix}/include", "${prefix}/usr/include" ]
     ]
 }
