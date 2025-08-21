@@ -1,0 +1,20 @@
+{
+    "name": "obos-dhcpc",
+    "description": "OBOS DHCP Client",
+    "depends": [ "cross-gcc" ],
+    "git-url": "https://github.com/OBOS-dev/obos-dhcpc",
+    "git-commit": "master",
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [
+        [ "cd", "${repo_directory}/obos-dhcpc/" ],
+        [ "make", "all" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "install-commands": [
+        [ "cd", "${repo_directory}/obos-dhcpc/" ],
+        [ "make", "install", "prefix=${prefix}" ],
+        [ "make", "install", "prefix=${bin_package_prefix}" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ]
+}
