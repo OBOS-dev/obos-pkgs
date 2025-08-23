@@ -1,0 +1,11 @@
+--- a/test/bntest.c
++++ b/test/bntest.c
+@@ -20,6 +20,8 @@
+ #include "internal/numbers.h"
+ #include "testutil.h"
+ 
++#include <strings.h>
++
+ #ifdef OPENSSL_SYS_WINDOWS
+ # define strcasecmp _stricmp
+ #endif

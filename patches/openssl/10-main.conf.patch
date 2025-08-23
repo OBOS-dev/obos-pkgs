@@ -1,0 +1,38 @@
+--- a/Configurations/10-main.conf
++++ b/Configurations/10-main.conf
+@@ -192,6 +192,35 @@ my %targets = (
+         thread_scheme    => "(unknown)",
+     },
+ 
++#### OBOS config
++	"obos-generic64" => {
++	inherit_from     => [ "BASE_unix" ],
++	CFLAGS           => picker(default   => "-Wall",
++			 debug       => "-O0 -g",
++			 release     => "-O3"),
++	CXXFLAGS         => picker(default   => "-Wall",
++			 debug       => "-O0 -g",
++			 release     => "-O3"),
++	cxxflags         => add("-std=c++11"),
++	lib_cppflags     => combine("-DOPENSSL_USE_NODELETE", "-DL_ENDIAN"),
++	bn_ops           => "SIXTY_FOUR_BIT_LONG RC4_CHAR",
++	thread_scheme    => "pthreads",
++	dso_scheme       => "dlfcn",
++	shared_target    => "linux-shared",
++	shared_cflag     => "-fPIC",
++	shared_ldflag    => sub { $disabled{pinshared} ? () : "-Wl,-znodelete" },
++	shared_extension => ".so.\$(SHLIB_VERSION_NUMBER)",
++	},
++
++	"x86_64-obos" => {
++	inherit_from     => [ "obos-generic64", asm("x86_64_asm") ],
++	perlasm_scheme   => "elf",
++
++	CC               => "x86_64-obos-gcc",
++	CXX              => "x86_64-obos-g++",
++
++	},
++
+ #### VOS Configurations
+     "vos-gcc" => {
+         inherit_from     => [ "BASE_unix" ],

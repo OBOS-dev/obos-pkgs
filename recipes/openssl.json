@@ -1,0 +1,51 @@
+{
+    "name": "openssl",
+    "description": "TLS/SSL and crypto library",
+    "depends": [ "cross-gcc", "zlib" ],
+    "url": "https://www.openssl.org/source/openssl-1.1.1q.tar.gz",
+    "patches": [
+        {
+            "patch": "patches/openssl/10-main.conf.patch",
+            "modifies": "openssl-1.1.1q/Configurations/10-main.conf"
+        },
+        {
+            "patch": "patches/openssl/bntest.c.patch",
+            "modifies": "openssl-1.1.1q/test/bntest.c"
+        },
+        {
+            "patch": "patches/openssl/conf_def.c.patch",
+            "modifies": "openssl-1.1.1q/crypto/conf/conf_def.c"
+        },
+        {
+            "patch": "patches/openssl/ssl_test_ctx.c.patch",
+            "modifies": "openssl-1.1.1q/test/ssl_test_ctx.c"
+        },
+        {
+            "patch": "patches/openssl/v3ext.c.patch",
+            "modifies": "openssl-1.1.1q/test/v3ext.c"
+        },
+        {
+            "patch": "patches/openssl/v3nametest.c.patch",
+            "modifies": "openssl-1.1.1q/test/v3nametest.c"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "echo", "$PWD" ],
+        [ "cd", "${repo_directory}/openssl-1.1.1q/" ],
+        [ "export", "CXX=x86_64-obos-g++" ],
+        [ "export", "CC=x86_64-obos-gcc" ],
+        [ "./Configure", "--prefix=/", "--openssldir=/etc/ssl", "--libdir=lib", "x86_64-obos", "shared", "zlib-dynamic", "no-afalgeng", "-DOPENSSL_USE_IPV6=0" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "build-commands": [
+        [ "cd", "${repo_directory}/openssl-1.1.1q/" ],
+        [ "make", "-j2" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "install-commands": [
+        [ "cd", "${repo_directory}/openssl-1.1.1q/" ],
+        [ "make", "-j2", "install", "DESTDIR=${prefix}" ],
+        [ "make", "-j2", "install", "DESTDIR=${bin_package_prefix}/usr" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ]
+}

@@ -1,0 +1,11 @@
+--- a/test/v3ext.c
++++ b/test/v3ext.c
+@@ -16,6 +16,8 @@
+ 
+ #include "testutil.h"
+ 
++#include <string.h>
++
+ static const char *infile;
+ 
+ static int test_pathlen(void)
