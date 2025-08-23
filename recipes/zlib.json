@@ -1,0 +1,19 @@
+{
+    "name": "zlib",
+    "description": "zlib",
+    "depends": [ "cross-gcc" ],
+    "url": "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.xz",
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${repo_directory}/../patches/configure-zlib.sh", "." ],
+        [ "chmod", "+x", "./configure-zlib.sh" ],
+        [ "./configure-zlib.sh", "${repo_directory}/zlib-1.3.1", "${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}/usr" ]
+    ]
+}
