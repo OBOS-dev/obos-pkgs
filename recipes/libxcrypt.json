@@ -1,0 +1,28 @@
+{
+    "name": "libxcrypt",
+    "description": "Extended crypt library for descrypt, md5crypt, bcrypt, and others",
+    "url": "https://github.com/besser82/libxcrypt/releases/download/v4.4.36/libxcrypt-4.4.36.tar.xz",
+    "depends": [ "cross-gcc" ],
+    "patches": [
+	    {
+            "patch": "patches/libxcrypt/config.sub.patch",
+            "modifies": "libxcrypt-4.4.36/build-aux/m4-autogen/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ 
+            "${repo_directory}/libxcrypt-4.4.36/configure",
+		    "--prefix", "${prefix}",
+		    "--host=${target_triplet}",
+            "--disable-xcrypt-compat-files",
+            "--enable-obsolete-api=yes"
+        ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+    ]
+}
