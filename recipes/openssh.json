@@ -1,0 +1,26 @@
+{
+    "name": "openssh",
+    "description": "OpenSSH",
+    "url": "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.7p1.tar.gz",
+    "depends": [ "cross-gcc", "openssl", "zlib" ],
+    "patches": [
+	    {
+            "patch": "patches/openssh/config.sub.patch",
+            "modifies": "openssh-9.7p1/config.sub"
+        },
+	    {
+            "patch": "patches/openssh/sshd.c.patch",
+            "modifies": "openssh-9.7p1/sshd.c"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/openssh-9.7p1/configure", "--host=x86_64-obos", "--sysconfdir=/etc/ssh", "--with-default-path=/usr/bin", "--with-superuser-path=/usr/sbin:/usr/bin", "--prefix=/usr" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "PRIVSEP_PATH=${repo_directory}/../distro-files/var", "sysconfdir=${repo_directory}/../distro-files/etc/ssh", "prefix=${prefix}" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "PRIVSEP_PATH=${repo_directory}/../distro-files/var", "sysconfdir=${repo_directory}/../distro-files/etc/ssh", "install" ]
+    ]
+}

@@ -9,3 +9,4 @@
 /distro-files/init
 /obos.img
 /distro-files/etc/man_db.conf
+/distro-files/etc/ssh/

@@ -1,0 +1,11 @@
+--- a/sshd.c
++++ b/sshd.c
+@@ -1403,7 +1403,7 @@ server_accept_loop(int *sock_in, int *sock_out, int *newsock, int *config_s)
+ static void
+ check_ip_options(struct ssh *ssh)
+ {
+-#ifdef IP_OPTIONS
++#if 0
+ 	int sock_in = ssh_packet_get_connection_in(ssh);
+ 	struct sockaddr_storage from;
+ 	u_char opts[200];
