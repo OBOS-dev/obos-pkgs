@@ -1,4 +1,4 @@
-{
+r{
     "name": "generate-disk",
     "description": "Generates an OBOS hard disk.",
     "depends": [ "oboskrnl" ],
@@ -38,7 +38,7 @@
         [ "cp", "${repo_directory}/obos/dependencies/hyper/BOOTX64.efi", "efi_mnt/EFI/BOOT" ],
         [ "cp", "${repo_directory}/hyper.disk.cfg", "efi_mnt/hyper.cfg" ],
         [ "mkdir", "-p", "efi_mnt/obos" ],
-        [ "rm", "-r", "tar" ],
+        [ "rm", "-rf", "tar" ],
         [ "mkdir", "tar" ],
         [ "cp", "${repo_directory}/obos/out/initrd", "${repo_directory}/obos/out/oboskrnl", "efi_mnt/obos" ],
         [ "cp", "${repo_directory}/obos/out/uart", "tar/" ],
