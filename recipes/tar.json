@@ -2,7 +2,7 @@
     "name": "tar",
     "description": "GNU Tar",
     "url": "https://ftpmirror.gnu.org/tar/tar-1.35.tar.xz",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/tar/config.sub.patch",
@@ -10,7 +10,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/tar-1.35/configure", "--host=x86_64-obos", "--prefix=${prefix}" ]
+        [ "${repo_directory}/tar-1.35/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
     ],
     "build-commands": [
         [ "make", "all" ]

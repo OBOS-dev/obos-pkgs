@@ -4,15 +4,10 @@
     "git-url": "https://github.com/OBOS-dev/mlibc",
     "git-commit": "master",
     "depends": [ "linux-kernel-headers" ],
-    "patches": [
-        {
-            "patch": "patches/generate-mlibc-cross-file.sh.patch",
-            "modifies": "mlibc/generate-mlibc-cross-file.sh"
-        }
-    ],
+    "patches": [],
     "bootstrap-commands": [
-        [ "chmod", "+x", "${repo_directory}/mlibc/generate-mlibc-cross-file.sh" ],
-    	[ "${repo_directory}/mlibc/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/bootstrap" ],
+        [ "chmod", "+x", "${root_directory}/scripts/generate-mlibc-cross-file.sh" ],
+    	[ "${root_directory}/scripts/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/bootstrap" ],
         [ "rmdir", "${bin_package_prefix}" ],
 	    [
             "meson",

@@ -1,7 +1,7 @@
 {
     "name": "make",
     "description": "GNU make",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/make/make-4.4.1.tar.lz",
     "patches": [
         {

@@ -1,7 +1,7 @@
 {
     "name": "e2fsprogs",
     "description": "EXT2 Filesystem Programs",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "git-url": "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs",
     "git-commit": "v1.47.3",
     "patches": [

@@ -32,9 +32,9 @@
     "bootstrap-commands": [
         [ "echo", "$PWD" ],
         [ "cd", "${repo_directory}/openssl-1.1.1q/" ],
-        [ "export", "CXX=x86_64-obos-g++" ],
-        [ "export", "CC=x86_64-obos-gcc" ],
-        [ "./Configure", "--prefix=/", "--openssldir=/etc/ssl", "--libdir=lib", "x86_64-obos", "shared", "zlib-dynamic", "no-afalgeng", "-DOPENSSL_USE_IPV6=0" ],
+        [ "export", "CXX=${target_triplet}-g++" ],
+        [ "export", "CC=${target_triplet}-gcc" ],
+        [ "./Configure", "--prefix=/", "--openssldir=/etc/ssl", "--libdir=lib", "${target_triplet}", "shared", "zlib-dynamic", "no-afalgeng", "-DOPENSSL_USE_IPV6=0" ],
         [ "cd", "${bootstrap_directory}/${name}" ]
     ],
     "build-commands": [

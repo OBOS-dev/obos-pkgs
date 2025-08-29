@@ -14,7 +14,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/openssh-9.7p1/configure", "--host=x86_64-obos", "--sysconfdir=/etc/ssh", "--with-default-path=/usr/bin", "--with-superuser-path=/usr/sbin:/usr/bin", "--prefix=/usr" ]
+        [ "${repo_directory}/openssh-9.7p1/configure", "--host=${target_triplet}", "--sysconfdir=/etc/ssh", "--with-default-path=/usr/bin", "--with-superuser-path=/usr/sbin:/usr/bin", "--prefix=/usr" ]
     ],
     "build-commands": [
         [ "make", "all" ]

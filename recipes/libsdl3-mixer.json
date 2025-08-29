@@ -1,14 +1,10 @@
 {
     "name": "libsdl3-mixer",
     "description": "SDL3 mixer",
-    "depends": [ "mlibc", "libsdl3" ],
+    "depends": [ "cross-gcc", "libsdl3", "cmake-toolchain" ],
     "git-url": "https://github.com/libsdl-org/SDL_mixer",
     "git-commit": "main",
     "patches": [
-        {
-            "patch": "patches/SDL3/toolchain.cmake.patch",
-            "modifies": "SDL_mixer/build-scripts/cmake-toolchain-obos-x86_64.cmake"
-        },
         {
             "patch": "patches/SDL3/mixer_CMakeLists.txt.patch",
             "modifies": "SDL_mixer/CMakeLists.txt"
@@ -17,7 +13,7 @@
     "bootstrap-commands": [
         [ "cmake", "-B.", "-S${repo_directory}/SDL_mixer", 
           "-DCMAKE_INSTALL_PREFIX=${prefix}", 
-          "--toolchain", "${repo_directory}/SDL_mixer/build-scripts/cmake-toolchain-obos-x86_64.cmake", "-GNinja"
+          "--toolchain", "${bootstrap_directory}/toolchain.cmake", "-GNinja"
         ]
     ],
     "build-commands": [

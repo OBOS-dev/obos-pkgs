@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "\
+set(CMAKE_SYSTEM_NAME "Linux")\
+\
+set(CMAKE_C_COMPILER $1-gcc)\
+set(CMAKE_CXX_COMPILER $1-g++)\
+\
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)\
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)\
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)\
+\
+execute_process(COMMAND ${CMAKE_C_COMPILER} -print-sysroot OUTPUT_VARIABLE CMAKE_FIND_ROOT_PATH)\
+\
+set(CMAKE_SHARED_LIBRARY_SONAME_C_FLAG "-Wl,-soname,")\
+set(CMAKE_PLATFORM_USES_PATH_WHEN_NO_SONAME 1)\
+\
+# impersonate linux\
+set (LINUX 1)\
+set (WE_ARE_REALLY_OBOS ON)" > $2/toolchain.cmake

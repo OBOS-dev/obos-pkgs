@@ -1,20 +1,12 @@
 {
     "name": "obos-strap",
     "description": "Yet another build tool for operating systems",
-    "depends": [ "mlibc", "libcjson" ],
+    "depends": [ "cross-gcc", "libcjson", "cmake-toolchain" ],
     "patches": [],
     "git-url": "https://github.com/OBOS-dev/obos-strap",
     "git-commit": "master",
     "bootstrap-commands": [
-        [ "cmake", "-DCMAKE_C_COMPILER=x86_64-obos-gcc",
-        "-DCMAKE_FIND_ROOT_PATH=${prefix}",
-        "-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER",
-        "-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY",
-        "-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY",
-        "-DCMAKE_INSTALL_PREFIX=${prefix}",
-        "-DOBOS_STRAP_ENABLE_GIT=1",
-        "-DOBOS_STRAP_MLIBC=1",
-        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        [ "cmake", "--toolchain=${bootstrap_directory}/toolchain.cmake",
         "-GNinja",
         "-S${repo_directory}/obos-strap" ]
     ],

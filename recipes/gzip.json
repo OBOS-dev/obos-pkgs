@@ -2,7 +2,7 @@
     "name": "gzip",
     "description": "GNU Gzip",
     "url": "https://ftpmirror.gnu.org/gzip/gzip-1.14.tar.gz",
-    "depends": [ "mlibc" ],
+    "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/gzip/config.sub.patch",

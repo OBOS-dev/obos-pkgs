@@ -32,7 +32,7 @@
              "${bootstrap_directory}/oboskrnl/tar/usr/bin/"
         ],
 	    [ "cp", "${repo_directory}/obos/out/init",  "${bootstrap_directory}/oboskrnl/tar/" ],
-    	[ "${repo_directory}/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
+    	[ "${root_directory}/scripts/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
         [ "cmake", "--build", "${bootstrap_directory}/oboskrnl" ],
         [ "cp", "${repo_directory}/obos/out/obos.iso", "${target_prefix}/.." ]
     ]

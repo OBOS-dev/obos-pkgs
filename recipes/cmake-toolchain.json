@@ -1,0 +1,11 @@
+{
+    "name": "cmake-toolchain",
+    "description": "Generates a CMake toolchain file for cross-compilation",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [
+        [ "${repo_directory}/scripts/generate-cmake-toolchain.sh", "${target_triplet}", "${bootstrap_directory}" ]
+    ],
+    "install-commands": []
+}
