@@ -51,7 +51,8 @@
                 "--with-sysroot=${prefix}/bootstrap-gcc",
     	    	"--without-headers",
                 "--enable-threads=single",
-	    	    "--program-prefix=bootstrap-${target_triplet}-"
+                "--with-as=${host_prefix}/bin/${target_triplet}-as",
+                "--with-ld=${host_prefix}/bin/${target_triplet}-ld"
         ]
     ],
     "build-commands": [

@@ -1,0 +1,5 @@
+{
+    "cross-compile": 1,
+    "target-triplet": "m68k-obos",
+    "binary-packages-default": 1
+}

@@ -7,7 +7,7 @@
     "patches": [],
     "bootstrap-commands": [
         [ "chmod", "+x", "${root_directory}/scripts/generate-mlibc-cross-file.sh" ],
-    	[ "${root_directory}/scripts/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/bootstrap" ],
+    	[ "${root_directory}/scripts/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/" ],
         [ "rmdir", "${bin_package_prefix}" ],
 	    [
             "meson",
