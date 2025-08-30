@@ -1,0 +1,11 @@
+--- a/config.sub	2025-08-30 15:14:29.501792265 -0400
++++ b/config.sub	2025-08-30 15:15:15.158711933 -0400
+@@ -1768,7 +1768,7 @@
+ 	     | onefs* | tirtos* | phoenix* | fuchsia* | redox* | bme* \
+ 	     | midnightbsd* | amdhsa* | unleashed* | emscripten* | wasi* \
+ 	     | nsk* | powerunix* | genode* | zvmoe* | qnx* | emx* | zephyr* \
+-	     | fiwix* | mlibc* | cos* | mbr* | ironclad* )
++	     | fiwix* | mlibc* | cos* | mbr* | obos* | ironclad* )
+ 		;;
+ 	# This one is extra strict with allowed versions
+ 	sco3.2v2 | sco3.2v[4-9]* | sco5v6*)

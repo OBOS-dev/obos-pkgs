@@ -1,0 +1,11 @@
+--- gdb/configure.tgt.old	2025-08-30 15:29:17.013375012 -0400
++++ gdb/configure.tgt	2025-08-30 15:29:49.157887030 -0400
+@@ -392,7 +392,7 @@
+ 	# Target: Motorola m68k embedded
+ 	gdb_target_obs="m68k-tdep.o"
+ 	;;
+-m68*-*-linux*)
++m68*-*-linux* | m68*-*-obos* )
+ 	# Target: Motorola m68k with a.out and ELF
+ 	gdb_target_obs="m68k-tdep.o m68k-linux-tdep.o solib-svr4.o \
+ 			linux-tdep.o glibc-tdep.o symfile-mem.o"
