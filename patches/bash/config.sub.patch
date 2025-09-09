@@ -1,13 +1,10 @@
-diff --git a/home/oberrow/bash-5.2.37/support/config.sub b/home/oberrow/Code/bash-5.2.37/support/config.sub
-index 9b62e37..91d08bd 100644
---- a/home/oberrow/bash-5.2.37/support/config.sub
-+++ b/home/oberrow/Code/bash-5.2.37/support/config.sub
-@@ -1723,7 +1723,7 @@ case $os in
- 	# Now accept the basic system types.
- 	# The portable systems comes first.
- 	# Each alternative MUST end in a * to match a version number.
--	gnu* | android* | bsd* | mach* | minix* | genix* | ultrix* | irix* \
-+	gnu* | obos* | android* | bsd* | mach* | minix* | genix* | ultrix* | irix* \
- 	     | *vms* | esix* | aix* | cnk* | sunos | sunos[34]* \
- 	     | hpux* | unos* | osf* | luna* | dgux* | auroraux* | solaris* \
- 	     | sym* |  plan9* | psp* | sim* | xray* | os68k* | v88r* \
+--- a/support/config.sub	2025-09-09 18:30:29.623400503 -0400
++++ b/support/config.sub	2025-09-09 18:30:46.671801259 -0400
+@@ -2067,6 +2067,7 @@
+ 	| nx6 \
+ 	| nx7 \
+ 	| oabi* \
++	| obos* \
+ 	| ohos* \
+ 	| onefs* \
+ 	| openbsd* \

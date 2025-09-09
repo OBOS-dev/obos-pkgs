@@ -1,0 +1,20 @@
+--- a/bashansi.h	2025-09-09 18:35:19.309104953 -0400
++++ b/bashansi.h	2025-09-09 18:35:56.245694017 -0400
+@@ -35,7 +35,7 @@
+ #  include "ansi_stdlib.h"
+ #endif /* !HAVE_STDLIB_H */
+ 
+-/* If bool is not a compiler builtin, prefer stdbool.h if we have it */
++/*
+ #if !defined (HAVE_C_BOOL)
+ #  if defined (HAVE_STDBOOL_H)
+ #    include <stdbool.h>
+@@ -46,6 +46,8 @@
+ #    define false 0
+ #  endif
+ #endif
++*/
++#include <stdbool.h>
+ 
+ /* Include <stddef.h>, or define substitutes (config.h handles ptrdiff_t). */
+ #ifdef HAVE_STDDEF_H

@@ -1,24 +1,32 @@
 {
     "name": "bash",
     "description": "Bourne Again SHell",
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/bash/bash-5.2.37.tar.gz",
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/bash/bash-5.3.tar.gz",
     "depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/bash/config.sub.patch",
-            "modifies": "bash-5.2.37/support/config.sub"
+            "modifies": "bash-5.3/support/config.sub"
         },
         {
             "patch": "patches/bash/tparam.c.patch",
-            "modifies": "bash-5.2.37/lib/termcap/tparam.c"
+            "modifies": "bash-5.3/lib/termcap/tparam.c"
         },
         {
             "patch": "patches/bash/finfo.c.patch",
-            "modifies": "bash-5.2.37/examples/loadables/finfo.c"
+            "modifies": "bash-5.3/examples/loadables/finfo.c"
+        },
+        {
+            "patch": "patches/bash/fltexpr.c.patch",
+            "modifies": "bash-5.3/examples/loadables/fltexpr.c"
+        },
+        {
+            "patch": "patches/bash/bashansi.h.patch",
+            "modifies": "bash-5.3/bashansi.h"
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/bash-5.2.37/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--without-bash-malloc", "bash_cv_getcwd_malloc=yes" ]
+        [ "${repo_directory}/bash-5.3/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--without-bash-malloc", "bash_cv_getcwd_malloc=yes" ]
     ],
     "build-commands": [
         [ "make", "all", "CFLAGS=-DNEED_EXTERN_PC=1" ]
