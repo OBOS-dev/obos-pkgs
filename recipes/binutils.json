@@ -3,6 +3,7 @@
     "description": "Cross-compiler used to link packages.",
     "depends": [ "cross-gcc" ],
     "patches": [],
+    "version": [ 2,42,0 ],
     "bootstrap-commands": [
         [
             "${repo_directory}/binutils-2.42/configure",

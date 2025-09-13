@@ -1,6 +1,7 @@
 {
     "name": "libglm",
     "description": "OpenGL Mathematics (GLM)",
+    "version": [ 1,0,1 ],
     "git-url": "https://github.com/g-truc/glm",
     "git-commit": "1.0.1",
     "depends": [ "cross-gcc", "cmake-toolchain" ],

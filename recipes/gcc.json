@@ -1,6 +1,7 @@
 {
     "name": "gcc",
     "description": "Compiler used to compile",
+    "version": [ 14,2,0 ],
     "depends": [ "cross-gcc", "binutils", "libgmp", "libmpfr", "libmpc" ],
     "patches": [],
     "bootstrap-commands": [
@@ -22,7 +23,7 @@
     ],
     "install-commands": [
         [ "make", "-j${nproc}", "install-gcc" ],
-        [ "make", "-j${nproc}", "install-target-libgcc" ]
+        [ "make", "-j${nproc}", "install-target-libgcc" ],
         [ "make", "-j${nproc}", "prefix=${bin_package_prefix}", "install-gcc" ],
         [ "make", "-j${nproc}", "prefix=${bin_package_prefix}", "install-target-libgcc" ]
     ]

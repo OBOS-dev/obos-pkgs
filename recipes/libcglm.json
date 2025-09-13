@@ -1,6 +1,7 @@
 {
     "name": "libcglm",
     "description": "C OpenGL Mathematics (GLM)",
+    "version": [ 0,9,6 ],
     "git-url": "https://github.com/recp/cglm",
     "git-commit": "v0.9.6",
     "depends": [ "cross-gcc", "cmake-toolchain" ],

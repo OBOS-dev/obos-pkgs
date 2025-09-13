@@ -3,6 +3,7 @@
     "description": "Bourne Again SHell",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/bash/bash-5.3.tar.gz",
     "depends": [ "cross-gcc" ],
+    "version": [ 5,3,0 ],
     "patches": [
         {
             "patch": "patches/bash/config.sub.patch",

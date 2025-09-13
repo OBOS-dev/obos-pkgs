@@ -1,6 +1,7 @@
 {
     "name": "libpipeline",
     "description": "libpipeline",
+    "version": [ 1,5,8 ],
     "url": "https://gitlab.com/libpipeline/libpipeline/-/archive/1.5.8/libpipeline-1.5.8.tar.bz2",
     "depends": [ "cross-gcc" ],
     "patches": [

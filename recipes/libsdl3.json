@@ -1,9 +1,10 @@
 {
     "name": "libsdl3",
     "description": "SDL3",
+    "version": [ 3,2,22 ],
     "depends": [ "cross-gcc", "cmake-toolchain" ],
     "git-url": "https://github.com/libsdl-org/SDL",
-    "git-commit": "release-3.2.18",
+    "git-commit": "release-3.2.22",
     "patches": [],
     "bootstrap-commands": [
         [ "cmake", "-B.", "-S${repo_directory}/SDL", "-DCMAKE_INSTALL_PREFIX=${prefix}", 

@@ -3,6 +3,7 @@
     "description": "Cross-compiler used to link packages.",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/binutils/binutils-2.42.tar.lz",
     "depends": [],
+    "version": [ 2,42,0 ],
     "patches": [
         {
             "patch": "patches/binutils/config.bfd.patch",

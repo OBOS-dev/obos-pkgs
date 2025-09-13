@@ -1,6 +1,7 @@
 {
     "name": "libcjson",
     "description": "Ultralightweight JSON parser in ANSI C",
+    "version": [ 1,7,18 ],
     "depends": [ "cross-gcc" ],
     "git-url": "https://github.com/DaveGamble/cJSON",
     "git-commit": "v1.7.18",

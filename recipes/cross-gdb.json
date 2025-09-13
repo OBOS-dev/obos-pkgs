@@ -2,6 +2,7 @@
     "name": "cross-gdb",
     "description": "Cross-compiler used to link packages.",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/gdb/gdb-16.3.tar.xz",
+    "version": [ 16,3,0 ],
     "depends": [],
     "patches": [
         {

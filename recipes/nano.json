@@ -2,6 +2,7 @@
     "name": "nano",
     "description": "NANO Text Editor",
     "depends": [ "cross-gcc", "ncurses" ],
+    "version": [ 8,4 ],
     "url": "https://www.nano-editor.org/dist/v8/nano-8.4.tar.xz",
     "patches": [
         {

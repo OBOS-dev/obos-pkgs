@@ -1,6 +1,7 @@
 {
     "name": "minimal",
     "description": "Minimal distribution packages.",
+    "version": [0],
     "depends": [
         "cross-gcc",
         "bash",

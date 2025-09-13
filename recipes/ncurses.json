@@ -1,6 +1,7 @@
 {
     "name": "ncurses",
     "description": "GNU ncurses library",
+    "version": [ 6,5,0 ],
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/ncurses/ncurses-6.5.tar.gz",
     "depends": [ "cross-gcc" ],
     "patches": [
@@ -37,7 +38,7 @@
     "install-commands": [
         [ "make", "install" ],
         [ "make", "install", "prefix=${bin_package_prefix}/usr" ],
-        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${prefix}" ]
+        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${prefix}" ],
         [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${bin_package_prefix}/usr" ]
     ]
 }

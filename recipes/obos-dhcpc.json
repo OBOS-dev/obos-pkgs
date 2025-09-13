@@ -1,6 +1,7 @@
 {
     "name": "obos-dhcpc",
     "description": "OBOS DHCP Client",
+    "version": [ 1,0,0 ],
     "depends": [ "cross-gcc" ],
     "git-url": "https://github.com/OBOS-dev/obos-dhcpc",
     "git-commit": "master",

@@ -1,6 +1,7 @@
 {
     "name": "libmpfr",
     "description": "Multi-precision floating-point compuation library",
+    "version": [ 4,2,2 ],
     "url": "https://www.mpfr.org/mpfr-current/mpfr-4.2.2.tar.xz",
     "depends": [ "cross-gcc", "libgmp" ],
     "patches": [

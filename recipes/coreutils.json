@@ -2,6 +2,7 @@
     "name": "coreutils",
     "description": "GNU Coreutils",
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/coreutils/coreutils-9.5.tar.xz",
+    "version": [ 9,5,0 ],
     "depends": [ "cross-gcc" ],
     "patches": [
         {

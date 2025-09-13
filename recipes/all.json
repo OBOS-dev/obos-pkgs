@@ -1,6 +1,7 @@
 {
     "name": "all",
     "description": "All packages.",
+    "version": [0],
     "depends": [
         "cross-gcc",
         "bash",

@@ -1,6 +1,7 @@
 {
     "name": "mlibc",
     "description": "Portable C standard library",
+    "version": [0],,
     "depends": [ "bootstrap-gcc", "bootstrap-binutils", "mlibc-headers" ],
     "patches": [],
     "bootstrap-commands": [

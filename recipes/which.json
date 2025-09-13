@@ -1,6 +1,7 @@
 {
     "name": "which",
     "description": "Utility to find which executable is executed when entered on the shell prompt.",
+    "version": [ 2,23,0 ],
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/which/which-2.23.tar.gz",
     "depends": [ "cross-gcc" ],
     "patches": [

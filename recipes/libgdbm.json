@@ -1,6 +1,7 @@
 {
     "name": "libgdbm",
     "description": "GNU dbm.",
+    "version": [ 1,25,0 ],
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/gdbm/gdbm-1.25.tar.gz",
     "depends": [ "cross-gcc" ],
     "patches": [

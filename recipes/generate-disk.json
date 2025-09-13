@@ -1,6 +1,7 @@
-r{
+{
     "name": "generate-disk",
     "description": "Generates an OBOS hard disk.",
+    "version": [0],,
     "depends": [ "oboskrnl" ],
     "patches": [
         {

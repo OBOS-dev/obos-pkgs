@@ -1,6 +1,7 @@
 {
     "name": "cmake-toolchain",
     "description": "Generates a CMake toolchain file for cross-compilation",
+    "version": [0],
     "depends": [],
     "patches": [],
     "bootstrap-commands": [],

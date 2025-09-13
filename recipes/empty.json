@@ -1,6 +1,7 @@
 {
     "name": "empty",
     "description": "Template recipe",
+    "version": [ 0,0,0 ],
     "depends": [],
     "patches": [],
     "bootstrap-commands": [],

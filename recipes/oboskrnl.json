@@ -1,6 +1,7 @@
 {
     "name": "oboskrnl",
     "description": "OBOS kernel and drivers",
+    "version": [0],,
     "git-url": "https://github.com/OBOS-dev/obos",
     "git-commit": "master",
     "depends": [ "cross-gcc", "bootstrap-binutils" ],

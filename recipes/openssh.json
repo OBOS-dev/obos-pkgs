@@ -1,6 +1,7 @@
 {
     "name": "openssh",
     "description": "OpenSSH",
+    "version": [ 9,7,1 ],
     "url": "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.7p1.tar.gz",
     "depends": [ "cross-gcc", "openssl", "zlib" ],
     "patches": [

@@ -1,6 +1,7 @@
 {
     "name": "libgmp",
     "description": "GNU MP Bignum Library",
+    "version": [ 6,3,0 ],
     "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.lz",
     "depends": [ "cross-gcc" ],
     "patches": [

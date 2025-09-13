@@ -1,6 +1,8 @@
 {
     "name": "libsdl3-mixer",
     "description": "SDL3 mixer",
+    "comment1": "TODO: get on a stable commit for SDL3",
+    "version": [0],,
     "depends": [ "cross-gcc", "libsdl3", "cmake-toolchain" ],
     "git-url": "https://github.com/libsdl-org/SDL_mixer",
     "git-commit": "main",

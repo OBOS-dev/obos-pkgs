@@ -1,6 +1,7 @@
 {
     "name": "mlibc-headers",
     "description": "mlibc header files",
+    "version": [0],,
     "git-url": "https://github.com/OBOS-dev/mlibc",
     "git-commit": "master",
     "depends": [ "linux-kernel-headers" ],

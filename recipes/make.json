@@ -1,6 +1,7 @@
 {
     "name": "make",
     "description": "GNU make",
+    "version": [ 4,4,1 ],
     "depends": [ "cross-gcc" ],
     "url": "https://mirror.csclub.uwaterloo.ca/gnu/make/make-4.4.1.tar.lz",
     "patches": [
@@ -16,7 +17,7 @@
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install", "prefix=${prefix}" ]
+        [ "make", "install", "prefix=${prefix}" ],
         [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
     ]
 }

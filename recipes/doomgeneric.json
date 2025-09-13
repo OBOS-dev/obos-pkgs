@@ -1,5 +1,6 @@
 {
     "name": "doomgeneric",
+    "version": [0],
     "description": "DOOM Video Game",
     "git-url": "https://github.com/OBOS-dev/doomgeneric",
     "git-commit": "master",
