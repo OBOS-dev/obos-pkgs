@@ -1,7 +1,7 @@
 {
     "name": "obos-strap",
     "description": "Yet another build tool for operating systems",
-    "version": [0],,
+    "version": [],
     "depends": [ "cross-gcc", "libcjson", "cmake-toolchain" ],
     "patches": [],
     "git-url": "https://github.com/OBOS-dev/obos-strap",

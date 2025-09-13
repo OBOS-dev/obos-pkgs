@@ -1,7 +1,7 @@
 {
     "name": "libsdl3-sound",
     "description": "An abstract soundfile decoder",
-    "version": [0],,
+    "version": [],
     "depends": [ "cross-gcc", "libsdl3", "cmake-toolchain" ],
     "git-url": "https://github.com/icculus/SDL_sound",
     "git-commit": "main",
