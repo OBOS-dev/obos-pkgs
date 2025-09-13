@@ -1,0 +1,24 @@
+{
+    "name": "minimal-no-iso",
+    "description": "Minimal distribution packages (does not generate an iso).",
+    "version": [],
+    "depends": [
+        "cross-gcc",
+        "bash",
+        "coreutils",
+        "diffutils",
+        "grep",
+        "oboskrnl",
+        "ncurses",
+        "which",
+        "file",
+        "less",
+        "nano",
+        "tar",
+        "gzip"
+    ],
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [],
+    "install-commands": []
+}
