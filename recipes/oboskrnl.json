@@ -9,8 +9,7 @@
        [
             "${root_directory}/scripts/obos-configure.sh",
             "${target_triplet}", "${repo_directory}/obos/"
-       ],
-       [ "chmod", "+x", "${repo_directory}/obos/dependencies/hyper/hyper_install-linux-x86_64" ]
+       ]
     ],
     "build-commands": [
         [ "mkdir", "-p", "tar" ],
