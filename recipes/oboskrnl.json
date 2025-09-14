@@ -3,7 +3,7 @@
     "description": "OBOS kernel and drivers",
     "version": [],
     "git-url": "https://github.com/OBOS-dev/obos",
-    "git-commit": "m68k-fixes",
+    "git-commit": "master",
     "depends": [ "cross-gcc", "bootstrap-binutils" ],
     "patches": [],
     "bootstrap-commands": [
