@@ -6,7 +6,7 @@
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [
-        [ "${repo_directory}/scripts/generate-cmake-toolchain.sh", "${target_triplet}", "${bootstrap_directory}" ]
+        [ "${repo_directory}/../scripts/generate-cmake-toolchain.sh", "${target_triplet}", "${bootstrap_directory}" ]
     ],
     "install-commands": []
 }
