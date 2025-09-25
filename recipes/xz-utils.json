@@ -1,0 +1,19 @@
+{
+    "name": "xz-utils",
+    "description": "XZ Utils",
+    "version": [ 5,8,1 ],
+    "git-url": "https://git.tukaani.org/xz.git",
+    "git-commit": "v5.8.1",
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cmake", "-B", ".", "--toolchain=${bootstrap_directory}/toolchain.cmake", "-DCMAKE_INSTALL_PREFIX=/usr", "-GNinja", "-S", "${repo_directory}/xz/" ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "install-commands": [
+        [ "cmake", "--install", ".", "--prefix=${prefix}" ],
+        [ "cmake", "--install", ".", "--prefix=${bin_package_prefix}/usr" ]
+    ]
+}
