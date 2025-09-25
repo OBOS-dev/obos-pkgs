@@ -1,0 +1,18 @@
+{
+    "name": "bzip2",
+    "description": "bzip2",
+    "version": [ 1,0,8 ],
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "url": "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
+    "bootstrap-commands": [
+        [ "cp", "-r", "${repo_directory}/${name}-${version}/*", "." ]
+    ],
+    "build-commands": [
+        [ "make", "-j4", "CC=${target_triplet}-gcc", "bzip2" ]
+    ],
+    "install-commands": [
+        [ "make", "-j4", "CC=${target_triplet}-gcc", "install", "PREFIX=${prefix}" ],
+        [ "make", "-j4", "CC=${target_triplet}-gcc", "install", "PREFIX=${bin_package_prefix}/usr" ]
+    ]
+}
