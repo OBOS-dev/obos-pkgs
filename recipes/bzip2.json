@@ -6,13 +6,15 @@
     "patches": [],
     "url": "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
     "bootstrap-commands": [
-        [ "cp", "-r", "${repo_directory}/${name}-${version}/*", "." ]
+        [ "cp", "-rpf", "${repo_directory}/${name}-${version}/*", "." ]
     ],
     "build-commands": [
-        [ "make", "-j4", "CC=${target_triplet}-gcc", "bzip2" ]
+        [ "make", "-f", "Makefile-libbz2_so", "CC=${target_triplet}-gcc" ],
+        [ "make", "clean" ],
+        [ "make", "-j${nproc}", "CC=${target_triplet}-gcc", "libbz2.a", "bzip2", "bzip2recover" ]
     ],
     "install-commands": [
-        [ "make", "-j4", "CC=${target_triplet}-gcc", "install", "PREFIX=${prefix}" ],
-        [ "make", "-j4", "CC=${target_triplet}-gcc", "install", "PREFIX=${bin_package_prefix}/usr" ]
+        [ "${root_directory}/scripts/install-bzip2.sh", "${prefix}", "" ],
+        [ "${root_directory}/scripts/install-bzip2.sh", "${bin_package_prefix}", "/usr" ]
     ]
 }
