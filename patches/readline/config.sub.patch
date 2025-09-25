@@ -1,0 +1,10 @@
+--- a/support/config.sub	2025-09-24 20:03:34.657426677 -0400
++++ b/support/config.sub	2025-09-24 20:03:52.517650343 -0400
+@@ -2067,6 +2067,7 @@
+ 	| nx6 \
+ 	| nx7 \
+ 	| oabi* \
++    | obos* \
+ 	| ohos* \
+ 	| onefs* \
+ 	| openbsd* \

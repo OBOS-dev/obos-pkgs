@@ -1,0 +1,25 @@
+{
+    "name": "libreadline",
+    "description": "Readline",
+    "version": [ 8,3,0 ],
+    "url": "ftp://ftp.cwru.edu/pub/bash/readline-8.3.tar.gz",
+    "depends": [ "cross-gcc", "ncurses" ],
+    "patches": [
+        {
+            "patch": "patches/readline/config.sub.patch",
+            "modifies": "readline-8.3/support/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/readline-8.3/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--enable-multibyte", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make", "SHLIB_LIBS=-lncursesw" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "SHLIB_LIBS=-lncursesw" ],
+        [ "make", "prefix=${bin_package_prefix}/usr", "SHLIB_LIBS=-lncursesw", "install" ],
+        [ "ln", "-s", "${prefix}/lib/libreadline.so.8", "${prefix}/lib/libreadline.so" ],
+        [ "ln", "${bin_package_prefix}/usr/lib/libreadline.so.8", "${bin_package_prefix}/usr/lib/libreadline.so" ]
+    ]
+}
