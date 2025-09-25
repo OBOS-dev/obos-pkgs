@@ -17,7 +17,7 @@
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install", "prefix=${prefix}" ],
-        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }
