@@ -1,0 +1,18 @@
+{
+    "name": "lua",
+    "description": "Lua Programming Language",
+    "version": [ 5,4,8 ],
+    "url": "https://www.lua.org/ftp/lua-5.4.8.tar.gz",
+    "depends": [ "cross-gcc", "libreadline" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "-r", "${repo_directory}/lua-${version}/*", "." ]
+    ],
+    "build-commands": [
+        [ "make", "linux-readline", "CC=${target_triplet}-gcc" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "CC=${target_triplet}-gcc", "INSTALL_TOP=${prefix}" ],
+        [ "make", "install", "CC=${target_triplet}-gcc", "INSTALL_TOP=${bin_package_prefix}/usr" ]
+    ]
+}
