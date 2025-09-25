@@ -1,0 +1,23 @@
+{
+    "name": "libffi",
+    "description": "A portable foreign-function interface library. ",
+    "version": [ 3,5,2 ],
+    "depends": [ "cross-gcc" ],
+    "url": "https://github.com/libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz",
+    "patches": [
+        {
+            "patch": "patches/libffi/config.sub.patch",
+            "modifies": "libffi-3.5.2/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/libffi-3.5.2/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
