@@ -19,7 +19,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make", "all" ]
