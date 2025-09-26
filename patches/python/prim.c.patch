@@ -1,0 +1,12 @@
+--- a/Objects/mimalloc/prim/unix/prim.c
++++ b/Objects/mimalloc/prim/unix/prim.c
+@@ -51,7 +51,7 @@ terms of the MIT license. A copy of the license can be found in the file
+   #include <sys/sysctl.h>
+ #endif
+ 
+-#if !defined(__HAIKU__) && !defined(__APPLE__) && !defined(__CYGWIN__) && !defined(_AIX) && !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__sun) && !defined(__NetBSD__)
++#if !defined(__HAIKU__) && !defined(__APPLE__) && !defined(__CYGWIN__) && !defined(_AIX) && !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__sun) && !defined(__NetBSD__) && !defined(__obos__)
+   #define MI_HAS_SYSCALL_H
+   #include <sys/syscall.h>
+ #endif
+ 

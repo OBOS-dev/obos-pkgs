@@ -1,0 +1,31 @@
+{
+    "name": "python",
+    "description": "The Python Programming Language",
+    "version": [ 3,13,7 ],
+    "depends": [ "cross-gcc", "libgdbm", "xz-utils", "bzip2", "gzip", "libffi", "zlib", "libreadline" ],
+    "url": "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tar.xz",
+    "patches": [
+        {
+            "patch": "patches/python/config.sub.patch",
+            "modifies": "Python-3.13.7/config.sub"
+        },
+        {
+            "patch": "patches/python/prim.c.patch",
+            "modifies": "Python-3.13.7/Objects/mimalloc/prim/unix/prim.c"
+        },
+        {
+            "patch": "patches/python/configure.patch",
+            "modifies": "Python-3.13.7/configure"
+        }
+    ],
+    "bootstrap-commands": [
+        ["${repo_directory}/Python-3.13.7/configure", "--host=x86_64-obos", "--prefix=/usr", "--build=x86_64", "--with-build-python", "--disable-ipv6", "ac_cv_file__dev_ptmx=no", "ac_cv_file__dev_ptc=no", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
