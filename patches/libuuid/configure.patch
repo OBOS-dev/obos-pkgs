@@ -1,0 +1,105 @@
+--- ../python-port/libuuid-1.0.3/configure	2014-08-12 04:19:19.000000000 -0400
++++ repos/libuuid-1.0.3/configure	2025-09-25 21:02:26.205159119 -0400
+@@ -5217,6 +5217,11 @@
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+ 
++obos*)
++  lt_cv_deplibs_check_method=pass_all
++  ;;
++
++
+ bsdi[45]*)
+   lt_cv_deplibs_check_method='file_magic ELF [0-9][0-9]*-bit [ML]SB (shared object|dynamic lib)'
+   lt_cv_file_magic_cmd='/usr/bin/file -L'
+@@ -8175,6 +8180,12 @@
+       enable_shared=no
+       ;;
+ 
++    obos*)
++      lt_prog_compiler_wl='-Wl,'
++      lt_prog_compiler_pic='-fPIC'
++      lt_prog_compiler_static='-static'
++      ;;
++
+     *nto* | *qnx*)
+       # QNX uses GNU C++, but need to define -shared option too, otherwise
+       # it will coredump.
+@@ -8212,6 +8223,7 @@
+ 	lt_prog_compiler_static='-bnso -bI:/lib/syscalls.exp'
+       fi
+       ;;
++      
+ 
+     mingw* | cygwin* | pw32* | os2* | cegcc*)
+       # This hack is so that the source file can tell whether it is being
+@@ -8325,6 +8337,13 @@
+       lt_prog_compiler_static='-Bstatic'
+       ;;
+ 
++    obos*)
++      lt_prog_compiler_wl='-Wl,'
++      lt_prog_compiler_pic='-fPIC'
++      lt_prog_compiler_static='-static'
++      ;;
++
++
+     *nto* | *qnx*)
+       # QNX uses GNU C++, but need to define -shared option too, otherwise
+       # it will coredump.
+@@ -8940,6 +8959,11 @@
+       fi
+       ;;
+ 
++  obos*)
++    archive_cmds='$CC -shared $pic_flag $libobjs $deplibs $compiler_flags $wl-soname $wl$soname -o $lib'
++    archive_expsym_cmds='$CC -shared $pic_flag $libobjs $deplibs $compiler_flags $wl-soname $wl$soname $wl-retain-symbols-file $wl$export_symbols -o $lib'
++      ;;
++
+     netbsd*)
+       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
+ 	archive_cmds='$LD -Bshareable $libobjs $deplibs $linker_flags -o $lib'
+@@ -9041,6 +9065,14 @@
+ 	hardcode_direct=unsupported
+       fi
+       ;;
++#  obos*)
++#      lt_prog_compiler_wl='-Wl,'
++#      lt_prog_compiler_pic='-fPIC'
++#      lt_prog_compiler_static='-static'
++#      lt_prog_compiler_can_build_shared=yes
++#      ;;
++
++
+ 
+     aix[4-9]*)
+       if test "$host_cpu" = ia64; then
+@@ -9570,6 +9602,9 @@
+       link_all_deplibs=yes
+       ;;
+ 
++    obos*)
++      ;;
++
+     netbsd*)
+       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
+ 	archive_cmds='$LD -Bshareable -o $lib $libobjs $deplibs $linker_flags'  # a.out
+@@ -10620,6 +10655,18 @@
+   hardcode_into_libs=yes
+   ;;
+ 
++obos*)
++  version_type=linux # correct to gnu/linux during the next big refactor
++  need_lib_prefix=no
++  need_version=no
++  library_names_spec='$libname$release$shared_ext$versuffix $libname$release$shared_ext$major $libname$shared_ext'
++  soname_spec='$libname$release$shared_ext$major'
++  dynamic_linker='mlibc ld.so'
++  shlibpath_var=LD_LIBRARY_PATH
++  shlibpath_overrides_runpath=no
++  hardcode_into_libs=yes
++  ;;
++
+ newsos6)
+   version_type=linux # correct to gnu/linux during the next big refactor
+   library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major $libname${shared_ext}'
