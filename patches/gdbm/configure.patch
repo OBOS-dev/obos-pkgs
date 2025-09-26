@@ -1,0 +1,76 @@
+--- repos/gdbm-1.25/configure	2025-03-22 10:19:37.000000000 -0400
++++ repos/configure	2025-09-25 20:03:15.927901082 -0400
+@@ -6481,7 +6481,7 @@
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+ 
+-*-mlibc)
++*-mlibc | obos*)
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+ 
+@@ -9775,7 +9775,7 @@
+       lt_prog_compiler_static='-Bstatic'
+       ;;
+ 
+-    *-mlibc)
++    *-mlibc | obos*)
+       lt_prog_compiler_wl='-Wl,'
+       lt_prog_compiler_pic='-fPIC'
+       lt_prog_compiler_static='-static'
+@@ -10437,10 +10437,10 @@
+       fi
+       ;;
+ 
+-    *-mlibc)
++    *-mlibc | obos*)
+ 	archive_cmds='$CC -shared $pic_flag $libobjs $deplibs $compiler_flags $wl-soname $wl$soname -o $lib'
+ 	archive_expsym_cmds='$CC -shared $pic_flag $libobjs $deplibs $compiler_flags $wl-soname $wl$soname $wl-retain-symbols-file $wl$export_symbols -o $lib'
+-      ;;
++	  ;;
+ 
+     netbsd* | netbsdelf*-gnu)
+       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
+@@ -11141,7 +11141,7 @@
+       esac
+       ;;
+ 
+-    *-mlibc)
++    *-mlibc | obos*)
+       ;;
+ 
+     netbsd* | netbsdelf*-gnu)
+@@ -12333,7 +12333,7 @@
+   hardcode_into_libs=yes
+   ;;
+ 
+-*-mlibc)
++*-mlibc | obos*)
+   version_type=linux # correct to gnu/linux during the next big refactor
+   need_lib_prefix=no
+   need_version=no
+@@ -12810,7 +12810,7 @@
+       lt_prog_compiler_static='-Bstatic'
+       ;;
+ 
+-    *-mlibc)
++    *-mlibc | obos*)
+       lt_prog_compiler_wl='-Wl,'
+       lt_prog_compiler_pic='-fPIC'
+       lt_prog_compiler_static='-static'
+@@ -13775,13 +13775,14 @@
+   # Report what library types will actually be built
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking if libtool supports shared libraries" >&5
+ printf %s "checking if libtool supports shared libraries... " >&6; }
+-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $can_build_shared" >&5
++{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $can_build_shared" >&5
+ printf "%s\n" "$can_build_shared" >&6; }
+ 
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to build shared libraries" >&5
+ printf %s "checking whether to build shared libraries... " >&6; }
+   test no = "$can_build_shared" && enable_shared=no
+ 
++
+   # On AIX, shared libraries and static libraries use the same namespace, and
+   # are all built from PIC.
+   case $host_os in

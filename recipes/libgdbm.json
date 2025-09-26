@@ -16,16 +16,20 @@
         {
             "patch": "patches/gdbm/gdbmapp.h.patch",
             "modifies": "gdbm-1.25/tools/gdbmapp.h"
+        },
+        {
+            "patch": "patches/gdbm/configure.patch",
+            "modifies": "gdbm-1.25/configure"
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--disable-static", "--enable-shared" ]
+        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "/", "--host=${target_triplet}", "--disable-static", "--enable-libgdbm-compat", "--disable-nls", "--without-readline" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install" ],
-        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+        [ "make", "DESTDIR=${prefix}", "install" ],
+        [ "make", "DESTDIR=${bin_package_prefix}/usr", "install" ]
     ]
 }
