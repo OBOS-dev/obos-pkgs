@@ -8,10 +8,14 @@
         {
             "patch": "patches/libffi/config.sub.patch",
             "modifies": "libffi-3.5.2/config.sub"
+        },
+        {
+            "patch": "patches/libffi/configure.patch",
+            "modifies": "libffi-3.5.2/configure"
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/libffi-3.5.2/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+        [ "${repo_directory}/libffi-3.5.2/configure", "--host=${target_triplet}", "--prefix=/usr", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make", "all" ]
