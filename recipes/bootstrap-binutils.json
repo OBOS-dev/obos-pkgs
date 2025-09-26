@@ -39,5 +39,6 @@
         [ "make", "-j${nproc}", "install" ]
     ],
     "host-package": 1,
-    "host-provides": "${target_triplet}-ld"
+    "host-provides": "${target_triplet}-ld",
+    "inhibit-auto-rebuild": true
 }
