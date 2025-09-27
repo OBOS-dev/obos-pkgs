@@ -10,3 +10,5 @@
 /obos.img
 /distro-files/etc/man_db.conf
 /distro-files/etc/ssh/
+/obos-strap
+/obos-strap-dir

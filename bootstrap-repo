@@ -1,0 +1,7 @@
+#1/usr/bin/bash
+git clone https://github.com/OBOS-dev/obos-strap obos-strap-dir --depth=1 --recurse-submodules
+cd obos-strap-dir
+cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+cp out/obos-strap ../
+cd ..
