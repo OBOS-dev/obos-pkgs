@@ -1,5 +1,14 @@
 #1/usr/bin/bash
-git clone https://github.com/OBOS-dev/obos-strap obos-strap-dir --depth=1 --recurse-submodules
+if [[ -e obos-strap-dir && ! -d obos-strap-dir ]]
+then
+    rm obos-strap-dir
+fi
+if [ ! -e obos-strap-dir ]
+then
+    git clone https://github.com/OBOS-dev/obos-strap obos-strap-dir --depth=1 --recurse-submodules
+else
+    git -C obos-strap-dir pull
+fi  
 cd obos-strap-dir
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
 cmake --build build
