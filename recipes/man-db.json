@@ -3,7 +3,7 @@
     "description": "Manual Pager",
     "version": [ 2,13,1 ],
     "url": "https://gitlab.com/man-db/man-db/-/archive/2.13.1/man-db-2.13.1.tar.bz2",
-    "depends": [ "cross-gcc", "libpipeline", "groff" ],
+    "depends": [ "cross-gcc", "libpipeline", "groff", "gnulib-src" ],
     "patches": [
         {
             "modifies": "man-db-2.13.1/bootstrap",
@@ -12,17 +12,18 @@
     ],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/man-db-2.13.1/" ],
-        [ "./bootstrap" ],
+        [ "./bootstrap", "--gnulib-srcdir=${repo_directory}/gnulib", "--no-git", "--bootstrap-sync" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/man-db-2.13.1/build-aux/config.sub" ],
         [ 
             "${repo_directory}/man-db-2.13.1/configure",
             "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig/", 
-            "--prefix", "/usr",
+            "--prefix", "/",
             "--host=${target_triplet}",
             "--disable-manual", "--disable-setuid", "--disable-nls", 
             "--docdir=/usr/share/doc/man-db-2.9.4",
-            "--with-pager=/usr/bin/less" 
+            "--with-pager=/usr/bin/less",
+            "--sysconfdir=/etc"
         ]
     ],
     "build-commands": [
