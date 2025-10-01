@@ -1,0 +1,17 @@
+{
+    "name": "gnulib-src",
+    "description": "gnuLib source code",
+    "version": [ 0,0,0 ],
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "mkdir", "${repo_directory}/gnulib" ],
+        [ "cd", "${repo_directory}/gnulib" ],
+        [ "git", "init" ],
+        [ "git", "remote", "add", "origin", "https://github.com/coreutils/gnulib" ],
+        [ "git", "fetch", "--depth=1", "origin", "0ba13435a9362bec0ff5fd0830907b9fac723e41" ],
+        [ "git", "reset", "--hard", "0ba13435a9362bec0ff5fd0830907b9fac723e41" ]
+    ],
+    "build-commands": [],
+    "install-commands": []
+}
