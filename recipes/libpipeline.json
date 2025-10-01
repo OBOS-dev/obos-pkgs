@@ -3,7 +3,7 @@
     "description": "libpipeline",
     "version": [ 1,5,8 ],
     "url": "https://gitlab.com/libpipeline/libpipeline/-/archive/1.5.8/libpipeline-1.5.8.tar.bz2",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "gnulib-src", "cross-gcc" ],
     "patches": [
         {
             "modifies": "libpipeline-1.5.8/bootstrap",
@@ -12,7 +12,7 @@
     ],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/libpipeline-1.5.8/" ],
-        [ "./bootstrap" ],
+        [ "./bootstrap", "--gnulib-srcdir=${repo_directory}/gnulib", "--no-git", "--bootstrap-sync" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/libpipeline-1.5.8/build-aux/config.sub" ],
         [ "${repo_directory}/libpipeline-1.5.8/configure", "--prefix", "/usr", "--host=${target_triplet}" ]
