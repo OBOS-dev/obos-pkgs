@@ -13,5 +13,6 @@
         [ "make", "headers_install", "ARCH=$${target_triplet%-*}", "INSTALL_HDR_PATH=${prefix}" ],
         [ "make", "headers_install", "ARCH=$${target_triplet%-*}", "INSTALL_HDR_PATH=${bin_package_prefix}/usr" ],
         [ "cd", "${bootstrap_directory}/linux-kernel-headers" ]
-    ]
+    ],
+    "inhibit-auto-rebuild": true
 }
