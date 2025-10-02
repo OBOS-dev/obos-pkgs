@@ -12,5 +12,12 @@ fi
 cd obos-strap-dir
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
 cmake --build build
-cp out/obos-strap ../
+if test -f out/obos-strap 
+then
+    cp out/obos-strap ../
+elif test -f out/obos-strap.exe
+then
+    cp out/obos-strap.exe ../
+fi
+
 cd ..
