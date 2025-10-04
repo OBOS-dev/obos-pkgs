@@ -10,7 +10,7 @@ else
     git -C obos-strap-dir pull
 fi  
 cd obos-strap-dir
-cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
+cmake -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo
 cmake --build build
 if test -f out/obos-strap 
 then
