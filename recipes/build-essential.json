@@ -1,0 +1,10 @@
+{
+    "name": "build-essential",
+    "description": "Build essentials",
+    "version": [ 0,0,0 ],
+    "depends": [ "binutils", "make", "gcc", "mlibc-headers", "linux-kernel-headers" ],
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [],
+    "install-commands": []
+}
