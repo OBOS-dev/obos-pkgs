@@ -30,5 +30,6 @@
         [ "make", "-j${nproc}", "install-target-libstdc++-v3" ]
     ],
     "host-package": 1,
-    "host-provides": "${target_triplet}-gcc"
+    "host-provides": "${target_triplet}-gcc",
+    "inhibit-auto-rebuild": true
 }
