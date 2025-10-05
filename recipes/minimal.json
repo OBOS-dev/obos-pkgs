@@ -4,6 +4,7 @@
     "version": [],
     "depends": [
         "minimal-no-iso",
+        "oboskrnl",
         "generate-iso"
     ],
     "patches": [],

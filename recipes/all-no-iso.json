@@ -9,7 +9,6 @@
         "diffutils",
         "grep",
         "hello",
-        "oboskrnl",
         "doomgeneric",
         "ncurses",
         "which",
