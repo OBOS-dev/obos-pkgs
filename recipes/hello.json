@@ -1,8 +1,8 @@
 {
     "name": "hello",
     "description": "Print a friendly, customizable greeting.",
-    "version": [ 2,12,2 ],
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/hello/hello-2.12.2.tar.gz",
+    "version": [ 2,12,1 ],
+    "url": "https://mirror.csclub.uwaterloo.ca/gnu/hello/hello-2.12.1.tar.gz",
     "depends": [ "cross-gcc" ],
     "patches": [
         {
