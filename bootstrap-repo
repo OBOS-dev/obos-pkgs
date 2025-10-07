@@ -21,3 +21,13 @@ then
 fi
 
 cd ..
+
+if [[ ! -f ./settings.json ]] then
+    arch=$1
+    if (( $# == 0 ))
+    then
+        arch=x86_64
+    fi
+    echo Setting up settings.json for $arch
+    cp settings-$arch.json settings.json
+fi 
