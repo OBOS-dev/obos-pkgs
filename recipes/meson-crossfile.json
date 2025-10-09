@@ -1,0 +1,12 @@
+{
+    "name": "meson-crossfile",
+    "description": "Generates a Meson crossfile for cross-compilation",
+    "version": [],
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [
+    	[ "${root_directory}/scripts/generate-meson-cross-file.sh", "${target_triplet}", "", "../meson-crossfile.txt" ]
+    ],
+    "install-commands": []
+}

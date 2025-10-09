@@ -8,14 +8,14 @@
     "patches": [],
     "bootstrap-commands": [
         [ "chmod", "+x", "${root_directory}/scripts/generate-mlibc-cross-file.sh" ],
-    	[ "${root_directory}/scripts/generate-mlibc-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/" ],
+    	[ "${root_directory}/scripts/generate-meson-cross-file.sh", "${target_triplet}", "${host_prefix}/bootstrap-gcc/bin/", "../mlibc-cross-file.txt" ],
         [ "${root_directory}/scripts/resolve-symlinks.sh", "${repo_directory}/mlibc" ],
         [ "rmdir", "${bin_package_prefix}" ],
 	    [
             "meson",
             "setup",
             ".", "${repo_directory}/mlibc/",
-            "--cross-file", "../cross-file.txt",
+            "--cross-file", "../mlibc-cross-file.txt",
             "--prefix", "${prefix}",
             "--buildtype", "debugoptimized",
 	        "-Duse_freestnd_hdrs=enabled",

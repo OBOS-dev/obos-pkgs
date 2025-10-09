@@ -1,6 +1,7 @@
 #/bin/bash
 target_triplet=$1
 compiler_prefix=$2
+filename=$3
 
 echo "[binaries]
 c = '$compiler_prefix$target_triplet-gcc'
@@ -12,14 +13,14 @@ strip = '$target_triplet-strip'
 [host_machine]
 system = '${target_triplet##*-}'
 cpu_family = '${target_triplet%-*}'
-cpu = '${target_triplet%-*}'" > ../cross-file.txt
+cpu = '${target_triplet%-*}'" > $filename
 
 target_architecture=${target_triplet%%-*}
 
 if [ $target_architecture = 'x86_64' ]
 then
-echo "endian = 'little'" >> ../cross-file.txt
+echo "endian = 'little'" >> $filename
 elif [ $target_architecture = 'm68k' ]
 then
-echo "endian = 'big'" >> ../cross-file.txt
+echo "endian = 'big'" >> $filename
 fi
