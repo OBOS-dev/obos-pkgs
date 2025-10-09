@@ -1,0 +1,19 @@
+{
+    "name": "libexpat",
+    "description": "Fast streaming XML parser written in C99",
+    "version": [ 2,7,3 ],
+    "url": "https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.lz",
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/expat-${version}/conftools/config.sub" ],
+        [ "${repo_directory}/expat-${version}/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
