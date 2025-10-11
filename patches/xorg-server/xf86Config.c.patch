@@ -1,0 +1,11 @@
+--- a/hw/xfree86/common/xf86Config.c
++++ b/hw/xfree86/common/xf86Config.c
+@@ -49,6 +49,8 @@
+ #include <sys/types.h>
+ #include <grp.h>
+ 
++#include <sys/stat.h>
++
+ #include "xf86.h"
+ #include "xf86Modes.h"
+ #include "xf86Parser.h"

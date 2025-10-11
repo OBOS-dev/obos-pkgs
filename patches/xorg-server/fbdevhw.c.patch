@@ -1,0 +1,88 @@
+--- a/hw/xfree86/fbdevhw/fbdevhw.c
++++ b/hw/xfree86/fbdevhw/fbdevhw.c
+@@ -9,13 +9,10 @@
+ #include "xf86Modes.h"
+ #include "xf86_OSproc.h"
+ 
+-/* pci stuff */
+-#include "xf86Pci.h"
+-
+ #include "xf86cmap.h"
+ 
+ #include "fbdevhw.h"
+-#include "fbpriv.h"
++#include <linux/fb.h>
+ #include "globals.h"
+ #include <X11/extensions/dpmsconst.h>
+ 
+@@ -259,6 +256,7 @@ fbdev2xfree_timing(struct fb_var_screeninfo *var, DisplayModePtr mode)
+ /**
+  * Try to find the framebuffer device for a given PCI device
+  */
++#if 0
+ static int
+ fbdev_open_pci(struct pci_device *pPci, char **namep)
+ {
+@@ -303,6 +301,7 @@ fbdev_open_pci(struct pci_device *pPci, char **namep)
+     xf86DrvMsg(-1, X_ERROR, "Unable to find a valid framebuffer device\n");
+     return -1;
+ }
++#endif
+ 
+ static int
+ fbdev_open(int scrnIndex, const char *dev, char **namep)
+@@ -329,6 +328,7 @@ fbdev_open(int scrnIndex, const char *dev, char **namep)
+         return -1;
+     }
+ 
++#if 0
+     /* only touch non-PCI devices on this path */
+     {
+         char buf[PATH_MAX] = {0};
+@@ -344,6 +344,7 @@ fbdev_open(int scrnIndex, const char *dev, char **namep)
+         }
+         free(sysfs_path);
+     }
++#endif
+ 
+     if (namep) {
+         if (-1 == ioctl(fd, FBIOGET_FSCREENINFO, (void *) (&fix))) {
+@@ -363,14 +364,10 @@ fbdev_open(int scrnIndex, const char *dev, char **namep)
+ /* -------------------------------------------------------------------- */
+ 
+ Bool
+-fbdevHWProbe(struct pci_device *pPci, char *device, char **namep)
++fbdevHWProbe(void *pPci, char *device, char **namep)
+ {
+-    int fd;
+ 
+-    if (pPci)
+-        fd = fbdev_open_pci(pPci, namep);
+-    else
+-        fd = fbdev_open(-1, device, namep);
++    int fd = fbdev_open(-1, device, namep);
+ 
+     if (-1 == fd)
+         return FALSE;
+@@ -379,18 +376,15 @@ fbdevHWProbe(struct pci_device *pPci, char *device, char **namep)
+ }
+ 
+ Bool
+-fbdevHWInit(ScrnInfoPtr pScrn, struct pci_device *pPci, char *device)
++fbdevHWInit(ScrnInfoPtr pScrn, void *pPci, char *device)
+ {
+     fbdevHWPtr fPtr;
+ 
+     fbdevHWGetRec(pScrn);
+     fPtr = FBDEVHWPTR(pScrn);
+ 
+-    /* open device */
+-    if (pPci)
+-        fPtr->fd = fbdev_open_pci(pPci, NULL);
+-    else
+-        fPtr->fd = fbdev_open(pScrn->scrnIndex, device, NULL);
++    fPtr->fd = fbdev_open(pScrn->scrnIndex, device, NULL);
++
+     if (-1 == fPtr->fd) {
+         xf86DrvMsg(pScrn->scrnIndex, X_ERROR,
+                    "Failed to open framebuffer device, consult warnings"

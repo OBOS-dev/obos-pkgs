@@ -1,0 +1,20 @@
+{
+    "name": "xcb-proto",
+    "description": "only god knows the description...",
+    "version": [ 1,7,1 ],
+    "url": "https://www.x.org/releases/X11R7.7/src/everything/xcb-proto-1.7.1.tar.bz2",
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "export", "PYTHON=python3" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

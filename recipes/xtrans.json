@@ -1,0 +1,19 @@
+{
+    "name": "xtrans",
+    "description": "only god knows the description...",
+    "version": [ 1,4,0 ],
+    "url": "https://www.x.org/archive/individual/lib/xtrans-1.4.0.tar.bz2",
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "-f", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

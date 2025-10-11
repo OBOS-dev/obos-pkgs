@@ -1,0 +1,19 @@
+{
+    "name": "freetype",
+    "description": "",
+    "version": [ 2,12,1 ],
+    "url": "https://downloads.sourceforge.net/freetype/freetype-2.12.1.tar.xz",
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/builds/unix/config.sub" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--enable-shared", "--disable-static", "--with-harfbuzz=no", "--with-librsvg=no", "--with-brotli=no" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

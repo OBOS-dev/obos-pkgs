@@ -1,0 +1,11 @@
+--- a/include/X11/Xos.h
++++ b/include/X11/Xos.h
+@@ -60,7 +60,7 @@
+  */
+ 
+ # include <string.h>
+-# if defined(__SCO__) || defined(__UNIXWARE__) || defined(__sun) || defined(__CYGWIN__) || defined(_AIX) || defined(__APPLE__) || defined(__FreeBSD__)
++# if defined(__SCO__) || defined(__UNIXWARE__) || defined(__sun) || defined(__CYGWIN__) || defined(_AIX) || defined(__APPLE__) || defined(__FreeBSD__) || defined(__obos__)
+ #  include <strings.h>
+ # else
+ #  ifndef index

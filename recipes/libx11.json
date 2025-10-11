@@ -1,0 +1,19 @@
+{
+    "name": "libx11",
+    "description": "",
+    "version": [ 1,5,0 ],
+    "url": "https://www.x.org/releases/X11R7.7/src/everything/libX11-1.5.0.tar.bz2",
+    "depends": [ "cross-gcc", "xorgproto", "xtrans", "libxcb" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "-f", "${root_directory}/scripts/config.sub", "${repo_directory}/libX11-${version}/config.sub" ],
+        [ "${repo_directory}/libX11-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

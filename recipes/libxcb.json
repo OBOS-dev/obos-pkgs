@@ -1,0 +1,19 @@
+{
+    "name": "libxcb",
+    "description": "",
+    "version": [ 1,8,1 ],
+    "url": "https://www.x.org/releases/X11R7.7/src/everything/libxcb-1.8.1.tar.bz2",
+    "depends": [ "cross-gcc", "xorgproto", "libXdmcp", "libXau", "xcb-proto", "libpthread-stubs" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--with-sysroot=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

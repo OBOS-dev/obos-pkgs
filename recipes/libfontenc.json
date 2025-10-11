@@ -1,0 +1,19 @@
+{
+    "name": "libfontenc",
+    "description": "",
+    "version": [ 1,1,1 ],
+    "url": "https://www.x.org/releases/X11R7.7/src/everything/libfontenc-1.1.1.tar.bz2",
+    "depends": [ "cross-gcc", "xorgproto", "zlib" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

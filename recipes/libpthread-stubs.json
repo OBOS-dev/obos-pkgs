@@ -1,0 +1,19 @@
+{
+    "name": "libpthread-stubs",
+    "description": "",
+    "version": [ 0,0,3 ],
+    "url": "https://www.x.org/releases/X11R7.7/src/everything/libpthread-stubs-0.3.tar.bz2",
+    "depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-0.3/config.sub" ],
+        [ "${repo_directory}/${name}-0.3/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}

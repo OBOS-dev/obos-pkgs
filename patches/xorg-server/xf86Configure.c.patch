@@ -1,0 +1,11 @@
+--- a/hw/xfree86/common/xf86Configure.c
++++ b/hw/xfree86/common/xf86Configure.c
+@@ -42,6 +42,8 @@
+ #include "misc.h"
+ #include "loaderProcs.h"
+ 
++#include <errno.h>
++
+ typedef struct _DevToConfig {
+     GDevRec GDev;
+     struct pci_device *pVideo;

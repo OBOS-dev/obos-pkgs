@@ -1,0 +1,57 @@
+{
+    "name": "xorg-server",
+    "description": "Xorg Server",
+    "version": [ 21,1,4 ],
+    "url": "https://www.x.org/pub/individual/xserver/xorg-server-21.1.4.tar.xz",
+    "depends": [ "cross-gcc", "libpng", "openssl", "libexpat", "xkbfile", "xorgproto", "libXfont2", "libxcvt", "pixman" ],
+    "patches": [
+        {
+            "modifies": "xorg-server-21.1.4/hw/xfree86/fbdevhw/fbdevhw.h",
+            "patch": "patches/xorg-server/fbdevhw.h.patch"
+        },
+        {
+            "modifies": "xorg-server-21.1.4/hw/xfree86/fbdevhw/fbdevhw.c",
+            "patch": "patches/xorg-server/fbdevhw.c.patch"
+        },
+        {
+            "patch": "patches/xorg-server/xf86Config.c.patch",
+            "modifies": "xorg-server-21.1.4/hw/xfree86/common/xf86Config.c"
+        },
+        {
+            "patch": "patches/xorg-server/xf86Configure.c.patch",
+            "modifies": "xorg-server-21.1.4/hw/xfree86/common/xf86Configure.c"
+        },
+        {
+            "patch": "patches/xorg-server/xf86Events.c.patch",
+            "modifies": "xorg-server-21.1.4/hw/xfree86/common/xf86Events.c"
+        },
+        {
+            "patch": "patches/xorg-server/xf86Helper.c.patch",
+            "modifies": "xorg-server-21.1.4/hw/xfree86/common/xf86Helper.c"
+        },
+        {
+            "patch": "patches/xorg-server/xf86Init.c.patch",
+            "modifies": "xorg-server-21.1.4/hw/xfree86/common/xf86Init.c"
+        },
+        {
+            "patch": "patches/xorg-server/access.c.patch",
+            "modifies": "xorg-server-21.1.4/os/access.c"
+        },
+        {
+            "patch": "patches/xorg-server/xf86_OSlib.h.patch",
+            "modifies": "xorg-server-21.1.4/hw/xfree86/os-support/xf86_OSlib.h"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "export", "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig" ],
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "${root_directory}/scripts/configure-xorg.sh", "/usr", "${repo_directory}", "${target_triplet}", "${name}", "${version}" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

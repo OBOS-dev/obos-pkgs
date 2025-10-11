@@ -1,0 +1,19 @@
+{
+    "name": "libXau",
+    "description": "",
+    "version": [ 1,0,7 ],
+    "url": "https://www.x.org/releases/X11R7.7/src/everything/libXau-1.0.7.tar.bz2",
+    "depends": [ "cross-gcc", "xorgproto" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+    ]
+}
