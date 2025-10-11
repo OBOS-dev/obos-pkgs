@@ -19,6 +19,8 @@
          [ "rm", "-rf", "${bootstrap_directory}/oboskrnl/tar/usr" ],
          [ "cp", "-Lr", "${prefix}/usr/", "${bootstrap_directory}/oboskrnl/tar/" ],
          [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/lib" ],
+         [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/tmp" ],
+         [ "mkdir", "-p", "${bootstrap_directory}/oboskrnl/tar/usr/var/log" ],
          [ "cp", "${prefix}/lib/ld64.so.1", "${bootstrap_directory}/oboskrnl/tar/lib/" ],
          [ "cp", "-r", "${prefix}/../distro-files/*", "${bootstrap_directory}/oboskrnl/tar" ],
          [
