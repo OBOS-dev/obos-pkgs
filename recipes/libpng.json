@@ -4,16 +4,21 @@
     "version": [ 1,6,50 ],
     "url": "https://cytranet-dal.dl.sourceforge.net/project/libpng/libpng16/1.6.50/libpng-1.6.50.tar.xz",
     "depends": [ "cross-gcc", "zlib>=1.2.13" ],
-    "patches": [],
+    "patches": [
+        {
+            "patch": "patches/libpng/configure.patch",
+            "modifies": "libpng-1.6.50/configure"
+        }
+    ],
     "bootstrap-commands": [
         [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
-        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
     ]
 }
