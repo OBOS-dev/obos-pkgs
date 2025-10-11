@@ -7,13 +7,13 @@
     "patches": [],
     "bootstrap-commands": [
         [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/expat-${version}/conftools/config.sub" ],
-        [ "${repo_directory}/expat-${version}/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+        [ "${repo_directory}/expat-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
     ],
     "build-commands": [
         [ "make" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+        [ "make", "install" ],
+        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
     ]
 }
