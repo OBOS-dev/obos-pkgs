@@ -6,7 +6,7 @@
     "depends": [ "cross-gcc", "xorgproto", "libfontenc", "zlib", "xtrans", "freetype" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
         [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-malloc0returnsnull", "--disable-static" ]
     ],
     "build-commands": [

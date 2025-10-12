@@ -6,7 +6,7 @@
     "depends": [ "cross-gcc", "xorgproto", "libx11" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/lib${name}-${version}/config.sub" ],
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/lib${name}-${version}" ],
         [ "${repo_directory}/lib${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
     ],
     "build-commands": [

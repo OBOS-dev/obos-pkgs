@@ -1,0 +1,18 @@
+{
+    "name": "cross-bison",
+    "description": "Cross bison",
+    "version": [ 3,8,2 ],
+    "url": "https://ftpmirror.gnu.org/gnu/bison/bison-3.8.2.tar.lz",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${repo_directory}/bison-${version}/configure", "--prefix", "${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ],
+    "host-package": true
+}

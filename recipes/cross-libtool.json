@@ -1,0 +1,27 @@
+{
+    "name": "cross-libtool",
+    "description": "Cross libtool",
+    "version": [ 2,5,4 ],
+    "url": "https://ftpmirror.gnu.org/gnu/libtool/libtool-2.5.4.tar.xz",
+    "depends": [ "cross-automake" ],
+    "patches": [
+        {
+            "patch": "patches/libtool/libtool.m4.patch",
+            "modifies": "libtool-2.5.4/m4/libtool.m4"
+        },
+        {
+            "patch": "patches/libtool/libtoolize.in.patch",
+            "modifies": "libtool-2.5.4/libtoolize.in"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/libtool-${version}/configure", "--prefix", "${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ],
+    "host-package": true
+}

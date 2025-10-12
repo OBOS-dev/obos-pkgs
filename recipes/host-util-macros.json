@@ -1,0 +1,18 @@
+{
+    "name": "host-util-macros",
+    "description": "Host Xorg Macros",
+    "version": [ 1,20,0 ],
+    "url": "https://www.x.org/pub/individual/util/util-macros-1.20.0.tar.xz",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${repo_directory}/util-macros-${version}/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ],
+    "host-package": true
+}

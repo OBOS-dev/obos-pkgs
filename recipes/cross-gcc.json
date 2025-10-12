@@ -1,7 +1,7 @@
 {
     "name": "cross-gcc",
     "description": "Cross-compiler used to compile packages.",
-    "depends": [ "mlibc" ],
+    "depends": [ "mlibc", "cross-libtool" ],
     "version": [ 14,2,0 ],
     "patches": [],
     "bootstrap-commands": [

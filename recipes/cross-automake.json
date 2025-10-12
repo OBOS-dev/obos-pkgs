@@ -1,0 +1,27 @@
+{
+    "name": "cross-automake",
+    "description": "Cross automake (with OBOS support)",
+    "version": [ 1,17,0 ],
+    "url": "https://ftpmirror.gnu.org/gnu/automake/automake-1.17.tar.gz",
+    "depends": [ "cross-autoconf" ],
+    "patches": [
+        {
+            "patch": "patches/automake/config.sub.patch",
+            "modifies": "automake-1.17/lib/config.sub"
+        },
+        {
+            "patch": "patches/automake/config.guess.patch",
+            "modifies": "automake-1.17/lib/config.guess"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/automake-1.17/configure", "--prefix", "${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ],
+    "host-package": true
+}

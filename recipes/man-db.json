@@ -17,7 +17,6 @@
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/man-db-2.13.1/build-aux/config.sub" ],
         [ 
             "${repo_directory}/man-db-2.13.1/configure",
-            "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig/", 
             "--prefix", "/",
             "--host=${target_triplet}",
             "--disable-manual", "--disable-setuid", "--disable-nls", 

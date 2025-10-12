@@ -1,0 +1,12 @@
+--- b/lib/config.guess
++++ b/lib/config.guess
+@@ -890,6 +890,9 @@
+     i*86:BSD/386:*:* | i*86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
+ 	GUESS=$UNAME_MACHINE-pc-bsdi$UNAME_RELEASE
+ 	;;
++    *:obos:*:*)
++	GUESS=$UNAME_MACHINE-pc-obos
++	;;
+     sparc*:BSD/OS:*:*)
+ 	GUESS=sparc-unknown-bsdi$UNAME_RELEASE
+ 	;;

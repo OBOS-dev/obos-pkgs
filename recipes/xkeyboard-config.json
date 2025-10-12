@@ -1,7 +1,7 @@
 {
     "name": "xkeyboard-config",
     "description": "Xorg Keyboard Configuration, probably",
-    "version": [ 2.36,0 ],
+    "version": [ 2,36,0 ],
     "url": "http://www.x.org/releases/individual/data/xkeyboard-config/xkeyboard-config-2.36.tar.xz",
     "depends": [ "cross-gcc", "meson-crossfile" ],
     "patches": [],

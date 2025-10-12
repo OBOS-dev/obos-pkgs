@@ -3,7 +3,7 @@
     "description": "Xorg Server",
     "version": [ 21,1,4 ],
     "url": "https://www.x.org/pub/individual/xserver/xorg-server-21.1.4.tar.xz",
-    "depends": [ "cross-gcc", "libpng", "openssl", "libexpat", "xkbfile", "xorgproto", "libXfont2", "libxcvt", "xkeyboard-config", "pixman" ],
+    "depends": [ "cross-gcc", "libpng", "openssl", "libexpat", "xkbfile", "xorgproto", "libXfont2", "libxcvt", "xkeyboard-config", "pixman", "xkbc" ],
     "patches": [
         {
             "modifies": "xorg-server-21.1.4/hw/xfree86/fbdevhw/fbdevhw.h",
@@ -47,12 +47,9 @@
         }
     ],
     "bootstrap-commands": [
-        [ "export", "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig" ],
         [ "cd", "${repo_directory}/${name}-${version}" ],
         [ "autoreconf", "-fi" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
-        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
-        [ "cp", "${root_directory}/patches/${name}/configure.new", "${repo_directory}/${name}-${version}/configure" ],
         [ "${root_directory}/scripts/configure-xorg.sh", "/usr", "${repo_directory}", "${target_triplet}", "${name}", "${version}" ]
     ],
     "build-commands": [

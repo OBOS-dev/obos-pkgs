@@ -1,0 +1,18 @@
+{
+    "name": "cross-flex",
+    "description": "Cross flex",
+    "version": [ 2,6,4 ],
+    "url": "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.lz",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${repo_directory}/flex-${version}/configure", "--prefix", "${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "all" ]
+    ],
+    "install-commands": [
+        [ "make", "install" ]
+    ],
+    "host-package": true
+}

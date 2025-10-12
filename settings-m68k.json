@@ -1,5 +1,17 @@
 {
     "cross-compile": 1,
     "target-triplet": "m68k-obos",
-    "binary-packages-default": 1
+    "binary-packages-default": 1,
+    "environment": [
+        {
+            "env": "AC_LOCAL_PATH",
+            "value": "/usr/share/aclocal/",
+            "replace": false
+        },
+        {
+            "env": "PKG_CONFIG_PATH",
+            "value": "${target_prefix}/lib/pkgconfig:${target_prefix}/share/pkgconfig",
+            "replace": true
+        }
+    ]
 }
