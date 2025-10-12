@@ -3,7 +3,7 @@
     "description": "Xorg Server",
     "version": [ 21,1,4 ],
     "url": "https://www.x.org/pub/individual/xserver/xorg-server-21.1.4.tar.xz",
-    "depends": [ "cross-gcc", "libpng", "openssl", "libexpat", "xkbfile", "xorgproto", "libXfont2", "libxcvt", "xkeyboard-config", "pixman", "xkbc" ],
+    "depends": [ "cross-gcc", "libpng", "openssl", "libexpat", "xkbfile", "xorgproto", "libXfont2", "libxcvt", "xkeyboard-config", "pixman", "xkbcomp" ],
     "patches": [
         {
             "modifies": "xorg-server-21.1.4/hw/xfree86/fbdevhw/fbdevhw.h",
