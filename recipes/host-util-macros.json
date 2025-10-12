@@ -6,7 +6,8 @@
     "depends": [],
     "patches": [],
     "bootstrap-commands": [
-        [ "${repo_directory}/util-macros-${version}/configure", "--prefix", "${prefix}", "--host=${target_triplet}" ]
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/util-macros-${version}" ],
+        [ "${repo_directory}/util-macros-${version}/configure", "--prefix", "${prefix}" ]
     ],
     "build-commands": [
         [ "make", "all" ]
