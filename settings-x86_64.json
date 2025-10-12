@@ -12,6 +12,11 @@
             "env": "PKG_CONFIG_PATH",
             "value": "${target_prefix}/lib/pkgconfig:${target_prefix}/share/pkgconfig",
             "replace": true
+        },
+        {
+            "env": "PKG_CONFIG_SYSROOT_DIR",
+            "value": "${target_prefix}",
+            "replace": true
         }
     ]
 }

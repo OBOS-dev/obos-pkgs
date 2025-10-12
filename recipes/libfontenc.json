@@ -6,14 +6,14 @@
     "depends": [ "cross-gcc", "xorgproto", "zlib" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "cp", "${root_directory}/scripts/config.sub", "${repo_directory}/${name}-${version}/config.sub" ],
-        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr" ]
     ],
     "build-commands": [
         [ "make" ]
     ],
     "install-commands": [
-        [ "make", "install" ],
-        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

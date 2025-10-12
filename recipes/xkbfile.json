@@ -1,13 +1,13 @@
 {
     "name": "xkbfile",
     "description": "xkbfile",
-    "version": [ 1,1,1 ],
-    "url": "https://www.x.org/archive/individual/lib/libxkbfile-1.1.1.tar.gz",
+    "version": [ 1,1,3 ],
+    "url": "https://www.x.org/archive/individual/lib/libxkbfile-1.1.3.tar.gz",
     "depends": [ "cross-gcc", "xorgproto", "libx11" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/lib${name}-${version}" ],
-        [ "${repo_directory}/lib${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+        [ "${repo_directory}/lib${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make" ]
