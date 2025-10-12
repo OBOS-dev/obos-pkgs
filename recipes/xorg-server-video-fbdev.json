@@ -1,0 +1,30 @@
+{
+    "name": "xorg-server-video-fbdev",
+    "description": "Xorg Server",
+    "version": [ 0,5,0 ],
+    "url": "https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2",
+    "depends": [ "cross-gcc", "xorg-server"],
+    "patches": [
+        {
+            "patch": "patches/xorg-server-video-fbdev/fbdev.c.patch",
+            "modifies": "xf86-video-fbdev-0.5.0/src/fbdev.c"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "export", "PKG_CONFIG_PATH=${prefix}/lib/pkgconfig" ],
+        [ "cd", "${repo_directory}/xf86-video-fbdev-${version}" ],
+        [ "autoreconf", "-fi" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "cp", "-f", "${root_directory}/scripts/config.sub", "${repo_directory}/xf86-video-fbdev-${version}/config.sub" ],
+        [ "cp", "-f", "${root_directory}/patches/${name}/configure.new", "${repo_directory}/xf86-video-fbdev-${version}/configure" ],
+        [ "${root_directory}/scripts/configure-xorg.sh", "/usr", "${repo_directory}", "${target_triplet}", "xf86-video-fbdev", "${version}" ],
+        [ "cp", "-f", "${root_directory}/patches/${name}/config.h.new", "${bootstrap_directory}/${name}/config.h" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
