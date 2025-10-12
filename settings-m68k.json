@@ -4,7 +4,7 @@
     "binary-packages-default": 1,
     "environment": [
         {
-            "env": "AC_LOCAL_PATH",
+            "env": "ACLOCAL_PATH",
             "value": "/usr/share/aclocal/",
             "replace": false
         },

@@ -6,15 +6,13 @@
     "depends": [ "cross-gcc", "meson-crossfile" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}-2.36" ]
+        [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=/usr", "${repo_directory}/${name}-2.36" ]
     ],
     "build-commands": [
         [ "meson", "compile" ]
     ],
     "install-commands": [
-        [ "meson", "install" ],
-        [ "meson", "configure", "--prefix", "${bin_package_prefix}/usr" ],
-        [ "meson", "install" ],
-        [ "meson", "configure", "--prefix", "${prefix}" ]
+        [ "meson", "install", "--destdir=${prefix}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ]
     ]
 }
