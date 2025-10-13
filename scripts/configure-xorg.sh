@@ -20,4 +20,6 @@ $2/$4-$5/configure \
     --without-systemd-daemon \
     --disable-selective-werror \
     --disable-strict-compilation \
+    --with-sysroot=$6 \
+    --disable-static --enable-shared \
     ac_cv_func_epoll_create1=no

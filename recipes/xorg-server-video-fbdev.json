@@ -8,13 +8,15 @@
         {
             "patch": "patches/xorg-server-video-fbdev/fbdev.c.patch",
             "modifies": "xf86-video-fbdev-0.5.0/src/fbdev.c"
+        },
+        {
+            "patch": "patches/xorg-server-video-fbdev/configure.ac.patch",
+            "modifies": "xf86-video-fbdev-0.5.0/configure.ac"
         }
     ],
     "bootstrap-commands": [
-        [ "cd", "${repo_directory}/xf86-video-fbdev-${version}" ],
-        [ "autoreconf", "-fi" ],
-        [ "cd", "${bootstrap_directory}/${name}" ],
-        [ "${root_directory}/scripts/configure-xorg.sh", "/usr", "${repo_directory}", "${target_triplet}", "xf86-video-fbdev", "${version}" ],
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/xf86-video-fbdev-${version}" ],
+        [ "${repo_directory}/xf86-video-fbdev-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--with-sysroot=${prefix}", "--disable-pciaccess", "--disable-static", "--enable-shared" ],
         [ "cp", "-f", "${root_directory}/patches/${name}/config.h.new", "${bootstrap_directory}/${name}/config.h" ]
     ],
     "build-commands": [

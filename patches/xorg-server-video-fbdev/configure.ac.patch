@@ -1,0 +1,15 @@
+--- configure.ac	2025-10-13 11:19:33.847681638 -0400
++++ repos/xf86-video-fbdev-0.5.0/configure.ac	2025-10-13 11:19:41.519543177 -0400
+@@ -56,9 +56,9 @@
+ 			     [PCIACCESS=$enableval], [PCIACCESS=no])
+ 
+ # Store the list of server defined optional extensions in REQUIRED_MODULES
+-XORG_DRIVER_CHECK_EXT(RANDR, randrproto)
+-XORG_DRIVER_CHECK_EXT(RENDER, renderproto)
+-XORG_DRIVER_CHECK_EXT(XV, videoproto)
++#XORG_DRIVER_CHECK_EXT(RANDR, randrproto)
++#XORG_DRIVER_CHECK_EXT(RENDER, renderproto)
++#XORG_DRIVER_CHECK_EXT(XV, videoproto)
+ 
+ # Obtain compiler/linker options for the driver dependencies
+ PKG_CHECK_MODULES(XORG, [xorg-server >= 1.0.99.901 xproto fontsproto $REQUIRED_MODULES])
