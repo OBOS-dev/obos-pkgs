@@ -9,7 +9,8 @@
         [ "cd", "${repo_directory}/libX11-${version}" ],
         [ "autoreconf", "-vfi" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
-        [ "${repo_directory}/libX11-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--disable-malloc0returnsnull" ]
+        [ "echo", "$$PKG_CONFIG_SYSROOT_DIR" ],
+        [ "${repo_directory}/libX11-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--with-sysroot=${prefix}", "--disable-malloc0returnsnull" ]
     ],
     "build-commands": [
         [ "make" ]
