@@ -10,10 +10,10 @@
         [ "${repo_directory}/lib${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--with-sysroot=${prefix}", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
-        [ "make" ]
+        [ "make", "-j${nproc}" ]
     ],
     "install-commands": [
-        [ "make", "install", "prefix=${prefix}/" ],
-        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+        [ "make", "install", "DESTDIR=${prefix}/" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

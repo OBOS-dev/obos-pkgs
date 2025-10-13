@@ -22,4 +22,6 @@ $2/$4-$5/configure \
     --disable-strict-compilation \
     --with-sysroot=$6 \
     --disable-static --enable-shared \
+    --with-xkb-path=/usr/share/X11/xkb \
+    --with-xkb-bin-directory=/usr/bin \
     ac_cv_func_epoll_create1=no
