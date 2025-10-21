@@ -5,7 +5,7 @@
     "git-url": "https://github.com/OBOS-dev/obos",
     "git-commit": "master",
     "comment0": "obos-dhcpc is in here because init requires it for NM.",
-    "depends": [ "cross-gcc", "bootstrap-binutils", "obos-dhcpc" ],
+    "depends": [ "cross-gcc", "bootstrap-binutils", "obos-dhcpc", "libcjson" ],
     "patches": [],
     "bootstrap-commands": [
        [

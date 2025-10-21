@@ -12,5 +12,8 @@ cmake \
 -S$2 -GNinja
 if [ $target_triplet = 'x86_64-obos' ]
 then
-    chmod +x $2/dependencies/hyper/hyper_install-linux-x86_64
+    if [ `uname` != *MSYS2* ]
+    then
+        chmod +x $2/dependencies/hyper/hyper_install-linux-x86_64
+    fi
 fi
