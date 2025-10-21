@@ -1,13 +1,18 @@
 {
     "name": "libcjson",
     "description": "Ultralightweight JSON parser in ANSI C",
-    "version": [ 1,7,18 ],
-    "depends": [ "cross-gcc" ],
+    "version": [ 1,7,19 ],
+    "depends": [ "cross-gcc", "cmake-toolchain" ],
     "git-url": "https://github.com/DaveGamble/cJSON",
-    "git-commit": "v1.7.18",
-    "patches": [],
+    "git-commit": "v1.7.19",
+    "patches": [
+        {
+            "modifies": "cJSON/CMakeLists.txt",
+            "patch": "patches/cJSON/CMakeLists.txt.patch"
+        }
+    ],
     "bootstrap-commands": [
-        [ "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_C_COMPILER=${target_triplet}-gcc", "-S${repo_directory}/cJSON", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DENABLE_CJSON_TEST=OFF", "-GNinja" ]
+        [ "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DCJSON_BUILD_SHARED_LIBS=ON", "-Wno-dev", "--toolchain=${bootstrap_directory}/toolchain.cmake", "-S${repo_directory}/cJSON", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DENABLE_CJSON_TEST=OFF", "-GNinja" ]
     ],
     "build-commands": [
         [ "cmake", "--build", "." ]
