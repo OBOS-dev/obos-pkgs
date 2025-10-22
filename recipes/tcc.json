@@ -1,0 +1,25 @@
+{
+    "name": "tcc",
+    "description": "Tiny C Compiler",
+    "version": [ 0,9,27 ],
+    "depends": [ "cross-gcc" ],
+    "url": "https://download.savannah.gnu.org/releases/tinycc/tcc-0.9.27.tar.bz2",
+    "patches": [
+        {
+            "patch": "patches/tcc/bcheck.c.patch",
+            "modifies": "tcc-0.9.27/lib/bcheck.c"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cp", "${repo_directory}/../scripts/configure-tcc.sh", "." ],
+        [ "chmod", "+x", "./configure-tcc.sh" ],
+        [ "./configure-tcc.sh", "${repo_directory}/tcc-0.9.27", "${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "-C${repo_directory}/tcc-0.9.27", "tcc" ]
+    ],
+    "install-commands": [
+        [ "make", "-C${repo_directory}/tcc-0.9.27", "install", "DESTDIR=${prefix}" ],
+        [ "make", "-C${repo_directory}/tcc-0.9.27", "install", "DESTDIR=${bin_package_prefix}/usr" ]
+    ]
+}
