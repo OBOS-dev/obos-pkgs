@@ -82,7 +82,8 @@
         "xorg-server-video-fbdev",
         "xorg-server",
         "xorgproto",
-        "xtrans"
+        "xtrans",
+        "tcc"
     ],
     "patches": [],
     "bootstrap-commands": [],
