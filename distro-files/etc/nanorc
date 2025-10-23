@@ -1,0 +1,17 @@
+## Set a more common tab configuration
+set tabsize 4
+set tabstospaces
+## Autoindent
+set autoindent
+## Interpret digits given on the command line after a colon after a filename
+## as the line number to go to in that file.
+set colonparsing
+## Remember search strings between sessions
+set historylog
+## Shows a visual 'scrollbar' on the side of the window
+set indicator
+## Use the end of the titlebar for some state flags
+set stateflags
+
+## Include syntax highlighting
+include /usr/share/nano/*nanorc

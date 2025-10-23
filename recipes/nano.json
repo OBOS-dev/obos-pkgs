@@ -11,13 +11,13 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/nano-8.4/configure", "gl_cv_func_strcasecmp_works=true", "--prefix=${prefix}", "--host=${target_triplet}" ]
+        [ "${repo_directory}/nano-8.4/configure", "gl_cv_func_strcasecmp_works=true", "--prefix=/usr", "--sysconfdir=/etc", "--host=${target_triplet}" ]
     ],
     "build-commands": [
         [ "make", "all", "LIBS= -lncursesw -ltinfow " ]
     ],
     "install-commands": [
-        [ "make", "install" ],
-        [ "make", "install", "prefix=${bin_package_prefix}/usr" ]
+        [ "make", "install", "DESTDIR=${prefix}"],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }
