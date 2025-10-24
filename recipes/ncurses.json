@@ -12,11 +12,6 @@
     	{
             "patch": "patches/ncurses/configure.patch",
             "modifies": "ncurses-6.5/configure"
-        },
-        {
-            "patch": "patches/ncurses/install-headers.sh.patch",
-            "modifies": "ncurses-6.5/install-headers.sh",
-            "delete-file": 1
         }
     ],
     "bootstrap-commands": [
@@ -37,8 +32,6 @@
     ],
     "install-commands": [
         [ "make", "install", "DESTDIR=${destdir}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
-        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${prefix}" ],
-        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${bin_package_prefix}/${prefix}" ]
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }
