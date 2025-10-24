@@ -10,7 +10,7 @@
     "install-commands": [
         [ "cd", "${repo_directory}/linux-6.12.38" ],
         [ "export", "target_triplet=${target_triplet}" ],
-        [ "make", "headers_install", "ARCH=$${target_triplet%-*}", "INSTALL_HDR_PATH=${destdir}" ],
+        [ "make", "headers_install", "ARCH=$${target_triplet%-*}", "INSTALL_HDR_PATH=${destdir}/${prefix}" ],
         [ "make", "headers_install", "ARCH=$${target_triplet%-*}", "INSTALL_HDR_PATH=${bin_package_prefix}/${prefix}" ],
         [ "cd", "${bootstrap_directory}/linux-kernel-headers" ]
     ],
