@@ -1,4 +1,4 @@
 RET=$(pwd)
 cd $1
-./configure --prefix=/ --cross-prefix=$2- --enable-cross
+./configure --prefix=$3 --cross-prefix=$2- --enable-cross
 cd $RET
