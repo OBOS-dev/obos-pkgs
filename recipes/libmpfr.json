@@ -11,11 +11,13 @@
         }
     ],
     "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/mpfr-${version}" ],
         [ 
             "${repo_directory}/mpfr-4.2.2/configure",
             "--prefix", "${prefix}",
             "--host=${target_triplet}",
-            "CC=${target_triplet}-gcc"
+            "CC=${target_triplet}-gcc",
+            "--disable-static"
 	    ]
     ],
     "build-commands": [
@@ -23,6 +25,8 @@
     ],
     "install-commands": [
         [ "make", "install", "DESTDIR=${destdir}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "rm", "${destdir}/${prefix}/lib/libmpfr.la" ],
+        [ "rm", "${bin_package_prefix}/${prefix}/lib/libmpfr.la" ]
     ]
 }
