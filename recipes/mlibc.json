@@ -24,15 +24,13 @@
         [ "meson", "compile" ]
     ],
     "install-commands": [
-        [ "meson", "install" ],
-        [ "meson", "configure", "--prefix", "${bin_package_prefix}/usr" ],
-        [ "meson", "install" ],
-        [ "meson", "configure", "--prefix", "${prefix}" ],
-        [ "rm", "-rf", "${prefix}/usr" ],
-        [ "mkdir", "${prefix}/usr" ],
-        [ "rm", "-rf", "${prefix}/usr/include" ],
-        [ "rm", "-rf", "${prefix}/usr/lib" ],
-        [ "ln", "-s", "${prefix}/include", "${prefix}/usr" ],
-        [ "ln", "-s", "${prefix}/lib", "${prefix}/usr" ]
+        [ "meson", "install", "--destdir=${destdir}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ],
+        [ "rm", "-rf", "${destdir}/usr" ],
+        [ "mkdir", "${destdir}/usr" ],
+        [ "rm", "-rf", "${destdir}/usr/include" ],
+        [ "rm", "-rf", "${destdir}/usr/lib" ],
+        [ "ln", "-s", "${destdir}/include", "${destdir}/usr" ],
+        [ "ln", "-s", "${destdir}/lib", "${destdir}/usr" ]
     ]
 }

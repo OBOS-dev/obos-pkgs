@@ -19,7 +19,7 @@
         [ "make", "-j${nproc}" ]
     ],
     "install-commands": [
-        [ "make", "-j${nproc}", "install" ],
-        [ "make", "-j${nproc}", "prefix=${bin_package_prefix}/usr/", "install" ]
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "DESTDIR=${bin_package_prefix}", "install" ]
     ]
 }

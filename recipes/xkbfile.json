@@ -7,13 +7,13 @@
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/lib${name}-${version}" ],
-        [ "${repo_directory}/lib${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--with-sysroot=${prefix}", "--disable-static", "--enable-shared" ]
+        [ "${repo_directory}/lib${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--with-sysroot=${destdir}", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make", "-j${nproc}" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}/" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

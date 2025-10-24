@@ -36,9 +36,9 @@
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install" ],
-        [ "make", "install", "prefix=${bin_package_prefix}/usr" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
         [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${prefix}" ],
-        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${bin_package_prefix}/usr" ]
+        [ "${repo_directory}/ncurses-6.5/install-headers.sh", "${bin_package_prefix}/${prefix}" ]
     ]
 }

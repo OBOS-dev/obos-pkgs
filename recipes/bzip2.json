@@ -14,7 +14,7 @@
         [ "make", "-j${nproc}", "CC=${target_triplet}-gcc", "libbz2.a", "bzip2", "bzip2recover" ]
     ],
     "install-commands": [
-        [ "${root_directory}/scripts/install-bzip2.sh", "${prefix}", "" ],
-        [ "${root_directory}/scripts/install-bzip2.sh", "${bin_package_prefix}", "/usr" ]
+        [ "${root_directory}/scripts/install-bzip2.sh", "${destdir}/${prefix}" ],
+        [ "${root_directory}/scripts/install-bzip2.sh", "${bin_package_prefix}/${prefix}" ]
     ]
 }

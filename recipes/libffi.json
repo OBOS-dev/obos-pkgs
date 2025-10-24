@@ -15,13 +15,13 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/libffi-3.5.2/configure", "--host=${target_triplet}", "--prefix=/usr", "--disable-static", "--enable-shared" ]
+        [ "${repo_directory}/libffi-3.5.2/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

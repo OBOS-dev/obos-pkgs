@@ -13,7 +13,9 @@
         [ "cmake", "--build", "." ]
     ],
     "install-commands": [
-        [ "cmake", "--install", ".", "--prefix=${prefix}" ],
-        [ "cmake", "--install", ".", "--prefix=${bin_package_prefix}/usr" ]
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "cmake", "--install", "." ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
     ]
 }

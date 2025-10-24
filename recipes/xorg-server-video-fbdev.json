@@ -16,14 +16,14 @@
     ],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/xf86-video-fbdev-${version}" ],
-        [ "${repo_directory}/xf86-video-fbdev-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--with-sysroot=${prefix}", "--disable-pciaccess", "--disable-static", "--enable-shared" ],
+        [ "${repo_directory}/xf86-video-fbdev-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--with-sysroot=${destdir}", "--disable-pciaccess", "--disable-static", "--enable-shared" ],
         [ "cp", "-f", "${root_directory}/patches/${name}/config.h.new", "${bootstrap_directory}/${name}/config.h" ]
     ],
     "build-commands": [
         [ "make", "-j${nproc}" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

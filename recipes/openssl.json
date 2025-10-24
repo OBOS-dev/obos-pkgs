@@ -35,7 +35,7 @@
         [ "cd", "${repo_directory}/openssl-1.1.1q/" ],
         [ "export", "CXX=${target_triplet}-g++" ],
         [ "export", "CC=${target_triplet}-gcc" ],
-        [ "./Configure", "--prefix=/", "--openssldir=/etc/ssl", "--libdir=lib", "${target_triplet}", "shared", "zlib-dynamic", "no-afalgeng", "-DOPENSSL_USE_IPV6=0" ],
+        [ "./Configure", "--prefix=${prefix}", "--openssldir=/etc/ssl", "--libdir=lib", "${target_triplet}", "shared", "zlib-dynamic", "no-afalgeng", "-DOPENSSL_USE_IPV6=0" ],
         [ "cd", "${bootstrap_directory}/${name}" ]
     ],
     "build-commands": [
@@ -45,8 +45,8 @@
     ],
     "install-commands": [
         [ "cd", "${repo_directory}/openssl-1.1.1q/" ],
-        [ "make", "-j2", "install", "DESTDIR=${prefix}" ],
-        [ "make", "-j2", "install", "DESTDIR=${bin_package_prefix}/usr" ],
+        [ "make", "-j2", "install", "MANSUFFIX=ssl", "DESTDIR=${destdir}" ],
+        [ "make", "-j2", "install", "MANSUFFIX=ssl", "DESTDIR=${bin_package_prefix}" ],
         [ "cd", "${bootstrap_directory}/${name}" ]
     ]
 }

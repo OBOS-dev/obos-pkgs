@@ -13,13 +13,13 @@
     "bootstrap-commands": [
         [ "cp", "${repo_directory}/../scripts/configure-tcc.sh", "." ],
         [ "chmod", "+x", "./configure-tcc.sh" ],
-        [ "./configure-tcc.sh", "${repo_directory}/tcc-0.9.27", "${target_triplet}" ]
+        [ "./configure-tcc.sh", "${repo_directory}/tcc-0.9.27", "${target_triplet}", "${prefix}" ]
     ],
     "build-commands": [
         [ "make", "-C${repo_directory}/tcc-0.9.27", "tcc" ]
     ],
     "install-commands": [
-        [ "make", "-C${repo_directory}/tcc-0.9.27", "install", "DESTDIR=${prefix}" ],
-        [ "make", "-C${repo_directory}/tcc-0.9.27", "install", "DESTDIR=${bin_package_prefix}/usr" ]
+        [ "make", "-C${repo_directory}/tcc-0.9.27", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-C${repo_directory}/tcc-0.9.27", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

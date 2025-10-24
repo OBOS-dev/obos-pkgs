@@ -12,7 +12,7 @@
         [ "make", "linux-readline", "CC=${target_triplet}-gcc" ]
     ],
     "install-commands": [
-        [ "make", "install", "CC=${target_triplet}-gcc", "INSTALL_TOP=${prefix}" ],
-        [ "make", "install", "CC=${target_triplet}-gcc", "INSTALL_TOP=${bin_package_prefix}/usr" ]
+        [ "make", "install", "CC=${target_triplet}-gcc", "INSTALL_TOP=${destdir}/${prefix}" ],
+        [ "make", "install", "CC=${target_triplet}-gcc", "INSTALL_TOP=${bin_package_prefix}/${prefix}" ]
     ]
 }

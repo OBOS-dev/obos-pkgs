@@ -14,8 +14,8 @@
     ],
     "install-commands": [
         [ "cd", "${repo_directory}/obos-dhcpc/" ],
-        [ "make", "install", "prefix=${prefix}" ],
-        [ "make", "install", "prefix=${bin_package_prefix}/usr" ],
+        [ "make", "install", "prefix=${prefix}", "DESTDIR=${destdir}" ],
+        [ "make", "install", "prefix=${prefix}", "DESTDIR=${bin_package_prefix}" ],
         [ "cd", "${bootstrap_directory}/${name}" ]
     ]
 }
