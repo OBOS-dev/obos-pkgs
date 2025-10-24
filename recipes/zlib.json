@@ -14,9 +14,9 @@
         [ "make" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}/usr" ],
-        [ "rm", "${prefix}/lib/libz.a" ],
-        [ "rm", "${bin_package_prefix}/usr/lib/libz.a" ]
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "rm", "-f", "${destdir}/${prefix}/lib/libz.a" ],
+        [ "rm", "-f", "${bin_package_prefix}/${prefix}/lib/libz.a" ]
     ]
 }

@@ -17,7 +17,7 @@
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/man-db-2.13.1/build-aux/config.sub" ],
         [ 
             "${repo_directory}/man-db-2.13.1/configure",
-            "--prefix", "/",
+            "--prefix", "${prefix}",
             "--host=${target_triplet}",
             "--disable-manual", "--disable-setuid", "--disable-nls", 
             "--docdir=/usr/share/doc/man-db-2.9.4",
@@ -29,7 +29,7 @@
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
-        [ "make", "DESTDIR=${bin_package_prefix}/usr", "install" ]
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

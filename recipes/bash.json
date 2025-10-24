@@ -33,10 +33,9 @@
         [ "make", "all", "CFLAGS=-DNEED_EXTERN_PC=1" ]
     ],
     "install-commands": [
-        [ "make", "install" ],
-        [ "mkdir", "-p", "${bin_package_prefix}/usr" ],
-        [ "make", "prefix=${bin_package_prefix}/usr", "install" ],
-        [ "ln", "-sr", "${prefix}/bin/bash", "${prefix}/bin/sh" ],
-        [ "ln", "-sr", "${bin_package_prefix}/usr/bin/bash", "${bin_package_prefix}/usr/bin/sh" ]
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "DESTDIR=${bin_package_prefix}", "install" ],
+        [ "ln", "-sr", "${prefix}/bin/bash", "${prefix}/${prefix}/sh" ],
+        [ "ln", "-sr", "${bin_package_prefix}/${prefix}/bin/bash", "${bin_package_prefix}/${prefix}/bin/sh" ]
     ]
 }

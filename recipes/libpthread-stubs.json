@@ -7,13 +7,13 @@
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-0.3" ],
-        [ "${repo_directory}/${name}-0.3/configure", "--host=${target_triplet}", "--prefix=/usr" ]
+        [ "${repo_directory}/${name}-0.3/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
     ],
     "build-commands": [
         [ "make" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

@@ -15,13 +15,13 @@
         }
     ],
     "bootstrap-commands": [
-        [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=/usr", "-Dlegacy=true", "${repo_directory}/${name}-2024.1" ]
+        [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "-Dlegacy=true", "${repo_directory}/${name}-2024.1" ]
     ],
     "build-commands": [
         [ "meson", "compile" ]
     ],
     "install-commands": [
-        [ "meson", "install", "--destdir=${prefix}" ],
+        [ "meson", "install", "--destdir=${destdir}" ],
         [ "meson", "install", "--destdir=${bin_package_prefix}" ]
     ]
 }

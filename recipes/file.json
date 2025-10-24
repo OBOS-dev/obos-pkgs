@@ -17,13 +17,13 @@
         [ "patch", "./config.sub", "../../patches/file/config.sub.patch" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
         [ "echo", "$$PWD" ],
-        [ "${repo_directory}/file-FILE5_46/configure", "--prefix", "/usr", "--host=${target_triplet}" ]
+        [ "${repo_directory}/file-FILE5_46/configure", "--prefix=${prefix}", "--host=${target_triplet}" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install", "prefix=${prefix}" ],
-        [ "make", "prefix=${bin_package_prefix}/usr", "install" ]
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

@@ -15,11 +15,9 @@
         [ "cmake", "--build", "." ]
     ],
     "install-commands": [
+        [ "export", "DESTDIR=${destdir}" ],
         [ "cmake", "--install", "." ],
         [ "export", "DESTDIR=${bin_package_prefix}" ],
-        [ "cmake", "--install", "." ],
-        [ "cd", "${bin_package_prefix}" ],
-        [ "mv", "./${prefix}/*", "${bin_package_prefix}" ],
-        [ "rm", "-r", "`echo ${bin_package_prefix} | cut -d/ -f2`" ]
+        [ "cmake", "--install", "." ]
     ]
 }

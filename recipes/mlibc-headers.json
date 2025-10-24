@@ -27,12 +27,10 @@
     ],
     "build-commands": [],
     "install-commands": [
-        [ "meson", "install" ],
-        [ "meson", "configure", "--prefix", "${bin_package_prefix}/usr" ],
-        [ "meson", "install" ],
-        [ "meson", "configure", "--prefix", "${prefix}" ],
-        [ "mkdir", "${prefix}/usr" ],
-        [ "rm", "${prefix}/usr/include" ],
-        [ "ln", "-s", "${prefix}/include", "${prefix}/usr/include" ]
+        [ "meson", "install", "--destdir=${destdir}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ],
+        [ "mkdir", "${destdir}/usr" ],
+        [ "rm", "${destdir}/usr/include" ],
+        [ "ln", "-s", "${destdir}/include", "${destdir}/usr/include" ]
     ]
 }

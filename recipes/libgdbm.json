@@ -23,13 +23,13 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "/", "--host=${target_triplet}", "--disable-static", "--enable-libgdbm-compat", "--disable-nls", "--without-readline" ]
+        [ "${repo_directory}/gdbm-1.25/configure", "--prefix", "${prefix}", "--host=${target_triplet}", "--disable-static", "--enable-libgdbm-compat", "--disable-nls", "--without-readline" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "DESTDIR=${prefix}", "install" ],
-        [ "make", "DESTDIR=${bin_package_prefix}/usr", "install" ]
+        [ "make", "DESTDIR=${destdir}", "install" ],
+        [ "make", "DESTDIR=${bin_package_prefix}", "install" ]
     ]
 }

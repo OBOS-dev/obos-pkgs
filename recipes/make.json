@@ -11,13 +11,13 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/make-4.4.1/configure", "--host=${target_triplet}", "--disable-posix-spawn", "--prefix=/usr" ]
+        [ "${repo_directory}/make-4.4.1/configure", "--host=${target_triplet}", "--disable-posix-spawn", "--prefix=${prefix}" ]
     ],
     "build-commands": [
         [ "make", "all" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }

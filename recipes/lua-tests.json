@@ -8,15 +8,15 @@
     "bootstrap-commands": [],
     "build-commands": [],
     "install-commands": [
-        [ "mkdir", "-p", "${prefix}/share" ],
-        [ "mkdir", "-p", "${prefix}/bin" ],
-        [ "mkdir", "-p", "${prefix}/share/lua-tests" ],
-        [ "cp", "-r", "${repo_directory}/lua-5.4.8-tests/*.lua", "${prefix}/share/lua-tests" ],
-        [ "cp", "-r", "${root_directory}/scripts/run-lua-tests.sh", "${prefix}/bin/run-lua-tests" ],
-        [ "mkdir", "-p", "${bin_package_prefix}/usr/share" ],
-        [ "mkdir", "-p", "${bin_package_prefix}/usr/bin" ],
-        [ "mkdir", "-p", "${bin_package_prefix}/usr/share/lua-tests" ],
-        [ "cp", "-r", "${repo_directory}/lua-5.4.8-tests/*.lua", "${bin_package_prefix}/usr/share/lua-tests" ],
-        [ "cp", "-r", "${root_directory}/scripts/run-lua-tests.sh", "${bin_package_prefix}/usr/bin/run-lua-tests" ]
+        [ "mkdir", "-p", "${destdir}/share" ],
+        [ "mkdir", "-p", "${destdir}/bin" ],
+        [ "mkdir", "-p", "${destdir}/share/lua-tests" ],
+        [ "cp", "-r", "${repo_directory}/lua-5.4.8-tests/*.lua", "${destdir}/share/lua-tests" ],
+        [ "cp", "-r", "${root_directory}/scripts/run-lua-tests.sh", "${destdir}/bin/run-lua-tests" ],
+        [ "mkdir", "-p", "${bin_package_prefix}/${prefix}/share" ],
+        [ "mkdir", "-p", "${bin_package_prefix}/${prefix}/bin" ],
+        [ "mkdir", "-p", "${bin_package_prefix}/${prefix}/share/lua-tests" ],
+        [ "cp", "-r", "${repo_directory}/lua-5.4.8-tests/*.lua", "${bin_package_prefix}/${prefix}/share/lua-tests" ],
+        [ "cp", "-r", "${root_directory}/scripts/run-lua-tests.sh", "${bin_package_prefix}/${prefix}/bin/run-lua-tests" ]
     ]
 }

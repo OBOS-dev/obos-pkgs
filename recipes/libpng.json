@@ -12,13 +12,13 @@
     ],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
-        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=/usr", "--disable-static", "--enable-shared" ]
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make" ]
     ],
     "install-commands": [
-        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
     ]
 }
