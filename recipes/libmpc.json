@@ -11,10 +11,12 @@
         }
     ],
     "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/mpc-${version}" ],
         [ 
             "${repo_directory}/mpc-1.3.1/configure",
             "--prefix", "${prefix}",
-            "--host=${target_triplet}"
+            "--host=${target_triplet}",
+            "--disable-static"
 	    ]
     ],
     "build-commands": [
@@ -22,6 +24,8 @@
     ],
     "install-commands": [
         [ "make", "install", "DESTDIR=${destdir}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "rm", "${destdir}/${prefix}/lib/libmpc.la" ],
+        [ "rm", "${bin_package_prefix}/${prefix}/lib/libmpc.la" ]
     ]
 }
