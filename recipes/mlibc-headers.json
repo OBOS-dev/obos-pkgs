@@ -21,16 +21,13 @@
 	        "-Duse_freestnd_hdrs=enabled",
             "--wipe",
             "-Dheaders_only=true",
-            "-Dlinux_kernel_headers=${prefix}/include"
+            "-Dlinux_kernel_headers=${destdir}/${prefix}/include"
         ],
         [ "mkdir", "${bin_package_prefix}" ]
     ],
     "build-commands": [],
     "install-commands": [
         [ "meson", "install", "--destdir=${destdir}" ],
-        [ "meson", "install", "--destdir=${bin_package_prefix}" ],
-        [ "mkdir", "${destdir}/usr" ],
-        [ "rm", "${destdir}/usr/include" ],
-        [ "ln", "-s", "${destdir}/include", "${destdir}/usr/include" ]
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ]
     ]
 }
