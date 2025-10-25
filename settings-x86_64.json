@@ -17,11 +17,6 @@
             "env": "PKG_CONFIG_SYSROOT_DIR",
             "value": "${destdir}",
             "replace": true
-        },
-        {
-            "env": "LD_LIBRARY_PATH",
-            "value": "${host_prefix}/lib",
-            "replace": true
         }
     ]
 }
