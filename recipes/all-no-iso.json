@@ -82,7 +82,8 @@
         "xorg-server",
         "xorgproto",
         "xtrans",
-        "tcc"
+        "tcc",
+        "obos-utils"
     ],
     "patches": [],
     "bootstrap-commands": [],
