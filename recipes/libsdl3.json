@@ -1,12 +1,13 @@
 {
     "name": "libsdl3",
     "description": "SDL3",
-    "version": [ 3,2,24 ],
+    "version": [ 3,3,0 ],
     "depends": [ "cross-gcc", "cmake-toolchain" ],
-    "git-url": "https://github.com/libsdl-org/SDL",
-    "git-commit": "release-3.2.24",
     "patches": [],
     "bootstrap-commands": [
+        [ "rm", "-rf", "${repo_directory}/SDL" ],
+        [ "git", "clone", "https://github.com/libsdl-org/SDL", "${repo_directory}/SDL" ],
+        [ "git", "-C", "${repo_directory}/SDL", "checkout", "a55002b8ed5f73c86053b3688498dcbfb03edee3" ],
         [ "cmake", "-B.", "-S${repo_directory}/SDL", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-Wno-dev",
           "--toolchain", "${bootstrap_directory}/toolchain.cmake", "-DSDL_IBUS=OFF", "-DSDL_DBUS=OFF", "-DHAVE_SDL_THREADS=ON", "-DHAVE_SDL_MAIN_CALLBACKS=OFF", "-DHAVE_SDL_TIMERS=ON", "-DSDL_PTHREADS=ON", "-DSDL_ALTIVEC=OFF", "-DSDL_DISKAUDIO=OFF", "-DSDL_DIRECTFB=ON", "-DSDL_OPENGL=OFF", "-DSDL_OPENGLES=OFF", "-DSDL_PTHREADS=ON", "-DSDL_PTHREADS_SEM=OFF", "-DSDL_OSS=ON", "-DSDL_ALSA=OFF", "-DSDL_JACK=OFF", "-DSDL_ESD=OFF", "-DSDL_PULSEAUDIO=OFF", "-DSDL_ARTS=OFF", "-DSDL_NAS=OFF", "-DSDL_SNDIO=OFF", "-DSDL_FUSIONSOUND=OFF", "-DSDL_LIBSAMPLERATE=OFF", "-DSDL_RPATH=OFF", "-DSDL_X11=OFF", "-DSDL_WAYLAND=OFF", "-DSDL_WAYLAND_QT_TOUCH=OFF", "-DSDL_RPI=OFF", "-DSDL_COCOA=OFF", "-DSDL_DIRECTX=OFF", "-DSDL_WASAPI=OFF", "-DSDL_RENDER_D3D=OFF", "-DSDL_VIVANTE=OFF", "-DSDL_VULKAN=OFF", "-DSDL_KMSDRM=OFF", "-DSDL_HIDAPI=OFF", "-DSDL_SHARED=ON", "-DSDL_STATIC=OFF", "-DSDL_UNIX_CONSOLE_BUILD=ON", "-GNinja" ]
     ],
