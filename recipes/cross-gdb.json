@@ -24,7 +24,6 @@
                 "--prefix=${prefix}",
                 "--target=${target_triplet}",
                 "--disable-nls",
-                "--with-sysroot=${target_prefix}",
                 "--disable-werror"
         ]
     ],
