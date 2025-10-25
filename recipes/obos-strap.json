@@ -8,7 +8,7 @@
     "git-commit": "master",
     "bootstrap-commands": [
         [ "cmake", "--toolchain=${bootstrap_directory}/toolchain.cmake",
-        "-GNinja",
+        "-GNinja", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DCMAKE_SYSROOT=${destdir}",
         "-S${repo_directory}/obos-strap" ]
     ],
     "build-commands": [
