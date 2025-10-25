@@ -2,34 +2,15 @@
     "name": "oboskrnl",
     "description": "OBOS kernel and drivers",
     "version": [],
-    "git-url": "https://github.com/OBOS-dev/obos",
-    "git-commit": "master",
-    "comment0": "obos-dhcpc is in here because init requires it for NM.",
-    "depends": [ "cross-gcc", "bootstrap-binutils", "obos-dhcpc", "libcjson" ],
+    "depends": [ "cross-gcc", "obos-src" ],
     "patches": [],
     "bootstrap-commands": [
        [
             "${root_directory}/scripts/obos-configure.sh",
-            "${target_triplet}", "${repo_directory}/obos/"
+            "${target_triplet}", "${repo_directory}/obos/", "NO"
        ]
     ],
     "build-commands": [
-        [ "mkdir", "-p", "tar" ],
-        [ "mkdir", "-p", "tar/mnt" ],
-        [ "mkdir", "-p", "tar/dev" ],
-        [ "${root_directory}/scripts/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
-        [ "cmake", "--build", "." ],
-        [ "mkdir", "-p", "tar/" ],
-        [ "bash", "-c", "cp ${repo_directory}/obos/out/uart tar/ 2>/dev/null || :" ],
-        [ "cp", "${repo_directory}/obos/out/ahci", "tar/" ],
-        [ "cp", "${repo_directory}/obos/out/slowfat", "tar/" ],
-        [ "cp", "${repo_directory}/obos/out/r8169", "tar/" ],
-        [ "cp", "${repo_directory}/obos/out/e1000", "tar/" ],
-        [ "bash", "-c", "cp ${repo_directory}/obos/out/bochs_vbe tar/ 2>/dev/null || :" ],
-        [ "cp", "${repo_directory}/obos/out/libps2", "tar/" ],
-        [ "bash", "-c", "cp ${repo_directory}/obos/out/i8042 tar/ 2>/dev/null || :" ],
-        [ "cp", "${repo_directory}/obos/out/extfs", "tar/" ],
-        [ "${root_directory}/scripts/generate-initrd.sh", "${repo_directory}", "${bootstrap_directory}" ],
         [ "cmake", "--build", "." ]
     ],
     "run-commands": [
@@ -40,15 +21,22 @@
           "-enable-kvm", "-cpu", "host",
           "-debugcon", "file:/dev/stdout", "-monitor", "stdio",
           "-smp", "4", "-s",
-          "-bios", "/usr/share/ovmf/OVMF.fd",
+          "-drive", "if=pflash,format=raw,readonly=on,file=$OVMF",
           "-audio", "driver=sdl,model=hda"
          ]
     ],
     "install-commands": [
-        [ "cd", "${repo_directory}/obos/out" ],
-        [ "bash", "-c", "cp fork-test klog-level lsmod ldmod mem-usage mkswap mount obos-gettime powerctl rmmod stmod swapon sync-anon umount ${prefix}/bin 2>/dev/null || :" ],
-        [ "cp", "init", "${prefix}/../distro-files/" ],
-        [ "cd", "${bootstrap_directory}/oboskrnl" ],
-        [ "bash", "-c", "cp ${repo_directory}/obos/out/obos.iso ${bootstrap_directory}/../ 2>/dev/null || :" ]
-    ]
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "install", "${repo_directory}/obos/out/ahci", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/bochs_vbe", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/e1000", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/extfs", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/i8042", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/libps2", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/r8169", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/slowfat", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/test_driver", "$$DESTDIR/" ],
+        [ "install", "${repo_directory}/obos/out/uart", "$$DESTDIR/" ]
+    ],
+    "inhibit-auto-rebuild": true
 }

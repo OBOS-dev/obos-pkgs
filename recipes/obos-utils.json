@@ -1,0 +1,36 @@
+{
+    "name": "obos-utils",
+    "description": "OBOS Utilities",
+    "version": [],
+    "depends": [ "cross-gcc", "obos-src" ],
+    "patches": [],
+    "bootstrap-commands": [
+       [
+            "${root_directory}/scripts/obos-configure.sh",
+            "${target_triplet}", "${repo_directory}/obos/", "YES", "${prefix}"
+       ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "run-commands": [
+        [ "qemu-system-x86_64",
+          "-drive", "format=raw,file=obos.iso",
+          "-M", "q35",
+          "-m", "2G",
+          "-enable-kvm", "-cpu", "host",
+          "-debugcon", "file:/dev/stdout", "-monitor", "stdio",
+          "-smp", "4", "-s",
+          "-bios", "/usr/share/ovmf/OVMF.fd",
+          "-audio", "driver=sdl,model=hda"
+         ]
+    ],
+    "install-commands": [
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "cmake", "--install", "." ],
+        [ "install", "${repo_directory}/obos/out/init", "$$DESTDIR/init" ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ],
+        [ "install", "${repo_directory}/obos/out/init", "$$DESTDIR/init" ]
+    ]
+}
