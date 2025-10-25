@@ -12,7 +12,7 @@
         }
     ],
     "bootstrap-commands": [
-        [ "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DCJSON_BUILD_SHARED_LIBS=ON", "-Wno-dev", "--toolchain=${bootstrap_directory}/toolchain.cmake", "-S${repo_directory}/cJSON", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DENABLE_CJSON_TEST=OFF", "-GNinja" ]
+        [ "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DENABLE_TARGET_EXPORT=ON", "-DCJSON_BUILD_SHARED_LIBS=ON", "-Wno-dev", "--toolchain=${bootstrap_directory}/toolchain.cmake", "-S${repo_directory}/cJSON", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DENABLE_CJSON_TEST=OFF", "-GNinja" ]
     ],
     "build-commands": [
         [ "cmake", "--build", "." ]
