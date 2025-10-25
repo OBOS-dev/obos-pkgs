@@ -50,7 +50,7 @@
         [ "cd", "${repo_directory}/${name}-${version}" ],
         [ "autoreconf", "-fi" ],
         [ "cd", "${bootstrap_directory}/${name}" ],
-        [ "${root_directory}/scripts/configure-xorg.sh", "${prefix}", "${repo_directory}", "${target_triplet}", "${name}", "${version}", "${prefix}" ]
+        [ "${root_directory}/scripts/configure-xorg.sh", "${prefix}", "${repo_directory}", "${target_triplet}", "${name}", "${version}", "${destdir}" ]
     ],
     "build-commands": [
         [ "make", "-j${nproc}" ]

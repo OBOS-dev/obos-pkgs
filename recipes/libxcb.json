@@ -7,7 +7,7 @@
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-1.16" ],
-        [ "${repo_directory}/${name}-1.16/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--with-sysroot=${prefix}" ]
+        [ "${repo_directory}/${name}-1.16/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--with-sysroot=${destdir}" ]
     ],
     "build-commands": [
         [ "make" ]
