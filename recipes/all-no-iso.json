@@ -46,7 +46,6 @@
         "zlib",
         "libuuid",
         "ncurses",
-        "generate-iso",
         "mlibc-headers",
         "libcglm",
         "libsdl3-sound",
