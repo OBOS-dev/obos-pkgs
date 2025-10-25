@@ -28,13 +28,8 @@
         [ "echo", "Disk image at $$OBOS_IMG" ]
     ],
     "build-commands": [
-        [ "cp", "-Lr", "${prefix}/usr", "root_mnt/" ],
-        [ "cp", "-Lr", "${repo_directory}/../distro-files/*", "root_mnt/" ],
-        [ "cd", "root_mnt" ],
-        [ "ln", "-s", "usr/bin", "bin" ],
-        [ "ln", "-s", "usr/lib", "lib" ],
-        [ "cd", ".." ],
-        [ "mkdir", "-p", "root_mnt/dev" ],
+        [ "cp", "-r", "${destdir}/*", "root_mnt/" ],
+        [ "${root_directory}/scripts/install-distro-files.sh", "${root_directory}", "${bootstrap_directory}/${name}/root_mnt" ],
         [ "mkdir", "-p", "efi_mnt/EFI/BOOT" ],
         [ "cp", "${repo_directory}/obos/dependencies/hyper/BOOTX64.efi", "efi_mnt/EFI/BOOT" ],
         [ "cp", "${repo_directory}/hyper.disk.cfg", "efi_mnt/hyper.cfg" ],
@@ -69,7 +64,8 @@
           "-enable-kvm", "-cpu", "host",
           "-debugcon", "file:/dev/stdout", "-monitor", "stdio",
           "-smp", "4",
-          "-s", "-bios", "/usr/share/ovmf/OVMF.fd",
+          "-s", 
+          "-drive", "if=pflash,format=raw,readonly=on,file=$OVMF",
           "-audio", "driver=sdl,model=hda"
         ]
     ]
