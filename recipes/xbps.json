@@ -2,7 +2,7 @@
     "name": "xbps",
     "description": "X Binary Package System",
     "version": [ 0,60,5 ],
-    "depends": [ "cross-gcc", "xbps-src", "libarchive" ],
+    "depends": [ "cross-gcc", "xbps-src", "libarchive", "openssl" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
