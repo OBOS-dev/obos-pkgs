@@ -1,6 +1,6 @@
 {
     "name": "freetype",
-    "description": "",
+    "description": "Unknown",
     "version": [ 2,14,1 ],
     "git-url": "https://gitlab.freedesktop.org/freetype/freetype",
     "git-commit": "VER-2-14-1",

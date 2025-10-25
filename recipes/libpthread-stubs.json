@@ -1,6 +1,6 @@
 {
     "name": "libpthread-stubs",
-    "description": "",
+    "description": "Unknown",
     "version": [ 0,0,3 ],
     "url": "https://www.x.org/releases/X11R7.7/src/everything/libpthread-stubs-0.3.tar.bz2",
     "depends": [ "cross-gcc" ],

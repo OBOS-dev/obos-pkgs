@@ -1,6 +1,6 @@
 {
     "name": "libXau",
-    "description": "",
+    "description": "Unknown",
     "version": [ 1,0,12 ],
     "url": "https://www.x.org/archive/individual/lib/libXau-1.0.12.tar.xz",
     "depends": [ "cross-gcc", "xorgproto" ],

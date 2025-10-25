@@ -1,6 +1,6 @@
 {
     "name": "libxcb",
-    "description": "",
+    "description": "Unknown",
     "version": [ 1,16,0 ],
     "url": "https://www.x.org/archive/individual/lib/libxcb-1.16.tar.gz",
     "depends": [ "cross-gcc", "xorgproto", "libXdmcp", "libXau", "xcb-proto", "libpthread-stubs" ],
