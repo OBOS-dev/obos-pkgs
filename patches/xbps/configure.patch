@@ -1,0 +1,11 @@
+--- configure	2025-10-25 17:30:48.198053049 -0400
++++ configure.new	2025-10-25 17:30:42.952722154 -0400
+@@ -246,7 +246,7 @@
+ #include <stdio.h>
+ int main(void) { return 0; }
+ EOF
+-	if $XCC -${mode}${flag} _ccflag.c -o _ccflag 2>_ccflag.err; then
++	if $XCC -${mode}${flag} _ccflag.c -o _ccflag -c 2>_ccflag.err; then
+ 		if ! test -s _ccflag.err; then
+ 			if [ "$mode" = "W" -a -z "$var" ]; then
+ 				echo "CPPFLAGS +=	-${mode}${flag}" >>$CONFIG_MK

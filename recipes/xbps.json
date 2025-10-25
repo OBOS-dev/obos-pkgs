@@ -1,26 +1,23 @@
 {
-    "name": "host-xbps",
-    "description": "Host XBPS for systems without it",
+    "name": "xbps",
+    "description": "X Binary Package System",
     "version": [ 0,60,5 ],
-    "depends": [ "xbps-src" ],
+    "depends": [ "cross-gcc", "xbps-src", "libarchive" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
-        [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
-        [ "unset", "PKG_CONFIG_PATH" ],
-        [ "export", "ACLOCAL_PATH=/usr/share/aclocal/" ],
-        [ "./configure", "--prefix=/", "--enable-rpath" ],
+        [ "./configure", "--prefix=${prefix}", "--enable-rpath", "--sysconfdir=/etc", "--host=x86_64-obos" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
     "build-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
-        [ "make", "all" ],
+        [ "make", "all" , "CFLAGS=-D__linux__=1 -fPIC" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
     "install-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
-        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
-    ],
-    "host-package": true
+    ]
 }

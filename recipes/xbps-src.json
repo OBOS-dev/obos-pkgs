@@ -1,0 +1,17 @@
+{
+    "name": "xbps-src",
+    "description": "XBPS Source Code",
+    "git-url": "https://github.com/void-linux/xbps",
+    "git-commit": "0.60.5",
+    "version": [ 0,60,5 ],
+    "depends": [],
+    "patches": [
+        {
+            "patch": "patches/xbps/configure.patch",
+            "modifies": "xbps/configure"
+        }
+    ],
+    "bootstrap-commands": [],
+    "build-commands": [],
+    "install-commands": []
+}
