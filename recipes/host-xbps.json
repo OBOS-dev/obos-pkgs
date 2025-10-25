@@ -1,0 +1,28 @@
+{
+    "name": "xbps",
+    "description": "Host XBPS for systems without it",
+    "version": [ 0,60,5 ],
+    "git-url": "https://github.com/void-linux/xbps",
+    "git-commit": "0.60.5",
+    "depends": [],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/${name}/" ],
+        [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
+        [ "unset", "PKG_CONFIG_PATH" ],
+        [ "export", "ACLOCAL_PATH=/usr/share/aclocal/" ],
+        [ "./configure", "--prefix=/" ],
+        [ "cd", "${bootstrap_directory}/${name}/" ]
+    ],
+    "build-commands": [
+        [ "cd", "${repo_directory}/${name}/" ],
+        [ "make", "all" ],
+        [ "cd", "${bootstrap_directory}/${name}/" ]
+    ],
+    "install-commands": [
+        [ "cd", "${repo_directory}/${name}/" ],
+        [ "make", "install", "DESTDIR=${prefix}" ],
+        [ "cd", "${bootstrap_directory}/${name}/" ]
+    ],
+    "host-package": true
+}
