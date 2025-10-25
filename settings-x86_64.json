@@ -5,12 +5,12 @@
     "environment": [
         {
             "env": "ACLOCAL_PATH",
-            "value": "${destdir}/share/aclocal:/usr/share/aclocal/",
+            "value": "${host_prefix}/share/aclocal:/usr/share/aclocal/",
             "replace": false
         },
         {
             "env": "PKG_CONFIG_PATH",
-            "value": "${destdir}/lib/pkgconfig:${destdir}/share/pkgconfig",
+            "value": "${destdir}/usr/lib/pkgconfig:${destdir}/usr/share/pkgconfig",
             "replace": true
         },
         {
