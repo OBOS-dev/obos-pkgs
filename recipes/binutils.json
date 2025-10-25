@@ -19,7 +19,8 @@
         [ "make", "-j${nproc}" ]
     ],
     "install-commands": [
-        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
-        [ "make", "-j${nproc}", "DESTDIR=${bin_package_prefix}", "install" ]
-    ]
+        [ "make", "-j${nproc}", "install-strip", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install-strip", "DESTDIR=${bin_package_prefix}" ]
+    ],
+    "inhibit-auto-rebuild": true
 }
