@@ -2,7 +2,7 @@
     "name": "obos-utils",
     "description": "OBOS Utilities",
     "version": [],
-    "depends": [ "cross-gcc", "obos-src" ],
+    "depends": [ "cross-gcc", "obos-src", "obos-dhcpc", "libcjson" ],
     "patches": [],
     "bootstrap-commands": [
        [
