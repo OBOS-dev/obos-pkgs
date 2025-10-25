@@ -2,7 +2,7 @@
     "name": "e2fsprogs",
     "description": "EXT2 Filesystem Programs",
     "version": [ 1,47,3 ],
-    "depends": [ "cross-gcc" ],
+    "depends": [ "cross-gcc", "libuuid" ],
     "git-url": "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs",
     "git-commit": "v1.47.3",
     "patches": [
@@ -31,7 +31,7 @@
         [ "${repo_directory}/e2fsprogs/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
     ],
     "build-commands": [
-        [ "make", "all" ]
+        [ "make", "-j${nproc}", "all" ]
     ],
     "install-commands": [
         [ "make", "install", "DESTDIR=${destdir}" ],
