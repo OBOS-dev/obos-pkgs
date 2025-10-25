@@ -3,18 +3,13 @@
     "description": "SDL3 mixer",
     "comment1": "TODO: get on a stable commit for SDL3",
     "version": [],
-    "depends": [ "cross-gcc", "libsdl3", "cmake-toolchain" ],
+    "depends": [ "cross-gcc", "libsdl3>=3.3.0", "cmake-toolchain" ],
     "git-url": "https://github.com/libsdl-org/SDL_mixer",
     "git-commit": "main",
-    "patches": [
-        {
-            "patch": "patches/SDL3/mixer_CMakeLists.txt.patch",
-            "modifies": "SDL_mixer/CMakeLists.txt"
-        }
-    ],
+    "patches": [],
     "bootstrap-commands": [
         [ "cmake", "-B.", "-S${repo_directory}/SDL_mixer", 
-          "-DCMAKE_INSTALL_PREFIX=${prefix}", 
+          "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DSDLMIXER_MIDI_NATIVE=OFF",
           "--toolchain", "${bootstrap_directory}/toolchain.cmake", "-GNinja"
         ]
     ],
