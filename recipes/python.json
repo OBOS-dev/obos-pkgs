@@ -2,7 +2,7 @@
     "name": "python",
     "description": "The Python Programming Language",
     "version": [ 3,13,7 ],
-    "depends": [ "cross-gcc", "libgdbm", "xz-utils", "bzip2", "gzip", "libffi", "zlib", "libreadline" ],
+    "depends": [ "cross-gcc", "libgdbm", "xz-utils", "bzip2", "gzip", "libffi", "zlib", "libreadline", "libuuid" ],
     "url": "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tar.xz",
     "patches": [
         {
