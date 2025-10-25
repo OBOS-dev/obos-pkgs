@@ -22,10 +22,10 @@
         [ "make", "-j${nproc}", "all-target-libgcc" ]
     ],
     "install-commands": [
-        [ "make", "-j${nproc}", "install-gcc", "DESTDIR=${destdir}" ],
-        [ "make", "-j${nproc}", "install-gcc", "DESTDIR=${bin_package_prefix}" ],
-        [ "make", "-j${nproc}", "install-target-libgcc", "DESTDIR=${destdir}" ],
-        [ "make", "-j${nproc}", "install-target-libgcc", "DESTDIR=${bin_package_prefix}" ]
+        [ "make", "-j${nproc}", "install-strip-gcc", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install-strip-gcc", "DESTDIR=${bin_package_prefix}" ],
+        [ "make", "-j${nproc}", "install-strip-target-libgcc", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install-strip-target-libgcc", "DESTDIR=${bin_package_prefix}" ]
     ],
     "inhibit-auto-rebuild": true
 }
