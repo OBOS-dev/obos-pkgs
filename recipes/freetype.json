@@ -7,7 +7,7 @@
     "depends": [ "cross-gcc", "meson-crossfile" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}" ]
+        [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}", "-Dpng=disabled" ]
     ],
     "build-commands": [
         [ "meson", "compile" ]
