@@ -17,6 +17,7 @@
     ],
     "install-commands": [
         [ "make", "install", "DESTDIR=${destdir}" ],
-        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "rm", "${bin_package_prefix}/usr/include/X11/extensions/XKBgeom.h" ]
     ]
 }
