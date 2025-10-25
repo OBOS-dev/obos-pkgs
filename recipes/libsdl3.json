@@ -1,17 +1,17 @@
 {
     "name": "libsdl3",
     "description": "SDL3",
-    "version": [ 3,2,22 ],
+    "version": [ 3,2,24 ],
     "depends": [ "cross-gcc", "cmake-toolchain" ],
     "git-url": "https://github.com/libsdl-org/SDL",
-    "git-commit": "release-3.2.22",
+    "git-commit": "release-3.2.24",
     "patches": [],
     "bootstrap-commands": [
-        [ "cmake", "-B.", "-S${repo_directory}/SDL", "-DCMAKE_INSTALL_PREFIX=${prefix}", 
-          "--toolchain", "${bootstrap_directory}/toolchain.cmake", "-DHAVE_SDL_THREADS=ON", "-DHAVE_SDL_MAIN_CALLBACKS=OFF", "-DHAVE_SDL_TIMERS=ON", "-DSDL_PTHREADS=ON", "-DSDL_ALTIVEC=OFF", "-DSDL_DISKAUDIO=OFF", "-DSDL_DIRECTFB=ON", "-DSDL_OPENGL=OFF", "-DSDL_OPENGLES=OFF", "-DSDL_PTHREADS=ON", "-DSDL_PTHREADS_SEM=OFF", "-DSDL_OSS=ON", "-DSDL_ALSA=OFF", "-DSDL_JACK=OFF", "-DSDL_ESD=OFF", "-DSDL_PULSEAUDIO=OFF", "-DSDL_ARTS=OFF", "-DSDL_NAS=OFF", "-DSDL_SNDIO=OFF", "-DSDL_FUSIONSOUND=OFF", "-DSDL_LIBSAMPLERATE=OFF", "-DSDL_RPATH=OFF", "-DSDL_X11=OFF", "-DSDL_WAYLAND=OFF", "-DSDL_WAYLAND_QT_TOUCH=OFF", "-DSDL_RPI=OFF", "-DSDL_COCOA=OFF", "-DSDL_DIRECTX=OFF", "-DSDL_WASAPI=OFF", "-DSDL_RENDER_D3D=OFF", "-DSDL_VIVANTE=OFF", "-DSDL_VULKAN=OFF", "-DSDL_KMSDRM=OFF", "-DSDL_HIDAPI=OFF", "-DSDL_SHARED=ON", "-DSDL_STATIC=OFF", "-DSDL_UNIX_CONSOLE_BUILD=ON", "-GNinja" ]
+        [ "cmake", "-B.", "-S${repo_directory}/SDL", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-Wno-dev",
+          "--toolchain", "${bootstrap_directory}/toolchain.cmake", "-DSDL_IBUS=OFF", "-DSDL_DBUS=OFF", "-DHAVE_SDL_THREADS=ON", "-DHAVE_SDL_MAIN_CALLBACKS=OFF", "-DHAVE_SDL_TIMERS=ON", "-DSDL_PTHREADS=ON", "-DSDL_ALTIVEC=OFF", "-DSDL_DISKAUDIO=OFF", "-DSDL_DIRECTFB=ON", "-DSDL_OPENGL=OFF", "-DSDL_OPENGLES=OFF", "-DSDL_PTHREADS=ON", "-DSDL_PTHREADS_SEM=OFF", "-DSDL_OSS=ON", "-DSDL_ALSA=OFF", "-DSDL_JACK=OFF", "-DSDL_ESD=OFF", "-DSDL_PULSEAUDIO=OFF", "-DSDL_ARTS=OFF", "-DSDL_NAS=OFF", "-DSDL_SNDIO=OFF", "-DSDL_FUSIONSOUND=OFF", "-DSDL_LIBSAMPLERATE=OFF", "-DSDL_RPATH=OFF", "-DSDL_X11=OFF", "-DSDL_WAYLAND=OFF", "-DSDL_WAYLAND_QT_TOUCH=OFF", "-DSDL_RPI=OFF", "-DSDL_COCOA=OFF", "-DSDL_DIRECTX=OFF", "-DSDL_WASAPI=OFF", "-DSDL_RENDER_D3D=OFF", "-DSDL_VIVANTE=OFF", "-DSDL_VULKAN=OFF", "-DSDL_KMSDRM=OFF", "-DSDL_HIDAPI=OFF", "-DSDL_SHARED=ON", "-DSDL_STATIC=OFF", "-DSDL_UNIX_CONSOLE_BUILD=ON", "-GNinja" ]
     ],
     "build-commands": [
-        [ "cmake", "--build", ".", "--parallel=2" ]
+        [ "cmake", "--build", ".", "--parallel=${nproc}" ]
     ],
     "install-commands": [
         [ "export", "DESTDIR=${destdir}" ],
