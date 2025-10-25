@@ -1,5 +1,5 @@
 {
-    "name": "xbps",
+    "name": "host-xbps",
     "description": "Host XBPS for systems without it",
     "version": [ 0,60,5 ],
     "git-url": "https://github.com/void-linux/xbps",
