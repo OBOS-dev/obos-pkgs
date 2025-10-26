@@ -11,7 +11,7 @@
     ],
     "build-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
-        [ "make", "all" , "CFLAGS=-D__linux__=1 -fPIC" ],
+        [ "make", "all" , "CFLAGS=-D__linux__=1 -fPIC", "LIBFETCH_CPPFLAGS = -DFTP_COMBINE_CWDS -DWITH_SSL" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
     "install-commands": [
