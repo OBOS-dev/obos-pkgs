@@ -2,14 +2,13 @@
     "name": "generate-iso",
     "description": "Generates the obos ISO",
     "version": [],
-    "depends": [],
+    "depends": [ "distro-files" ],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [
         [ "mkdir", "-p", "${destdir}/dev" ]
     ],
     "install-commands": [
-        [ "${root_directory}/scripts/install-distro-files.sh", "${root_directory}", "${destdir}" ],
     	[ "${root_directory}/scripts/generate-initrd.sh", "${repo_directory}", "${destdir}" ],
         [ "cmake", "--build", "${bootstrap_directory}/oboskrnl" ],
         [ "cp", "${repo_directory}/obos/out/obos.iso", "${root_directory}" ]
