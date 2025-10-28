@@ -1,0 +1,31 @@
+{
+    "name": "curl",
+    "description": "Command line tool and library for transferring data with URLs",
+    "version": [ 8,16,0 ],
+    "url": "https://curl.se/download/curl-8.16.0.tar.xz",
+    "depends": [ "cross-gcc", "openssl", "zlib" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
+        [ "${repo_directory}/${name}-${version}/configure", 
+          "--host=${target_triplet}",
+          "--prefix=${prefix}",
+          "--with-sysroot=${destdir}",
+          "--with-ca-path=/etc/ssl/certs",
+          "--with-openssl",
+          "--with-zlib",
+          "--without-libpsl",
+          "--disable-ipv6",
+          "--disable-static",
+          "ac_cv_func_eventfd=no",
+          "ac_cv_header_sys_eventfd_h=no"
+        ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
