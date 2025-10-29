@@ -3,3 +3,4 @@ export HOME=~
 cd $HOME
 export TERM=linux
 export SHELL=$0
+stty icrnl
