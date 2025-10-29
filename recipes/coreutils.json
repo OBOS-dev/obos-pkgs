@@ -1,16 +1,12 @@
 {
     "name": "coreutils",
     "description": "GNU Coreutils",
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/coreutils/coreutils-9.5.tar.xz",
-    "version": [ 9,5,0 ],
+    "url": "https://mirror.team-cymru.com/gnu/coreutils/coreutils-9.8.tar.xz",
+    "version": [ 9,8,0 ],
     "depends": [ "cross-gcc" ],
-    "patches": [
-        {
-            "patch": "patches/coreutils/config.sub.patch",
-            "modifies": "coreutils-9.5/build-aux/config.sub"
-        }
-    ],
+    "patches": [],
     "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-9.8" ],
         [ "${root_directory}/scripts/configure-coreutils.sh", "${repo_directory}", "${prefix}", "${target_triplet}" ]
     ],
     "build-commands": [
