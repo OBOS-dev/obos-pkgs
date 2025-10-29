@@ -10,7 +10,6 @@ cmake \
 -DOBOS_COMPILE_USER_UTILS=$3 \
 -DOBOS_ONLY_COMPILE_USER_UTILS=$3 \
 -DCMAKE_INSTALL_PREFIX=$4 \
--DOBOS_ENABLE_UBSAN=ON \
 -S$2 -GNinja
 if [ $target_triplet = 'x86_64-obos' ]
 then

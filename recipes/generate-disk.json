@@ -2,7 +2,7 @@
     "name": "generate-disk",
     "description": "Generates an OBOS hard disk.",
     "version": [],
-    "depends": [ "oboskrnl" ],
+    "depends": [ "distro-files" ],
     "patches": [
         {
             "patch": "patches/hyper.disk.cfg.patch",
@@ -11,10 +11,11 @@
         }
     ],
     "bootstrap-commands": [
+        [ "gcc", "-o${host_prefix}/bin/mk-obos-swap", "${root_directory}/scripts/mk-obos-swap.c", "-O2", "-g" ],
         [ "export", "OBOS_IMG=`realpath ${repo_directory}/../obos.img`" ],
         [ "rm", "-f", "$$OBOS_IMG" ],
         [ "fallocate", "-l4GiB", "$$OBOS_IMG" ],
-        [ "sgdisk", "--new=1:264192:+128M", "--typecode=1:EF00", "--largest-new=2", "$$OBOS_IMG" ],
+        [ "sgdisk", "--new=1:2048:+128M", "--typecode=1:8200", "--new=2:264192:+128M", "--typecode=2:EF00", "--largest-new=3", "$$OBOS_IMG" ],
         [ "export", "EFI_LOOP=`losetup -f`" ],
         [ "losetup", "--offset=0x8100000", "--sizelimit=0x8000000", "--sector-size=512", "$$EFI_LOOP", "$$OBOS_IMG" ],
         [ "export", "ROOT_LOOP=`losetup -f`" ],
@@ -23,13 +24,13 @@
         [ "mkdir", "-p", "root_mnt" ],
         [ "mkfs.fat", "$$EFI_LOOP" ],
         [ "mkfs.ext2", "$$ROOT_LOOP" ],
+        [ "${root_directory}/scripts/mk-obos-swap-invoke.sh", "$$OBOS_IMG", "512", "${target_triplet}", "0x8000000", "0x100000" ],
         [ "mount", "$$EFI_LOOP", "efi_mnt" ],
         [ "mount", "$$ROOT_LOOP", "root_mnt" ],
         [ "echo", "Disk image at $$OBOS_IMG" ]
     ],
     "build-commands": [
         [ "cp", "-r", "${destdir}/*", "root_mnt/" ],
-        [ "${root_directory}/scripts/install-distro-files.sh", "${root_directory}", "${bootstrap_directory}/${name}/root_mnt" ],
         [ "mkdir", "-p", "efi_mnt/EFI/BOOT" ],
         [ "cp", "${repo_directory}/obos/dependencies/hyper/BOOTX64.efi", "efi_mnt/EFI/BOOT" ],
         [ "cp", "${repo_directory}/hyper.disk.cfg", "efi_mnt/hyper.cfg" ],
@@ -63,7 +64,7 @@
           "-M", "q35", "-m", "2G",
           "-enable-kvm", "-cpu", "host",
           "-debugcon", "file:/dev/stdout", "-monitor", "stdio",
-          "-smp", "4",
+          "-smp", "1",
           "-s", 
           "-drive", "if=pflash,format=raw,readonly=on,file=$OVMF",
           "-audio", "driver=sdl,model=hda"
