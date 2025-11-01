@@ -24,4 +24,8 @@ $2/$4-$5/configure \
     --disable-static --enable-shared \
     --with-xkb-path=/usr/share/X11/xkb \
     --with-xkb-bin-directory=/usr/bin \
+    --localstatedir=/var \
+    --sharedstatedir=/com \
+    --sysconfdir=/etc \
+    --runstatedir=/var/run \
     ac_cv_func_epoll_create1=no
