@@ -1,0 +1,19 @@
+{
+    "name": "libxext",
+    "description": "...",
+    "version": [ 1,3,6 ],
+    "url": "https://www.x.org/archive/individual/lib/libXext-1.3.6.tar.xz",
+    "depends": [ "cross-gcc", "xorgproto", "libx11" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXext-${version}" ],
+        [ "${repo_directory}/libXext-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-malloc0returnsnull", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "libxrender",
+    "description": "...",
+    "version": [ 0,9,12 ],
+    "url": "https://www.x.org/releases/individual/lib/libXrender-0.9.12.tar.xz",
+    "depends": [ "cross-gcc", "xorgproto", "libx11" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXrender-${version}" ],
+        [ "${repo_directory}/libXrender-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared", "--disable-malloc0returnsnull" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "libice",
+    "description": "...",
+    "version": [ 1,1,2 ],
+    "url": "https://www.x.org/releases/individual/lib/libICE-1.1.2.tar.xz",
+    "depends": [ "cross-gcc", "xtrans", "xorgproto" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libICE-${version}" ],
+        [ "${repo_directory}/libICE-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

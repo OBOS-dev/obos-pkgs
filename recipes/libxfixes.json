@@ -1,0 +1,19 @@
+{
+    "name": "libxfixes",
+    "description": "...",
+    "version": [ 6,0,2 ],
+    "url": "https://www.x.org/releases/individual/lib/libXfixes-6.0.2.tar.xz",
+    "depends": [ "cross-gcc", "xorgproto", "libx11" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXfixes-${version}" ],
+        [ "${repo_directory}/libXfixes-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

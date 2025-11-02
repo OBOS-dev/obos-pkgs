@@ -1,0 +1,19 @@
+{
+    "name": "libxt",
+    "description": "...",
+    "version": [ 1,3,0 ],
+    "url": "https://www.x.org/releases/individual/lib/libXt-1.3.0.tar.xz",
+    "depends": [ "cross-gcc", "libice", "libsm", "libx11", "xorgproto" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXt-${version}" ],
+        [ "${repo_directory}/libXt-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-malloc0returnsnull", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

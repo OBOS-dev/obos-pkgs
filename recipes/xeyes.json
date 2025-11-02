@@ -1,0 +1,19 @@
+{
+    "name": "xeyes",
+    "description": "X Eyes",
+    "version": [ 1,3,1 ],
+    "url": "https://www.x.org/releases/individual/app/xeyes-1.3.1.tar.xz",
+    "depends": [ "cross-gcc", "xorgproto", "libxi", "libx11", "libxt", "libxext", "libxmu", "libxrender" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/xeyes-${version}" ],
+        [ "${repo_directory}/xeyes-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-malloc0returnsnull", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

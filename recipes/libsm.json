@@ -1,0 +1,19 @@
+{
+    "name": "libsm",
+    "description": "...",
+    "version": [ 1,2,6 ],
+    "url": "https://www.x.org/releases/individual/lib/libSM-1.2.6.tar.xz",
+    "depends": [ "cross-gcc", "xorgproto", "libx11", "libice", "libuuid" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libSM-${version}" ],
+        [ "${repo_directory}/libSM-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
