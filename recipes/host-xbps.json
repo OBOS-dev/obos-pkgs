@@ -5,7 +5,7 @@
     "depends": [ "xbps-src" ],
     "patches": [],
     "bootstrap-commands": [
-        [ "cd", "${repo_directory}/${name}/" ],
+        [ "cd", "${repo_directory}/xbps/" ],
         [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
         [ "unset", "PKG_CONFIG_PATH" ],
         [ "export", "ACLOCAL_PATH=/usr/share/aclocal/" ],
@@ -13,12 +13,12 @@
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
     "build-commands": [
-        [ "cd", "${repo_directory}/${name}/" ],
+        [ "cd", "${repo_directory}/xbps/" ],
         [ "make", "all" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
     "install-commands": [
-        [ "cd", "${repo_directory}/${name}/" ],
+        [ "cd", "${repo_directory}/xbps/" ],
         [ "make", "install", "DESTDIR=${prefix}" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
