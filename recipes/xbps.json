@@ -17,7 +17,9 @@
     "install-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
         [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "rm", "-f", "${destdir}/usr/share/xbps.d/00-repository-main.conf" ],
         [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "rm", "-f", "${bin_package_prefix}/usr/share/xbps.d/00-repository-main.conf" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ]
 }
