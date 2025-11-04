@@ -1,7 +1,7 @@
 {
     "name": "bash",
     "description": "Bourne Again SHell",
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/bash/bash-5.3.tar.gz",
+    "url": "ftpmirror.gnu.org/gnu/bash/bash-5.3.tar.gz",
     "depends": [ "cross-gcc" ],
     "version": [ 5,3,0 ],
     "patches": [

@@ -2,7 +2,7 @@
     "name": "diffutils",
     "description": "Finds differences between files",
     "version": [ 3,10,0 ],
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/diffutils/diffutils-3.10.tar.xz",
+    "url": "ftpmirror.gnu.org/gnu/diffutils/diffutils-3.10.tar.xz",
     "depends": [ "cross-gcc" ],
     "patches": [
         {

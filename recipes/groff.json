@@ -2,7 +2,7 @@
     "name": "groff",
     "description": "GNU 'roff'",
     "version": [ 1,23,0 ],
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/groff/groff-1.23.0.tar.gz",
+    "url": "ftpmirror.gnu.org/gnu/groff/groff-1.23.0.tar.gz",
     "depends": [ "cross-gcc" ],
     "patches": [
         {

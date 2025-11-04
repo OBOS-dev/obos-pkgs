@@ -2,7 +2,7 @@
     "name": "libmpc",
     "description": "libmpc",
     "version": [ 1,3,1 ],
-    "url": "https://mirror.csclub.uwaterloo.ca/gnu/mpc/mpc-1.3.1.tar.gz",
+    "url": "ftpmirror.gnu.org/gnu/mpc/mpc-1.3.1.tar.gz",
     "depends": [ "cross-gcc", "libmpfr", "libgmp" ],
     "patches": [
         {
