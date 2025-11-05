@@ -14,7 +14,9 @@
         "less",
         "nano",
         "tar",
-        "gzip"
+        "gzip",
+        "obos-utils",
+        "xbps"
     ],
     "patches": [],
     "bootstrap-commands": [],
