@@ -5,7 +5,7 @@
  		ac_sys_system=Linux
  		;;
 +	*-*-obos*)
-+		ac_sys_system=Linux
++		ac_sys_system=OBOS
 +		;;
  	*-*-cygwin*)
  		ac_sys_system=Cygwin
