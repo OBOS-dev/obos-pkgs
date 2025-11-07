@@ -16,7 +16,8 @@
         "tar",
         "gzip",
         "obos-utils",
-        "xbps"
+        "xbps",
+        "distro-files"
     ],
     "patches": [],
     "bootstrap-commands": [],
