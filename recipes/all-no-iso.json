@@ -67,7 +67,15 @@
         "xorg-server",
         "xtrans",
         "tcc",
-        "obos-utils"
+        "obos-utils",
+        "libxmu",
+        "libice",
+        "libxi",
+        "libxrender",
+        "libsm",
+        "libxt",
+        "libxext",
+        "xeyes"
     ],
     "build-depends": [],
     "patches": [],
