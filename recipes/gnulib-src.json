@@ -3,16 +3,20 @@
     "description": "gnuLib source code",
     "version": [ 0,0,0 ],
     "depends": [],
-    "build-depends": [],
+    "build-depends": [ "cross-autoconf" ],
     "patches": [],
     "bootstrap-commands": [
         [ "mkdir", "${repo_directory}/gnulib" ],
         [ "cd", "${repo_directory}/gnulib" ],
         [ "git", "init" ],
         [ "git", "remote", "add", "origin", "https://github.com/coreutils/gnulib" ],
-        [ "git", "fetch", "--depth=1", "origin", "0ba13435a9362bec0ff5fd0830907b9fac723e41" ],
-        [ "git", "reset", "--hard", "0ba13435a9362bec0ff5fd0830907b9fac723e41" ]
+        [ "git", "fetch", "--depth=1", "origin", "master" ],
+        [ "git", "reset", "--hard", "master" ]
     ],
-    "build-commands": [],
+    "build-commands": [
+        [ "cp", "${host_prefix}/share/autoconf/build-aux/config.sub", "${repo_directory}/gnulib/build-aux/config.sub" ],
+        [ "cp", "${host_prefix}/share/autoconf/build-aux/config.guess", "${repo_directory}/gnulib/build-aux/config.guess" ],
+        [ "cp", "${host_prefix}/share/autoconf/build-aux/install-sh", "${repo_directory}/gnulib/build-aux/install-sh" ]
+    ],
     "install-commands": []
 }
