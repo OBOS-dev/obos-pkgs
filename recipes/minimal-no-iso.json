@@ -18,6 +18,7 @@
         "xbps",
         "distro-files"
     ],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [],
