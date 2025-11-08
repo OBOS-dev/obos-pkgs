@@ -20,7 +20,7 @@
     "install-commands": [
         [ "make", "SHLIB_LIBS=-lncursesw", "install", "DESTDIR=${destdir}"  ],
         [ "make", "SHLIB_LIBS=-lncursesw", "install", "DESTDIR=${bin_package_prefix}" ],
-        [ "ln", "-s", "${destdir}/lib/libreadline.so.8", "${destdir}/lib/libreadline.so" ],
+        [ "ln", "-s", "${destdir}/${prefix}/lib/libreadline.so.8", "${destdir}/${prefix}/lib/libreadline.so" ],
         [ "ln", "${bin_package_prefix}/${prefix}/lib/libreadline.so.8", "${bin_package_prefix}/${prefix}/lib/libreadline.so" ]
     ]
 }
