@@ -2,12 +2,8 @@
     "name": "all",
     "description": "All packages.",
     "version": [],
-    "depends": [
-        "all-no-iso",
-        "oboskrnl",
-        "generate-iso"
-    ],
-    "build-depends": [],
+    "depends": [ "all-no-iso" ],
+    "build-depends": [ "oboskrnl", "generate-iso" ],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [],

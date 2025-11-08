@@ -2,12 +2,8 @@
     "name": "minimal",
     "description": "Minimal distribution packages.",
     "version": [],
-    "depends": [
-        "minimal-no-iso",
-        "oboskrnl",
-        "generate-iso"
-    ],
-    "build-depends": [],
+    "depends": [ "minimal-no-iso" ],
+    "build-depends": [ "oboskrnl", "generate-iso" ],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [],
