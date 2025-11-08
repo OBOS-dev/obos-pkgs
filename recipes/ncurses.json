@@ -25,8 +25,7 @@
 		    "--with-shared",
     		"--enable-widec",
 	    	"--without-normal"
-	    ],
-        [ "chmod", "+x", "${repo_directory}/ncurses-6.5/install-headers.sh" ]
+	    ]
     ],
     "build-commands": [
         [ "make", "all" ]
