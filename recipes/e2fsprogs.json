@@ -29,7 +29,8 @@
         }
     ],
     "bootstrap-commands": [
-        [ "${repo_directory}/e2fsprogs/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--enable-libuuid" ]
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/e2fsprogs" ],
+        [ "${repo_directory}/e2fsprogs/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--enable-libuuid", "--enable-elf-shlibs" ]
     ],
     "build-commands": [
         [ "make", "-j${nproc}", "all" ]
