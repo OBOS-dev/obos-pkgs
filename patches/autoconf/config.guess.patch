@@ -1,0 +1,12 @@
+--- config.guess.old	2025-11-08 09:16:56.580798569 -0500
++++ repos/autoconf-2.72/build-aux/config.guess	2025-11-08 09:16:38.507953221 -0500
+@@ -888,6 +888,9 @@
+     i*86:BSD/386:*:* | i*86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
+ 	GUESS=$UNAME_MACHINE-pc-bsdi$UNAME_RELEASE
+ 	;;
++    *:obos:*:*)
++       GUESS=$UNAME_MACHINE-pc-obos
++       ;;
+     sparc*:BSD/OS:*:*)
+ 	GUESS=sparc-unknown-bsdi$UNAME_RELEASE
+ 	;;
