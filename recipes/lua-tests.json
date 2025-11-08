@@ -4,6 +4,7 @@
     "version": [ 5,4,8 ],
     "url": "https://www.lua.org/tests/lua-5.4.8-tests.tar.gz",
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [],

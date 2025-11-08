@@ -2,8 +2,9 @@
     "name": "ncurses",
     "description": "GNU ncurses library",
     "version": [ 6,5,0 ],
-    "url": "ftpmirror.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz",
-    "depends": [ "cross-gcc" ],
+    "url": "https://ftpmirror.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/ncurses/config.sub.patch",

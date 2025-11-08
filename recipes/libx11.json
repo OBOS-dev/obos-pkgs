@@ -3,7 +3,8 @@
     "description": "Unknown",
     "version": [ 1,8,1 ],
     "url": "https://www.x.org/archive/individual/lib/libX11-1.8.1.tar.gz",
-    "depends": [ "cross-gcc", "xorgproto", "xtrans", "libxcb>=1.11.1" ],
+    "depends": [ "mlibc", "xtrans", "libxcb>=1.11.1" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/libX11-${version}" ],

@@ -4,6 +4,7 @@
     "version": [ 2,5,4 ],
     "url": "https://ftpmirror.gnu.org/gnu/libtool/libtool-2.5.4.tar.xz",
     "depends": [ "cross-automake" ],
+    "build-depends": [],
     "patches": [
         {
             "patch": "patches/libtool/libtool.m4.patch",

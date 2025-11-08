@@ -3,6 +3,7 @@
     "description": "Generates a CMake toolchain file for cross-compilation",
     "version": [],
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [

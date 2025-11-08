@@ -4,6 +4,7 @@
     "version": [ 1,20,0 ],
     "url": "https://www.x.org/pub/individual/util/util-macros-1.20.0.tar.xz",
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/util-macros-${version}" ],

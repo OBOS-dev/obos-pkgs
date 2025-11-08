@@ -2,7 +2,8 @@
     "name": "bzip2",
     "description": "bzip2",
     "version": [ 1,0,8 ],
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "url": "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
     "bootstrap-commands": [

@@ -4,7 +4,8 @@
     "version": [],
     "git-url": "https://github.com/OBOS-dev/mlibc",
     "git-commit": "master",
-    "depends": [ "linux-kernel-headers" ],
+    "depends": [],
+    "build-depends": [ "linux-kernel-headers" ],
     "patches": [],
     "bootstrap-commands": [
         [ "chmod", "+x", "${root_directory}/scripts/generate-mlibc-cross-file.sh" ],

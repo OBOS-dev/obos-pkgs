@@ -3,7 +3,8 @@
     "description": "Manual Pager",
     "version": [ 2,13,1 ],
     "url": "https://gitlab.com/man-db/man-db/-/archive/2.13.1/man-db-2.13.1.tar.bz2",
-    "depends": [ "cross-gcc", "libpipeline", "groff", "gnulib-src" ],
+    "depends": [ "mlibc", "libpipeline", "groff" ],
+    "build-depends": [ "cross-gcc", "gnulib-src" ],
     "patches": [
         {
             "modifies": "man-db-2.13.1/bootstrap",

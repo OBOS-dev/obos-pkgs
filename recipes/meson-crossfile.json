@@ -3,6 +3,7 @@
     "description": "Generates a Meson crossfile for cross-compilation",
     "version": [],
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [

@@ -3,6 +3,7 @@
     "description": "gnuLib source code",
     "version": [ 0,0,0 ],
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [
         [ "mkdir", "${repo_directory}/gnulib" ],

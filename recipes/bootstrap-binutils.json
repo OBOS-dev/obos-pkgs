@@ -1,8 +1,9 @@
 {
     "name": "bootstrap-binutils",
     "description": "Cross-compiler used to link packages.",
-    "url": "ftpmirror.gnu.org/gnu/binutils/binutils-2.42.tar.lz",
+    "url": "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.42.tar.lz",
     "depends": [],
+    "build-depends": [],
     "version": [ 2,42,0 ],
     "patches": [
         {
@@ -38,7 +39,7 @@
     "install-commands": [
         [ "make", "-j${nproc}", "install" ]
     ],
-    "host-package": 1,
+    "host-package": true,
     "host-provides": "${target_triplet}-ld",
     "inhibit-auto-rebuild": true
 }

@@ -3,7 +3,8 @@
     "description": "...",
     "version": [ 0,9,12 ],
     "url": "https://www.x.org/releases/individual/lib/libXrender-0.9.12.tar.xz",
-    "depends": [ "cross-gcc", "xorgproto", "libx11" ],
+    "depends": [ "mlibc", "libx11" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXrender-${version}" ],

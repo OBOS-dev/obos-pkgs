@@ -1,17 +1,14 @@
 {
     "name": "nano",
     "description": "NANO Text Editor",
-    "depends": [ "cross-gcc", "ncurses" ],
-    "version": [ 8,4 ],
-    "url": "https://www.nano-editor.org/dist/v8/nano-8.4.tar.xz",
-    "patches": [
-        {
-            "modifies": "nano-8.4/config.sub",
-            "patch": "patches/nano/config.sub.patch"
-        }
-    ],
+    "depends": [ "mlibc", "ncurses" ],
+    "build-depends": [ "cross-gcc" ],
+    "version": [ 8,6 ],
+    "url": "https://www.nano-editor.org/dist/v8/nano-8.6.tar.xz",
+    "patches": [],
     "bootstrap-commands": [
-        [ "${repo_directory}/nano-8.4/configure", "gl_cv_func_strcasecmp_works=true", "--prefix=${prefix}", "--sysconfdir=/etc", "--host=${target_triplet}" ]
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/nano-8.6/" ],
+        [ "${repo_directory}/nano-8.6/configure", "gl_cv_func_strcasecmp_works=true", "--disable-libmagic", "--prefix=${prefix}", "--sysconfdir=/etc", "--host=${target_triplet}" ]
     ],
     "build-commands": [
         [ "make", "all", "LIBS= -lncursesw -ltinfow " ]

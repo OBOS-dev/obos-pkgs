@@ -2,7 +2,8 @@
     "name": "oboskrnl",
     "description": "OBOS kernel and drivers",
     "version": [],
-    "depends": [ "cross-gcc", "obos-src" ],
+    "depends": [],
+    "build-depends": [ "cross-gcc", "obos-src" ],
     "patches": [],
     "bootstrap-commands": [
        [

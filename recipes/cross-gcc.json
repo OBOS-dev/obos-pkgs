@@ -2,6 +2,7 @@
     "name": "cross-gcc",
     "description": "Cross-compiler used to compile packages.",
     "depends": [ "mlibc", "cross-libtool" ],
+    "build-depends": [],
     "version": [ 14,2,0 ],
     "patches": [],
     "bootstrap-commands": [
@@ -29,7 +30,7 @@
         [ "make", "-j${nproc}", "install-target-libgcc" ],
         [ "make", "-j${nproc}", "install-target-libstdc++-v3" ]
     ],
-    "host-package": 1,
+    "host-package": true,
     "host-provides": "${target_triplet}-gcc",
     "inhibit-auto-rebuild": true
 }

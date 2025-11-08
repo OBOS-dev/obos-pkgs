@@ -4,6 +4,7 @@
     "version": [ 2,72,0 ],
     "url": "https://ftpmirror.gnu.org/gnu/autoconf/autoconf-2.72.tar.gz",
     "depends": [ "cross-m4", "cross-autoconf-archive" ],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [
         [ "${repo_directory}/autoconf-2.72/configure", "--prefix", "${prefix}" ]

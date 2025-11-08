@@ -3,7 +3,8 @@
     "description": "X Eyes",
     "version": [ 1,3,1 ],
     "url": "https://www.x.org/releases/individual/app/xeyes-1.3.1.tar.xz",
-    "depends": [ "cross-gcc", "xorgproto", "libxi", "libx11", "libxt", "libxext", "libxmu", "libxrender" ],
+    "depends": [ "mlibc", "libxi", "libx11", "libxt", "libxext", "libxmu", "libxrender" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/xeyes-${version}" ],

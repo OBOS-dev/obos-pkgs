@@ -3,7 +3,8 @@
     "description": "Command line tool and library for transferring data with URLs",
     "version": [ 8,16,0 ],
     "url": "https://curl.se/download/curl-8.16.0.tar.xz",
-    "depends": [ "cross-gcc", "openssl", "zlib" ],
+    "depends": [ "mlibc", "openssl", "zlib" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],

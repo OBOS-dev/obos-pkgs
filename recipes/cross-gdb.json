@@ -1,9 +1,10 @@
 {
     "name": "cross-gdb",
     "description": "Cross-compiler used to link packages.",
-    "url": "ftpmirror.gnu.org/gnu/gdb/gdb-16.3.tar.xz",
+    "url": "https://ftpmirror.gnu.org/gnu/gdb/gdb-16.3.tar.xz",
     "version": [ 16,3,0 ],
     "depends": [],
+    "build-depends": [],
     "patches": [
         {
             "patch": "patches/binutils/config.bfd.patch",

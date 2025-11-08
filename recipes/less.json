@@ -3,7 +3,8 @@
     "description": "UNIX less command",
     "version": [ 6,6,8 ],
     "url": "https://ftpmirror.gnu.org/gnu/less/less-668.tar.gz",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/less-668/" ],

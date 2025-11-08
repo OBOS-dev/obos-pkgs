@@ -3,7 +3,8 @@
     "description": "...",
     "version": [ 1,3,6 ],
     "url": "https://www.x.org/archive/individual/lib/libXext-1.3.6.tar.xz",
-    "depends": [ "cross-gcc", "xorgproto", "libx11" ],
+    "depends": [ "mlibc", "libx11" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXext-${version}" ],

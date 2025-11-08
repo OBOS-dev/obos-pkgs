@@ -3,7 +3,8 @@
     "description": "only god knows the description...",
     "version": [ 1,6,0 ],
     "url": "https://www.x.org/archive/individual/lib/xtrans-1.6.0.tar.gz",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],

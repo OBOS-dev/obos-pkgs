@@ -3,7 +3,8 @@
     "description": "libpipeline",
     "version": [ 1,5,8 ],
     "url": "https://gitlab.com/libpipeline/libpipeline/-/archive/1.5.8/libpipeline-1.5.8.tar.bz2",
-    "depends": [ "gnulib-src", "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "gnulib-src" ],
     "patches": [
         {
             "modifies": "libpipeline-1.5.8/bootstrap",

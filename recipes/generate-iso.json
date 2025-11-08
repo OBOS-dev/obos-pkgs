@@ -3,6 +3,7 @@
     "description": "Generates the obos ISO",
     "version": [],
     "depends": [ "distro-files" ],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [

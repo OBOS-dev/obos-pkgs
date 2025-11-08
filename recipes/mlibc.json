@@ -2,7 +2,9 @@
     "name": "mlibc",
     "description": "Portable C standard library",
     "version": [],
-    "depends": [ "bootstrap-gcc", "bootstrap-binutils", "mlibc-headers" ],
+    "comment1": "TODO: Depend on libgcc binaries? (for that we would need libgcc SO libraries in the first place...)",
+    "depends": [],
+    "build-depends": [ "bootstrap-gcc", "bootstrap-binutils", "mlibc-headers" ],
     "patches": [],
     "bootstrap-commands": [
         [ "rmdir", "${bin_package_prefix}" ],

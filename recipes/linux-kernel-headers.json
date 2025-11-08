@@ -3,6 +3,7 @@
     "description": "Linux kernel headers",
     "version": [ 6,12,38 ],
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "url": "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.38.tar.xz",
     "bootstrap-commands": [],

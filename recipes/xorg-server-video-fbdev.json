@@ -3,7 +3,8 @@
     "description": "Xorg Server",
     "version": [ 0,5,0 ],
     "url": "https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2",
-    "depends": [ "cross-gcc", "xorg-server"],
+    "depends": [ "mlibc", "xorg-server" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/xorg-server-video-fbdev/fbdev.c.patch",

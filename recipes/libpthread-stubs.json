@@ -3,7 +3,8 @@
     "description": "Unknown",
     "version": [ 0,0,3 ],
     "url": "https://www.x.org/releases/X11R7.7/src/everything/libpthread-stubs-0.3.tar.bz2",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-0.3" ],

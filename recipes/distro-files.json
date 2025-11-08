@@ -3,6 +3,7 @@
     "description": "distro-files",
     "version": [ 0,0,0 ],
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [],

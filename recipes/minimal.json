@@ -7,6 +7,7 @@
         "oboskrnl",
         "generate-iso"
     ],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
     "build-commands": [],

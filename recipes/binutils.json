@@ -1,7 +1,8 @@
 {
     "name": "binutils",
     "description": "Cross-compiler used to link packages.",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "version": [ 2,42,0 ],
     "bootstrap-commands": [

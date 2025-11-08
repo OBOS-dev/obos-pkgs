@@ -2,8 +2,9 @@
     "name": "grep",
     "description": "Searches for a string in input file(s).",
     "version": [ 3,11,0 ],
-    "url": "ftpmirror.gnu.org/gnu/grep/grep-3.11.tar.xz",
-    "depends": [ "cross-gcc" ],
+    "url": "https://ftpmirror.gnu.org/gnu/grep/grep-3.11.tar.xz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/grep/config.sub.patch",

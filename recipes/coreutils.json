@@ -3,7 +3,8 @@
     "description": "GNU Coreutils",
     "url": "https://mirror.team-cymru.com/gnu/coreutils/coreutils-9.8.tar.xz",
     "version": [ 9,8,0 ],
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-9.8" ],

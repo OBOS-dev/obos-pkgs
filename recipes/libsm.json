@@ -3,7 +3,8 @@
     "description": "...",
     "version": [ 1,2,6 ],
     "url": "https://www.x.org/releases/individual/lib/libSM-1.2.6.tar.xz",
-    "depends": [ "cross-gcc", "xorgproto", "libx11", "libice", "libuuid" ],
+    "depends": [ "mlibc", "libx11", "libice", "e2fsprogs" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libSM-${version}" ],

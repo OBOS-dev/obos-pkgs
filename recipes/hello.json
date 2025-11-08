@@ -2,8 +2,9 @@
     "name": "hello",
     "description": "Print a friendly, customizable greeting.",
     "version": [ 2,12,1 ],
-    "url": "ftpmirror.gnu.org/gnu/hello/hello-2.12.1.tar.gz",
-    "depends": [ "cross-gcc" ],
+    "url": "https://ftpmirror.gnu.org/gnu/hello/hello-2.12.1.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/hello/config.sub.patch",

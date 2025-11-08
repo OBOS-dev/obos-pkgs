@@ -2,8 +2,9 @@
     "name": "diffutils",
     "description": "Finds differences between files",
     "version": [ 3,10,0 ],
-    "url": "ftpmirror.gnu.org/gnu/diffutils/diffutils-3.10.tar.xz",
-    "depends": [ "cross-gcc" ],
+    "url": "https://ftpmirror.gnu.org/gnu/diffutils/diffutils-3.10.tar.xz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/diffutils/config.sub.patch",

@@ -2,7 +2,8 @@
     "name": "libcjson",
     "description": "Ultralightweight JSON parser in ANSI C",
     "version": [ 1,7,19 ],
-    "depends": [ "cross-gcc", "cmake-toolchain" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
     "git-url": "https://github.com/DaveGamble/cJSON",
     "git-commit": "v1.7.19",
     "patches": [

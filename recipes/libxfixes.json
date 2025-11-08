@@ -3,7 +3,8 @@
     "description": "...",
     "version": [ 6,0,2 ],
     "url": "https://www.x.org/releases/individual/lib/libXfixes-6.0.2.tar.xz",
-    "depends": [ "cross-gcc", "xorgproto", "libx11" ],
+    "depends": [ "mlibc", "libx11" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXfixes-${version}" ],

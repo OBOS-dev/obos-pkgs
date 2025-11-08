@@ -3,7 +3,8 @@
     "description": "libpng",
     "version": [ 1,6,50 ],
     "url": "https://cytranet-dal.dl.sourceforge.net/project/libpng/libpng16/1.6.50/libpng-1.6.50.tar.xz",
-    "depends": [ "cross-gcc", "zlib>=1.2.13" ],
+    "depends": [ "mlibc", "zlib>=1.2.13" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/libpng/configure.patch",

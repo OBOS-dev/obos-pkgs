@@ -1,8 +1,9 @@
 {
     "name": "bash",
     "description": "Bourne Again SHell",
-    "url": "ftpmirror.gnu.org/gnu/bash/bash-5.3.tar.gz",
-    "depends": [ "cross-gcc" ],
+    "url": "https://ftpmirror.gnu.org/gnu/bash/bash-5.3.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "version": [ 5,3,0 ],
     "patches": [
         {

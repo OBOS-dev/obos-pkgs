@@ -2,7 +2,8 @@
     "name": "zlib",
     "description": "zlib",
     "version": [ 1,3,1 ],
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "url": "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.xz",
     "patches": [],
     "bootstrap-commands": [

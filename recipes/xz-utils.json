@@ -2,7 +2,8 @@
     "name": "xz-utils",
     "description": "XZ Utils",
     "version": [ 5,8,1 ],
-    "depends": [ "cross-gcc", "cmake-toolchain" ],
+    "depends": [],
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
     "patches": [],
     "bootstrap-commands": [
         [ "rm", "-rf", "${repo_directory}/xz" ],

@@ -3,7 +3,8 @@
     "description": "only god knows the description...",
     "version": [ 0,2024,1 ],
     "url": "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2024.1.tar.xz",
-    "depends": [ "cross-gcc", "meson-crossfile" ],
+    "depends": [],
+    "build-depends": [ "cross-gcc", "meson-crossfile" ],
     "patches": [
         {
             "patch": "patches/xorgproto/Xos.h.patch",

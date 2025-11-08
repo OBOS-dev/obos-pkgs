@@ -2,7 +2,8 @@
     "name": "libsdl3",
     "description": "SDL3",
     "version": [ 3,3,0 ],
-    "depends": [ "cross-gcc", "cmake-toolchain" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
     "patches": [],
     "bootstrap-commands": [
         [ "rm", "-rf", "${repo_directory}/SDL" ],

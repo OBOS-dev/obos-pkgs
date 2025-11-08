@@ -5,6 +5,7 @@
     "git-commit": "0.60.5",
     "version": [ 0,60,5 ],
     "depends": [],
+    "build-depends": [],
     "patches": [
         {
             "patch": "patches/xbps/configure.patch",

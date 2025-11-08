@@ -3,7 +3,8 @@
     "description": "Lua Programming Language",
     "version": [ 5,4,8 ],
     "url": "https://www.lua.org/ftp/lua-5.4.8.tar.gz",
-    "depends": [ "cross-gcc", "libreadline" ],
+    "depends": [ "mlibc", "libreadline" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cp", "-r", "${repo_directory}/lua-${version}/*", "." ]

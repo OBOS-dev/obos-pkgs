@@ -3,7 +3,8 @@
     "description": "Extended crypt library for descrypt, md5crypt, bcrypt, and others",
     "version": [ 4,4,36 ],
     "url": "https://github.com/besser82/libxcrypt/releases/download/v4.4.36/libxcrypt-4.4.36.tar.xz",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
 	    {
             "patch": "patches/libxcrypt/config.sub.patch",

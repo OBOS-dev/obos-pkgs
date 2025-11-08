@@ -2,7 +2,8 @@
     "name": "gcc",
     "description": "Compiler used to compile",
     "version": [ 14,2,0 ],
-    "depends": [ "cross-gcc>=14.2.0", "binutils>=2.35.0", "libgmp>=4.3.2", "libmpfr>=3.1.0", "libmpc>=1.0.1" ],
+    "depends": [ "mlibc", "binutils>=2.35.0", "libgmp>=4.3.2", "libmpfr>=3.1.0", "libmpc>=1.0.1" ],
+    "build-depends": [ "cross-gcc>=14.2.0" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${repo_directory}/gcc-14.2.0/configure",

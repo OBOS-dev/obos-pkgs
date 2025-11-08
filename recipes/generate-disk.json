@@ -3,6 +3,7 @@
     "description": "Generates an OBOS hard disk.",
     "version": [],
     "depends": [ "distro-files" ],
+    "build-depends": [],
     "patches": [
         {
             "patch": "patches/hyper.disk.cfg.patch",

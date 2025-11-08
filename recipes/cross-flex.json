@@ -4,6 +4,7 @@
     "version": [ 2,6,4 ],
     "url": "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.lz",
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [
         [ "${repo_directory}/flex-${version}/configure", "--prefix", "${prefix}" ]

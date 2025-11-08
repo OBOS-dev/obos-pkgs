@@ -3,7 +3,6 @@
     "description": "Minimal distribution packages (does not generate an iso).",
     "version": [],
     "depends": [
-        "cross-gcc",
         "bash",
         "coreutils",
         "diffutils",

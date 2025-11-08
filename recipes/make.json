@@ -2,8 +2,9 @@
     "name": "make",
     "description": "GNU make",
     "version": [ 4,4,1 ],
-    "depends": [ "cross-gcc" ],
-    "url": "ftpmirror.gnu.org/gnu/make/make-4.4.1.tar.lz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "url": "https://ftpmirror.gnu.org/gnu/make/make-4.4.1.tar.lz",
     "patches": [
         {
             "patch": "patches/make/config.sub.patch",

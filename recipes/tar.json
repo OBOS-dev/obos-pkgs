@@ -3,7 +3,8 @@
     "description": "GNU Tar",
     "version": [ 1,35,0 ],
     "url": "https://ftpmirror.gnu.org/tar/tar-1.35.tar.xz",
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "patch": "patches/tar/config.sub.patch",

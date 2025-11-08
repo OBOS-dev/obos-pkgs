@@ -3,7 +3,8 @@
     "description": "Multi-format archive and compression library",
     "version": [ 3,8,2 ],
     "url": "https://github.com/libarchive/libarchive/releases/download/v3.8.2/libarchive-3.8.2.tar.xz",
-    "depends": [ "cross-gcc", "bzip2", "zlib", "xz-utils", "gzip", "libexpat", "openssl" ],
+    "depends": [ "mlibc", "bzip2", "zlib", "xz-utils", "gzip", "libexpat", "openssl" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cmake", "--toolchain=${bootstrap_directory}/toolchain.cmake",

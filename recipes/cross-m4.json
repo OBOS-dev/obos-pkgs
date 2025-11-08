@@ -4,6 +4,7 @@
     "version": [ 1,4,20 ],
     "url": "https://ftpmirror.gnu.org/gnu/m4/m4-1.4.20.tar.xz",
     "depends": [],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [
         [ "${repo_directory}/m4-${version}/configure", "--prefix", "${prefix}" ]

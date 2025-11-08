@@ -4,7 +4,8 @@
     "version": [ 2,14,1 ],
     "git-url": "https://gitlab.freedesktop.org/freetype/freetype",
     "git-commit": "VER-2-14-1",
-    "depends": [ "cross-gcc", "meson-crossfile" ],
+    "depends": [ "mlibc", "meson-crossfile" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "meson", "setup", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}", "-Dpng=disabled" ]

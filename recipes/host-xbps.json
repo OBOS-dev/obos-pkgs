@@ -3,6 +3,7 @@
     "description": "Host XBPS for systems without it",
     "version": [ 0,60,5 ],
     "depends": [ "xbps-src" ],
+    "build-depends": [],
     "patches": [],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/xbps/" ],

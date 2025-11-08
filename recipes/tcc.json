@@ -2,7 +2,8 @@
     "name": "tcc",
     "description": "Tiny C Compiler",
     "version": [ 0,9,27 ],
-    "depends": [ "cross-gcc" ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
     "url": "https://download.savannah.gnu.org/releases/tinycc/tcc-0.9.27.tar.bz2",
     "patches": [
         {

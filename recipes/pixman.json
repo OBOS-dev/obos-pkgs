@@ -1,9 +1,8 @@
 {
     "name": "pixman",
     "description": "Image processing and manipulation library",
-    "version": [ 0,0,0 ],
-    "git-url": "https://gitlab.freedesktop.org/pixman/pixman",
-    "git-commit": "master",
+    "version": [ 0,46,4 ],
+    "url": "https://www.x.org/archive/individual/lib/pixman-0.46.4.tar.xz",
     "depends": [ "cross-gcc", "meson-crossfile", "libpng" ],
     "patches": [],
     "bootstrap-commands": [

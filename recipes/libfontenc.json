@@ -3,7 +3,8 @@
     "description": "Unknown",
     "version": [ 1,1,8 ],
     "url": "https://www.x.org/archive/individual/lib/libfontenc-1.1.8.tar.gz",
-    "depends": [ "cross-gcc", "xorgproto", "zlib" ],
+    "depends": [ "mlibc", "xorgproto", "zlib" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
