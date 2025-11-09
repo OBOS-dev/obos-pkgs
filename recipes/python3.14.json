@@ -1,5 +1,5 @@
 {
-    "name": "python",
+    "name": "python3.14",
     "description": "The Python Programming Language",
     "version": [ 3,14,0 ],
     "depends": [ "mlibc", "libgdbm", "xz-utils", "bzip2", "gzip", "libffi", "zlib", "libreadline", "e2fsprogs", "zstd" ],
