@@ -1,0 +1,23 @@
+{
+    "name": "zstd",
+    "description": "Z Standard",
+    "version": [ 1,5,7 ],
+    "depends": [ "mlibc" ],
+    "url": "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz",
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cmake", "--toolchain=${bootstrap_directory}/toolchain.cmake",
+        "-GNinja", "-DCMAKE_INSTALL_PREFIX=${prefix}", "-DCMAKE_SYSROOT=${destdir}",
+        "-S${repo_directory}/${name}-${version}/build/cmake", "-Wno-dev" ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "install-commands": [
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "cmake", "--install", "." ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
+    ]
+}
