@@ -1,26 +1,27 @@
 {
     "name": "python",
     "description": "The Python Programming Language",
-    "version": [ 3,13,7 ],
-    "depends": [ "mlibc", "libgdbm", "xz-utils", "bzip2", "gzip", "libffi", "zlib", "libreadline", "e2fsprogs" ],
+    "version": [ 3,14,0 ],
+    "depends": [ "mlibc", "libgdbm", "xz-utils", "bzip2", "gzip", "libffi", "zlib", "libreadline", "e2fsprogs", "zstd" ],
     "build-depends": [ "cross-gcc" ],
-    "url": "https://www.python.org/ftp/python/3.13.7/Python-3.13.7.tar.xz",
+    "url": "https://www.python.org/ftp/python/3.14.0/Python-3.14.0.tar.xz",
     "patches": [
         {
             "patch": "patches/python/config.sub.patch",
-            "modifies": "Python-3.13.7/config.sub"
+            "modifies": "Python-3.14.0/config.sub"
         },
         {
             "patch": "patches/python/prim.c.patch",
-            "modifies": "Python-3.13.7/Objects/mimalloc/prim/unix/prim.c"
+            "modifies": "Python-3.14.0/Objects/mimalloc/prim/unix/prim.c"
         },
         {
             "patch": "patches/python/configure.patch",
-            "modifies": "Python-3.13.7/configure"
+            "modifies": "Python-3.14.0/configure"
         }
     ],
     "bootstrap-commands": [
-        ["${repo_directory}/Python-3.13.7/configure", "--host=x86_64-obos", "--prefix=${prefix}", "--build=x86_64", "--with-build-python", "--disable-ipv6", "ac_cv_file__dev_ptmx=no", "ac_cv_file__dev_ptc=no", "--enable-shared" ]
+        [ "export", "CXX=${host_prefix}/bin/${target_triplet}-g++" ],
+        ["${repo_directory}/Python-3.14.0/configure", "--host=x86_64-obos", "--prefix=${prefix}", "--build=x86_64", "--with-build-python", "--disable-ipv6", "ac_cv_file__dev_ptmx=no", "ac_cv_file__dev_ptc=no", "--enable-shared" ]
     ],
     "build-commands": [
         [ "make", "-j${nproc}", "all" ]
