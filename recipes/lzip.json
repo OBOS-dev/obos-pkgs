@@ -1,0 +1,19 @@
+{
+    "name": "lzip",
+    "description": "A lossless compression algorithm based on the LZMA algorithm",
+    "version": [ 1,25,0 ],
+    "url": "https://download.savannah.nongnu.org/releases/lzip/lzip-1.25.tar.lz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${repo_directory}/${name}-1.25/configure", "CXX=${target_triplet}-g++", "--prefix=${prefix}", "--srcdir=${repo_directory}/${name}-1.25/" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
