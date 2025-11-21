@@ -4,7 +4,7 @@
     "url": "https://mirror.team-cymru.com/gnu/coreutils/coreutils-9.5.tar.xz",
     "version": [ 9,5,0 ],
     "depends": [ "mlibc" ],
-    "build-depends": [ "cross-gcc", "gnulib-src" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/configure-coreutils.sh", "${repo_directory}", "${prefix}", "${target_triplet}" ]

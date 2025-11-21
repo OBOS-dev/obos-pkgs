@@ -2,27 +2,21 @@
     "name": "man-db",
     "description": "Manual Pager",
     "version": [ 2,13,1 ],
-    "url": "https://gitlab.com/man-db/man-db/-/archive/2.13.1/man-db-2.13.1.tar.bz2",
+    "comment1": "if you change this to a different mirror, do make sure it works first...",
+    "url": "mirror.csclub.uwaterloo.ca/nongnu/man-db/man-db-2.13.1.tar.xz",
     "depends": [ "mlibc", "libpipeline", "groff", "libgdbm" ],
-    "build-depends": [ "cross-gcc", "gnulib-src" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
-        {
-            "modifies": "man-db-2.13.1/bootstrap",
-            "patch": "patches/libpipeline/bootstrap.patch"
-        }
     ],
     "bootstrap-commands": [
-        [ "cd", "${repo_directory}/man-db-2.13.1/" ],
-        [ "./bootstrap", "--gnulib-srcdir=${repo_directory}/gnulib", "--no-git", "--bootstrap-sync" ],
-        [ "cd", "${bootstrap_directory}/${name}" ],
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/man-db-2.13.1/build-aux/config.sub" ],
         [ 
             "${repo_directory}/man-db-2.13.1/configure",
             "--prefix", "${prefix}",
             "--host=${target_triplet}",
             "--disable-manual", "--disable-setuid", "--disable-nls", 
-            "--docdir=/usr/share/doc/man-db-2.9.4",
-            "--with-pager=/usr/bin/less",
+            "--docdir=${prefix}/share/doc/man-db-2.9.4",
+            "--with-pager=${prefix}/bin/less",
             "--sysconfdir=/etc"
         ]
     ],
