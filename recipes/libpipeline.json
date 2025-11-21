@@ -2,9 +2,9 @@
     "name": "libpipeline",
     "description": "libpipeline",
     "version": [ 1,5,8 ],
-    "url": "https://gitlab.com/libpipeline/libpipeline/-/archive/1.5.8/libpipeline-1.5.8.tar.bz2",
+    "url": "https://mirror.csclub.uwaterloo.ca/nongnu/libpipeline/libpipeline-1.5.8.tar.gz",
     "depends": [ "mlibc" ],
-    "build-depends": [ "cross-gcc", "gnulib-src" ],
+    "build-depends": [ "cross-gcc" ],
     "patches": [
         {
             "modifies": "libpipeline-1.5.8/bootstrap",
@@ -12,9 +12,6 @@
         }
     ],
     "bootstrap-commands": [
-        [ "cd", "${repo_directory}/libpipeline-1.5.8/" ],
-        [ "./bootstrap", "--gnulib-srcdir=${repo_directory}/gnulib", "--no-git", "--bootstrap-sync" ],
-        [ "cd", "${bootstrap_directory}/${name}" ],
         [ "cp", "${repo_directory}/../patches/libpipeline/config.sub", "${repo_directory}/libpipeline-1.5.8/build-aux/config.sub" ],
         [ "${repo_directory}/libpipeline-1.5.8/configure", "--prefix=${prefix}", "--host=${target_triplet}" ]
     ],
