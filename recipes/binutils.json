@@ -8,13 +8,12 @@
     "bootstrap-commands": [
         [
             "${repo_directory}/binutils-2.42/configure",
-            "--target=${target_triplet}",
             "--prefix=${prefix}",
         	"--host=${target_triplet}",
             "--disable-nls",
-            "--with-build-sysroot=${prefix}",
+            "--with-build-sysroot=${destdir}",
             "--disable-werror"
-        ]  
+        ]
     ],
     "build-commands": [
         [ "make", "-j${nproc}" ]
