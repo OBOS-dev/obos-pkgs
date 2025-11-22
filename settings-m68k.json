@@ -17,6 +17,11 @@
             "env": "PKG_CONFIG_SYSROOT_DIR",
             "value": "${destdir}",
             "replace": true
+        },
+        {
+            "env": "OBOS_USE_LIMINE",
+            "value": "OFF",
+            "replace": false
         }
     ]
 }
