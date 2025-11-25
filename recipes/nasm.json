@@ -1,0 +1,23 @@
+{
+    "name": "nasm",
+    "description": "The Netwide Assembler",
+    "version": [ 3,0,1 ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "url": "https://www.nasm.us/pub/nasm/releasebuilds/3.01/nasm-3.01.tar.xz",
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/${name}-3.01/" ],
+        [ "rm", "autoconf/helpers/config.sub" ],
+        [ "./autogen.sh" ],
+        [ "cd", "${bootstrap_directory}/${name}/" ],
+        [ "${repo_directory}/${name}-3.01/configure", "--prefix=${prefix}", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
