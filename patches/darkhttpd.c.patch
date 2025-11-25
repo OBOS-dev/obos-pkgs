@@ -1,0 +1,11 @@
+--- a/darkhttpd.c
++++ b/darkhttpd.c
+@@ -1733,7 +1733,7 @@
+     char *pos;
+ 
+     /* find start */
+-    pos = strcasestr(conn->request, field);
++    pos = strstr(conn->request, field);
+     if (pos == NULL)
+         return NULL;
+     assert(pos >= conn->request);

@@ -1,0 +1,29 @@
+{
+    "name": "darkhttpd",
+    "description": "When you need a webserver in a hurry",
+    "version": [ 1,17,0 ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "git-url": "https://github.com/emikulic/darkhttpd",
+    "git-commit": "v1.17",
+    "patches": [
+        {
+            "patch": "patches/darkhttpd.c.patch",
+            "modifies": "darkhttpd/darkhttpd.c"
+        }
+    ],
+    "bootstrap-commands": [],
+    "build-commands": [
+        [ "cd", "${repo_directory}/${name}" ],
+        [ "make", "CC=${target_triplet}-gcc" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "install-commands": [
+        [ "cd", "${repo_directory}/${name}" ],
+        [ "install", "-d", "${destdir}/${prefix}/bin" ],
+        [ "install", "./darkhttpd", "${destdir}/${prefix}/bin" ],
+        [ "install", "-d", "${bin_package_prefix}/${prefix}/bin" ],
+        [ "install", "./darkhttpd", "${bin_package_prefix}/${prefix}/bin" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ]
+}
