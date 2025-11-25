@@ -6,16 +6,11 @@
     "build-depends": [ "cross-gcc" ],
     "git-url": "https://github.com/emikulic/darkhttpd",
     "git-commit": "v1.17",
-    "patches": [
-        {
-            "patch": "patches/darkhttpd.c.patch",
-            "modifies": "darkhttpd/darkhttpd.c"
-        }
-    ],
+    "patches": [],
     "bootstrap-commands": [],
     "build-commands": [
         [ "cd", "${repo_directory}/${name}" ],
-        [ "make", "CC=${target_triplet}-gcc" ],
+        [ "make", "CC=${target_triplet}-gcc", "CFLAGS=-D_GNU_SOURCE=1" ],
         [ "cd", "${bootstrap_directory}/${name}" ]
     ],
     "install-commands": [
