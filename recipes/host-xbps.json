@@ -10,6 +10,7 @@
         [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
         [ "unset", "PKG_CONFIG_PATH" ],
         [ "export", "ACLOCAL_PATH=/usr/share/aclocal/" ],
+        [ "make", "clean" ],
         [ "./configure", "--prefix=/", "--enable-rpath" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],

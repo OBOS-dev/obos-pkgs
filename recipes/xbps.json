@@ -7,6 +7,7 @@
     "patches": [],
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/${name}/" ],
+        [ "make", "clean" ],
         [ "./configure", "--prefix=${prefix}", "--enable-rpath", "--sysconfdir=/etc", "--host=x86_64-obos" ],
         [ "cd", "${bootstrap_directory}/${name}/" ]
     ],
