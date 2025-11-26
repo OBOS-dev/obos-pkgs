@@ -41,6 +41,10 @@
         {
             "patch": "patches/gcc/gcc.cc.patch",
             "modifies": "gcc-14.2.0/gcc/gcc.cc"
+        },
+        {
+            "patch": "patches/gcc/configure.ac.patch",
+            "modifies": "gcc-14.2.0/libstdc++-v3/configure.ac"
         }
     ],
     "bootstrap-commands": [

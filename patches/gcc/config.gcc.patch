@@ -26,7 +26,7 @@
  	esac
  	;;
 +m68k-*-obos*)
-+	tm_file="${tm_file} elfos.h gnu-user.h glibc-stdint.h m68k/obos.h"
++	tm_file="${tm_file} elfos.h gnu-user.h glibc-stdint.h obos.h m68k/obos.h"
 +	default_m68k_cpu=68020
 +	default_cf_cpu=5475
 +#	with_arch=${with_arch:-m68k}
@@ -35,7 +35,7 @@
 +#	tmake_file="${tmake_file} m68k/t-floatlib m68k/t-mlibs"
 +  ;;
 +x86_64-*-obos*)
-+	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h glibc-stdint.h i386/i386elf.h i386/x86-64.h obos.h"
++	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h glibc-stdint.h i386/i386elf.h i386/x86-64.h obos.h gnu-user.h"
 +	;;
  m68k*-*-netbsdelf*)
  	default_m68k_cpu=68020
