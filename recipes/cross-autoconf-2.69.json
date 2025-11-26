@@ -1,0 +1,44 @@
+{
+    "name": "cross-autoconf-2.69",
+    "description": "Cross autoconf (v2.69)",
+    "version": [ 2,69,0 ],
+    "url": "https://ftpmirror.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz",
+    "depends": [ "cross-m4", "cross-autoconf-archive" ],
+    "build-depends": [],
+    "patches": [
+        {
+            "patch": "patches/autoconf-2.69/config.sub.patch",
+            "modifies": "autoconf-2.69/build-aux/config.sub"
+        },
+        {
+            "patch": "patches/autoconf-2.69/config.guess.patch",
+            "modifies": "autoconf-2.69/build-aux/config.guess"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/autoconf-2.69/configure", "--prefix", "${prefix}", "--program-suffix=-2.69" ]
+    ],
+    "build-commands": [
+        [ "cd", "bin" ],
+        [ "make", "all" ],
+        [ "cd", ".." ],
+        [ "cd", "lib" ],
+        [ "make", "all" ],
+        [ "cd", ".." ],
+        [ "cd", "doc" ],
+        [ "make", "all" ],
+        [ "cd", ".." ]
+    ],
+    "install-commands": [
+        [ "cd", "bin" ],
+        [ "make", "install" ],
+        [ "cd", ".." ],
+        [ "cd", "lib" ],
+        [ "make", "install" ],
+        [ "cd", ".." ],
+        [ "cd", "doc" ],
+        [ "make", "install" ],
+        [ "cd", ".." ]
+    ],
+    "host-package": true
+}

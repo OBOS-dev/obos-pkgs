@@ -1,0 +1,12 @@
+--- build-aux/config.guess	2025-11-25 17:41:44.694958449 -0500
++++ build-aux/config.guess.new	2025-11-25 17:41:39.502901125 -0500
+@@ -783,6 +783,9 @@
+     i*86:BSD/386:*:* | i*86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
+ 	echo ${UNAME_MACHINE}-pc-bsdi${UNAME_RELEASE}
+ 	exit ;;
++    *:obos:*:*)
++    echo $UNAME_MACHINE-pc-obos
++    exit ;;
+     sparc*:BSD/OS:*:*)
+ 	echo sparc-unknown-bsdi${UNAME_RELEASE}
+ 	exit ;;
