@@ -1,0 +1,37 @@
+{
+    "name": "sudo",
+    "description": "Super User DO",
+    "version": [ 1,9,17 ],
+    "url": "https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz",
+    "depends": [ "mlibc", "openssl", "zlib" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/sudo/passwd.c.patch",
+            "modifies": "sudo-1.9.17p2/plugins/sudoers/auth/passwd.c"
+        },
+        {
+            "patch": "patches/sudo/getspwuid.c.patch",
+            "modifies": "sudo-1.9.17p2/plugins/sudoers/getspwuid.c"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/${name}-${version}p2" ],
+        [ "rm", "scripts/config.sub" ],
+        [ "rm", "scripts/config.guess" ],
+        [ "./autogen.sh" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "${repo_directory}/${name}-${version}p2/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--enable-shared", "--enable-pic", "--disable-static" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "ln", "-s", "/usr/bin/true", "${host_prefix}/bin/chown" ],
+        [ "ln", "-s", "/usr/bin/true", "${host_prefix}/bin/chgrp" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "rm", "${host_prefix}/bin/chown" ],
+        [ "rm", "${host_prefix}/bin/chgrp" ]
+    ]
+}

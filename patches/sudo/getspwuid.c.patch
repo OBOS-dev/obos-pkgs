@@ -1,0 +1,11 @@
+--- a/plugins/sudoers/getspwuid.c
++++ b/plugins/sudoers/getspwuid.c
+@@ -114,7 +114,7 @@ sudo_setspent(void)
+     setprpwent();
+ #endif
+ #ifdef HAVE_GETSPNAM
+-    setspent();
++    //setspent();
+ #endif
+     debug_return;
+ }

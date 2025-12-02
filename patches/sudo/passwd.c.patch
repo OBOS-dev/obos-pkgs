@@ -1,0 +1,12 @@
+diff --git a/plugins/sudoers/auth/passwd.c b/plugins/sudoers/auth/passwd.c
+index fe58ab5b0..b050a61e2 100644
+--- a/plugins/sudoers/auth/passwd.c
++++ b/plugins/sudoers/auth/passwd.c
+@@ -28,6 +28,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <pwd.h>
++#include <crypt.h>
+ 
+ #include <sudoers.h>
+ #include "sudo_auth.h"
