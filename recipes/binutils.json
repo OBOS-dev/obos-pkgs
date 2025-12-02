@@ -6,6 +6,9 @@
     "patches": [],
     "version": [ 2,42,0 ],
     "bootstrap-commands": [
+        [ "unset", "ACLOCAL_PATH" ],
+        [ "unset", "PKG_CONFIG_PATH" ],
+        [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
         [
             "${repo_directory}/binutils-2.42/configure",
             "--prefix=${prefix}",
@@ -16,9 +19,15 @@
         ]
     ],
     "build-commands": [
+        [ "unset", "ACLOCAL_PATH" ],
+        [ "unset", "PKG_CONFIG_PATH" ],
+        [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
         [ "make", "-j${nproc}" ]
     ],
     "install-commands": [
+        [ "unset", "ACLOCAL_PATH" ],
+        [ "unset", "PKG_CONFIG_PATH" ],
+        [ "unset", "PKG_CONFIG_SYSROOT_DIR" ],
         [ "make", "-j${nproc}", "install-strip", "DESTDIR=${destdir}" ],
         [ "make", "-j${nproc}", "install-strip", "DESTDIR=${bin_package_prefix}" ]
     ],
