@@ -12,12 +12,15 @@
         }
     ],
     "bootstrap-commands": [
-        [ 
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libxcrypt-4.4.36" ],
+        [
             "${repo_directory}/libxcrypt-4.4.36/configure",
 		    "--prefix", "${prefix}",
 		    "--host=${target_triplet}",
             "--disable-xcrypt-compat-files",
-            "--enable-obsolete-api=yes"
+            "--enable-obsolete-api=yes",
+            "--enable-shared", "--disable-static",
+            "--disable-werror"
         ]
     ],
     "build-commands": [
