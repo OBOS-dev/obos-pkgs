@@ -14,7 +14,7 @@
             ".", "${repo_directory}/mlibc/",
             "--cross-file", "../mlibc-cross-file.txt",
             "--prefix", "${prefix}",
-            "--buildtype", "debugoptimized",
+            "--buildtype", "release",
 	        "-Duse_freestnd_hdrs=enabled",
             "--wipe",
             "-Dlinux_kernel_headers=${destdir}/${prefix}/include",
