@@ -1,0 +1,4 @@
+root:x:0:root
+obos:x:1000:obos
+users:x:100:obos
+tty:x:5:obos,root
