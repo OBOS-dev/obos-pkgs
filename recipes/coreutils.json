@@ -1,8 +1,8 @@
 {
     "name": "coreutils",
     "description": "GNU Coreutils",
-    "url": "https://mirror.team-cymru.com/gnu/coreutils/coreutils-9.5.tar.xz",
-    "version": [ 9,5,0 ],
+    "url": "https://mirror.team-cymru.com/gnu/coreutils/coreutils-9.6.tar.xz",
+    "version": [ 9,6,0 ],
     "depends": [ "mlibc" ],
     "build-depends": [ "cross-gcc" ],
     "patches": [],

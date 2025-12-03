@@ -12,9 +12,12 @@ then
     year2038status=disable
 fi
 
+# i fucking hate gnu
+# portability my asshole
+
 old_pwd=$PWD
-cd "$repo_directory/coreutils-9.5"
-# "$repo_directory/coreutils-9.5/bootstrap" --force
-autoreconf -fi
+cd $repo_directory/coreutils-9.6
+cp $repo_directory/../patches/libpipeline/config.sub build-aux/
 cd $old_pwd
-"$repo_directory/coreutils-9.5/configure" "--prefix" "$prefix" "--host=$target_triplet" "CPPFLAGS=-DSLOW_BUT_NO_HACKS=1 -DUSE_STATVFS=1" "CFLAGS=-USE_STATVFS=1" "--$year2038status-year2038"
+
+"$repo_directory/coreutils-9.6/configure" "--prefix" "$prefix" "--host=$target_triplet" "CPPFLAGS=-DSLOW_BUT_NO_HACKS=1 -DUSE_STATVFS=1" "CFLAGS=-USE_STATVFS=1" "--$year2038status-year2038"
