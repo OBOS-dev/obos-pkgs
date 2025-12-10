@@ -76,7 +76,8 @@
         "libsm",
         "libxt",
         "libxext",
-        "xeyes"
+        "xeyes",
+        "libstdc++-v3"
     ],
     "build-depends": [],
     "patches": [],

@@ -1,0 +1,21 @@
+{
+    "name": "libstdc++-v3",
+    "description": "C++ Standard Library",
+    "version": [ 14,2,0 ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc>=14.2.0" ],
+    "patches": [],
+    "bootstrap-commands": [],
+    "build-commands": [
+        [ "cd", "${bootstrap_directory}/cross-gcc" ],
+        [ "make", "-j${nproc}", "clean-target-libstdc++-v3", "prefix=${prefix}" ],
+        [ "make", "-j${nproc}", "all-target-libstdc++-v3", "prefix=${prefix}" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "install-commands": [
+        [ "cd", "${bootstrap_directory}/cross-gcc" ],
+        [ "make", "-j${nproc}", "install-target-libstdc++-v3", "DESTDIR=${destdir}", "prefix=${prefix}" ],
+        [ "make", "-j${nproc}", "install-target-libstdc++-v3", "DESTDIR=${bin_package_prefix}", "prefix=${prefix}" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ]
+}

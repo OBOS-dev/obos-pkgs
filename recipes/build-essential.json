@@ -2,7 +2,7 @@
     "name": "build-essential",
     "description": "Build essentials",
     "version": [ 0,0,0 ],
-    "depends": [ "binutils", "make", "gcc", "mlibc-headers", "linux-kernel-headers" ],
+    "depends": [ "binutils", "make", "gcc", "mlibc-headers", "linux-kernel-headers", "libstdc++-v3" ],
     "build-depends": [],
     "patches": [],
     "bootstrap-commands": [],
