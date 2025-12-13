@@ -1,0 +1,20 @@
+{
+    "name": "xwd",
+    "description": "X Screenshot Utility",
+    "version": [ 1,0,9 ],
+    "url": "https://www.x.org/archive//individual/app/xwd-1.0.9.tar.xz",
+    "depends": [ "mlibc", "xorgproto" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
