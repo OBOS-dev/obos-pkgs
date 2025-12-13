@@ -1,0 +1,11 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -132,7 +132,7 @@
+ 
+ case x$have_sendmsg in
+ xyes)
+-        AC_DEFINE([HAVE_SENDMSG],1,[Define if your platform supports sendmsg])
++        AC_DEFINE([HAVE_SENDMSG],0,[Define if your platform supports sendmsg])
+         ;;
+ esac
+ 
