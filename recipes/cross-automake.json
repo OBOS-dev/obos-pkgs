@@ -3,7 +3,7 @@
     "description": "Cross automake (with OBOS support)",
     "version": [ 1,17,0 ],
     "url": "https://ftpmirror.gnu.org/gnu/automake/automake-1.17.tar.gz",
-    "depends": [ "cross-autoconf" ],
+    "depends": [ "cross-autoconf", "cross-pkg-config" ],
     "build-depends": [],
     "patches": [
         {
