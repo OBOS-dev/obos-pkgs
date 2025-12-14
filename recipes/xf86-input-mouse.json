@@ -1,0 +1,29 @@
+{
+    "name": "xf86-input-mouse",
+    "description": "XOrg Server Keyboard Mouse",
+    "version": [ 2,0,0 ],
+    "url": "https://www.x.org/pub/individual/driver/xf86-input-mouse-2.0.0.tar.xz",
+    "depends": [ "mlibc", "xorg-server" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "modifies": "xf86-input-mouse-2.0.0/src/obos_mouse.c",
+            "patch": "patches/xf86-input-mouse/obos_mouse.c.patch"
+        },
+        {
+            "modifies": "xf86-input-mouse-2.0.0/configure.ac",
+            "patch": "patches/xf86-input-mouse/configure.ac.patch"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}","--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}

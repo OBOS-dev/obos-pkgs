@@ -1,0 +1,14 @@
+diff --git a/configure.ac b/configure.ac
+index a800105..ea506b8 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -83,6 +83,9 @@ case $host_os in
+   gnu*)
+     OS_MOUSE_NAME=hurd
+     ;;
++  obos*)
++    OS_MOUSE_NAME=obos
++    ;;
+ esac
+ AC_SUBST([OS_MOUSE_NAME])
+ 
