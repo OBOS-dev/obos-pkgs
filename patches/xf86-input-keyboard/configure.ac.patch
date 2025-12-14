@@ -1,0 +1,55 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -21,11 +21,8 @@
+ # Process this file with autoconf to produce a configure script
+ 
+ # Initialize Autoconf
+-AC_PREREQ([2.60])
+-AC_INIT([xf86-input-keyboard],
+-        [2.0.0],
+-        [https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard/issues],
+-        [xf86-input-keyboard])
++AC_PREREQ([2.72])
++AC_INIT([xf86-input-keyboard],[2.0.0],[https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard/issues],[xf86-input-keyboard])
+ AC_CONFIG_SRCDIR([Makefile.am])
+ AC_CONFIG_HEADERS([config.h])
+ AC_CONFIG_AUX_DIR(.)
+@@ -35,7 +32,7 @@ AM_INIT_AUTOMAKE([foreign dist-xz])
+ 
+ # Initialize libtool
+ AC_DISABLE_STATIC
+-AC_PROG_LIBTOOL
++LT_INIT
+ 
+ # Initialize X.Org macros 1.8 or later for MAN_SUBSTS set by XORG_MANPAGE_SECTIONS
+ m4_ifndef([XORG_MACROS_VERSION],
+@@ -48,8 +45,7 @@ PKG_CHECK_MODULES(XORG, [xorg-server >= 1.10] xproto inputproto)
+ 
+ # Define a configure option for an alternate input module directory
+ AC_ARG_WITH(xorg-module-dir,
+-            AC_HELP_STRING([--with-xorg-module-dir=DIR],
+-                           [Default xorg module directory [[default=$libdir/xorg/modules]]]),
++            AS_HELP_STRING([--with-xorg-module-dir=DIR],[Default xorg module directory [[default=$libdir/xorg/modules]]]),
+             [moduledir="$withval"],
+             [moduledir="$libdir/xorg/modules"])
+ inputdir=${moduledir}/input
+@@ -57,6 +53,11 @@ AC_SUBST(inputdir)
+ 
+ # The keyboard driver code is O/S specific
+ case $host_os in
++
++  obos*)
++    IS_OBOS="yes"
++    ;;
++
+   linux*)
+     AC_MSG_ERROR([This is not the keyboard driver you are looking for. Use evdev or libinput.])
+     ;;
+@@ -95,6 +96,7 @@ case $host_os in
+ esac
+ AC_SUBST([OS_FLAGS])
+ 
++AM_CONDITIONAL(OBOS, [test "x$IS_OBOS" = xyes])
+ AM_CONDITIONAL(BSD, [test "x$IS_BSD" = xyes])
+ AM_CONDITIONAL(SOLARIS, [test "x$IS_SOLARIS" = xyes])
+ AM_CONDITIONAL(HURD, [test "x$IS_HURD" = xyes])

@@ -1,0 +1,24 @@
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -26,10 +26,15 @@ kbd_drv_la_SOURCES = kbd.c xf86OSKbd.h xf86Keymap.h atKeynames.h
+ kbd_drv_la_LIBADD = $(XORG_LIBS)
+ kbd_drv_ladir = @inputdir@
+ 
++OBOS_SRCS = obos_kbd.c
+ BSD_SRCS = bsd_KbdMap.c bsd_kbd.c bsd_kbd.h at_scancode.c
+ HURD_SRCS = hurd_kbd.c at_scancode.c
+ SOLARIS_SRCS = sun_kbd.c sun_kbd.h sun_kbdMap.c
+ 
++if OBOS
++kbd_drv_la_SOURCES += $(OBOS_SRCS)
++endif
++
+ if BSD
+ kbd_drv_la_SOURCES += $(BSD_SRCS)
+ endif
+@@ -42,4 +47,4 @@ if HURD
+ kbd_drv_la_SOURCES += $(HURD_SRCS)
+ endif
+ 
+-EXTRA_DIST = $(BSD_SRCS) $(HURD_SRCS) $(SOLARIS_SRCS)
++EXTRA_DIST = $(OBOS_SRCS) $(BSD_SRCS) $(HURD_SRCS) $(SOLARIS_SRCS)

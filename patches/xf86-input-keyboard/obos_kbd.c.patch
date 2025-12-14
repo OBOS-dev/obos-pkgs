@@ -1,0 +1,206 @@
+--- /dev/null
++++ b/src/obos_kbd.c
+@@ -0,0 +1,203 @@
++#ifdef HAVE_CONFIG_H
++#include <config.h>
++#endif
++
++#include <xorg/xorg-server.h>
++#include <X11/X.h>
++
++#include "xorg/xf86.h"
++
++#include <fcntl.h>
++#include <unistd.h>
++#include <sys/ioctl.h>
++
++#include "xorg/xf86Xinput.h"
++#include "xf86OSKbd.h"
++#include "atKeynames.h"
++#include "xf86Keymap.h"
++
++#include <stdio.h>
++#include <errno.h>
++
++#include <obos/keycode.h>
++
++// interface
++
++static int nop(){
++	return Success;
++}
++
++static int getleds(InputInfoPtr pInfo){return 0;}
++
++static int init(InputInfoPtr, int) {return Success;}
++
++static int obos_scancode_map[] = 
++{
++	[SCANCODE_UNKNOWN] = 0,
++    [SCANCODE_A] = KEY_A,
++    [SCANCODE_B] = KEY_B,
++    [SCANCODE_C] = KEY_C,
++    [SCANCODE_D] = KEY_D,
++    [SCANCODE_E] = KEY_E,
++    [SCANCODE_F] = KEY_F,
++    [SCANCODE_G] = KEY_G,
++    [SCANCODE_H] = KEY_H,
++    [SCANCODE_I] = KEY_I,
++    [SCANCODE_J] = KEY_J,
++    [SCANCODE_K] = KEY_K,
++    [SCANCODE_L] = KEY_L,
++    [SCANCODE_M] = KEY_M,
++    [SCANCODE_N] = KEY_N,
++    [SCANCODE_O] = KEY_O,
++    [SCANCODE_P] = KEY_P,
++    [SCANCODE_Q] = KEY_Q,
++    [SCANCODE_R] = KEY_R,
++    [SCANCODE_S] = KEY_S,
++    [SCANCODE_T] = KEY_T,
++    [SCANCODE_U] = KEY_U,
++    [SCANCODE_V] = KEY_V,
++    [SCANCODE_W] = KEY_W,
++    [SCANCODE_X] = KEY_X,
++    [SCANCODE_Y] = KEY_Y,
++    [SCANCODE_Z] = KEY_Z,
++    [SCANCODE_0] = KEY_0,
++    [SCANCODE_1] = KEY_1,
++    [SCANCODE_2] = KEY_2,
++    [SCANCODE_3] = KEY_3,
++    [SCANCODE_4] = KEY_4,
++    [SCANCODE_5] = KEY_5,
++    [SCANCODE_6] = KEY_6,
++    [SCANCODE_7] = KEY_7,
++    [SCANCODE_8] = KEY_8,
++    [SCANCODE_9] = KEY_9,
++    [SCANCODE_PLUS] = KEY_KP_Plus,
++    [SCANCODE_FORWARD_SLASH] = KEY_Slash,
++    [SCANCODE_BACKSLASH] = KEY_BSlash,
++    [SCANCODE_STAR] = KEY_KP_Multiply,
++    [SCANCODE_EQUAL] = KEY_Equal,
++    [SCANCODE_DASH] = KEY_Minus,
++    [SCANCODE_UNDERSCORE] = KEY_Minus,
++    [SCANCODE_BACKTICK] = KEY_Tilde,
++    [SCANCODE_QUOTATION_MARK] = KEY_Quote,
++    [SCANCODE_APOSTROPHE] = KEY_Quote,
++    [SCANCODE_SQUARE_BRACKET_LEFT] = KEY_LBrace,
++    [SCANCODE_SQUARE_BRACKET_RIGHT] = KEY_RBrace,
++    [SCANCODE_TAB] = KEY_Tab,
++    [SCANCODE_ESC] = KEY_Escape,
++    [SCANCODE_PGUP] = KEY_PgUp,
++    [SCANCODE_PGDOWN] = KEY_PgDown,
++    [SCANCODE_HOME] = KEY_Home,
++    [SCANCODE_END] = KEY_End,
++    [SCANCODE_DELETE] = KEY_Delete,
++    [SCANCODE_BACKSPACE] = KEY_BackSpace,
++    [SCANCODE_SPACE] = KEY_Space,
++    [SCANCODE_INSERT] = KEY_Insert,
++    [SCANCODE_F1] = KEY_F1,
++    [SCANCODE_F2] = KEY_F2,
++    [SCANCODE_F3] = KEY_F3,
++    [SCANCODE_F4] = KEY_F4,
++    [SCANCODE_F5] = KEY_F5,
++    [SCANCODE_F6] = KEY_F6,
++    [SCANCODE_F7] = KEY_F7,
++    [SCANCODE_F8] = KEY_F8,
++    [SCANCODE_F9] = KEY_F9,
++    [SCANCODE_F10] = KEY_F10,
++    [SCANCODE_F11] = KEY_F11,
++    [SCANCODE_F12] = KEY_F12,
++    [SCANCODE_DOT] = KEY_Period,
++    [SCANCODE_COMMA] = KEY_Comma,
++    [SCANCODE_SEMICOLON] = KEY_SemiColon,
++    [SCANCODE_UP_ARROW] = KEY_Up,
++    [SCANCODE_DOWN_ARROW] = KEY_Down,
++    [SCANCODE_RIGHT_ARROW] = KEY_Right,
++    [SCANCODE_LEFT_ARROW] = KEY_Left,
++    [SCANCODE_ENTER] = KEY_Enter,
++    [SCANCODE_SUPER_KEY] = KEY_LMeta,
++    [SCANCODE_CTRL] = KEY_LCtrl,
++    [SCANCODE_ALT] = KEY_Alt,
++    [SCANCODE_FN] = 0,
++    [SCANCODE_SHIFT] = KEY_ShiftL,
++};
++
++static int obos_keycode_to_xorg_keycode(keycode code, int *pressed)
++{
++	uint8_t scancode = SCANCODE_FROM_KEYCODE(code);
++    enum modifiers mod = MODIFIERS_FROM_KEYCODE(code);
++	
++	int res = obos_scancode_map[scancode];
++	
++    *pressed = ~mod & KEY_RELEASED;
++	if (mod & NUMPAD)
++	{
++		switch (res) {
++			case KEY_0: res = KEY_KP_0; break;
++			case KEY_1: res = KEY_KP_1; break;
++			case KEY_2: res = KEY_KP_2; break;
++			case KEY_3: res = KEY_KP_3; break;
++			case KEY_4: res = KEY_KP_4; break;
++			case KEY_5: res = KEY_KP_5; break;
++			case KEY_6: res = KEY_KP_6; break;
++			case KEY_7: res = KEY_KP_7; break;
++			case KEY_8: res = KEY_KP_8; break;
++			case KEY_9: res = KEY_KP_9; break;
++			case KEY_Minus: res = KEY_KP_Minus; break;
++			case KEY_Slash: res = KEY_KP_Divide; break;
++			case KEY_Period: res = KEY_KP_Decimal; break;
++			case KEY_Enter: res = KEY_KP_Enter; break;
++			default: break;
++		}
++	}
++
++	return res;
++}
++
++static void kbdread(InputInfoPtr info){
++	KbdDevPtr kbd = (KbdDevPtr) info->private;
++    intptr_t nReady = 0;
++
++	ioctl(info->fd, 1 /* query ready count */, &nReady);
++
++	while (nReady-- > 0)
++	{
++		keycode code = 0;
++		int pressed = 0;
++		int keycode = 0;
++
++		read(info->fd, &code, sizeof(code));
++		keycode = obos_keycode_to_xorg_keycode(code, &pressed);
++
++        assert(kbd->PostEvent != NULL);
++		kbd->PostEvent(info, keycode, pressed);
++	}
++}
++
++static Bool openkeyboard(InputInfoPtr info)
++{
++	char *kbdPath = xf86SetStrOption(info->options, "Device", "/dev/ps2k1");
++	info->fd = open(kbdPath, O_NONBLOCK | O_RDONLY);
++	if(info->fd == -1)
++		FatalError("Failed to open keyboard (%s)\n", strerror(errno));
++	
++	info->read_input = kbdread;
++	
++	return TRUE;
++}
++
++Bool xf86OSKbdPreInit(InputInfoPtr info)
++{
++	KbdDevPtr kbd = info->private;
++	
++	kbd->KbdInit       = init;
++	kbd->KbdOn         = nop;
++	kbd->KbdOff        = nop;
++	kbd->Bell          = (void*)nop;
++	kbd->SetLeds       = (void*)nop;
++	kbd->GetLeds       = getleds;
++	kbd->KbdGetMapping = (void*)nop;
++	kbd->RemapScanCode = 0;
++	kbd->OpenKeyboard  = openkeyboard;
++
++	kbd->private       = NULL;
++
++	return TRUE;
++}

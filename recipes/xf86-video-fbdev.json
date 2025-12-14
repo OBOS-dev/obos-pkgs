@@ -1,17 +1,17 @@
 {
-    "name": "xorg-server-video-fbdev",
-    "description": "Xorg Server",
+    "name": "xf86-video-fbdev",
+    "description": "XOrg Server fbdev Driver",
     "version": [ 0,5,0 ],
     "url": "https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2",
     "depends": [ "mlibc", "xorg-server" ],
     "build-depends": [ "cross-gcc" ],
     "patches": [
         {
-            "patch": "patches/xorg-server-video-fbdev/fbdev.c.patch",
+            "patch": "patches/xf86-video-fbdev/fbdev.c.patch",
             "modifies": "xf86-video-fbdev-0.5.0/src/fbdev.c"
         },
         {
-            "patch": "patches/xorg-server-video-fbdev/configure.ac.patch",
+            "patch": "patches/xf86-video-fbdev/configure.ac.patch",
             "modifies": "xf86-video-fbdev-0.5.0/configure.ac"
         }
     ],
