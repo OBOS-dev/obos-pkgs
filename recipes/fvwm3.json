@@ -1,0 +1,32 @@
+{
+    "name": "fvwm3",
+    "description": "FVWM Version 3",
+    "version": [ 1,1,2 ],
+    "url": "https://github.com/fvwmorg/fvwm3/releases/download/1.1.2/fvwm3-1.1.2.tar.gz",
+    "depends": [ "mlibc", "libevent", "fontconfig", "freetype", "libx11", "libxext", "libxft", "libxfixes", "libpng", "libxrandr",
+                 "xtrans", "libxt", "libxcursor", "ncurses", "libpng", "libsm", "libxi" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/fvwm3/configure.ac.patch",
+            "modifies": "fvwm3-1.1.2/configure.ac"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/fvwm3-1.1.2" ],
+        [ "./autogen.sh" ],
+        [ "./configure", "--host=${target_triplet}", "--prefix=${prefix}", "has_safety_mkstemp=yes", "ac_cv_func_setpgrp_void=yes", "ac_cv_func_mkstemp=yes" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "build-commands": [
+        [ "cd", "${repo_directory}/fvwm3-1.1.2" ],
+        [ "make", "-j${nproc}" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ],
+    "install-commands": [
+        [ "cd", "${repo_directory}/fvwm3-1.1.2" ],
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ],
+        [ "cd", "${bootstrap_directory}/${name}" ]
+    ]
+}

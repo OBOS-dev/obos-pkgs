@@ -1,0 +1,25 @@
+--- configure.ac.old	2025-12-16 21:00:40.914322863 -0500
++++ configure.ac	2025-12-16 21:02:49.941489378 -0500
+@@ -1241,15 +1241,15 @@
+ 
+ # check for mkstemp, see the discution on this subject on the fvwm workers
+ # list (2001-02-16 and 2001-02-24)
+-AM_SAFETY_CHECK_MKSTEMP
++#AM_SAFETY_CHECK_MKSTEMP
+ 
+ # Define some compatibility macros needed for config.h.
+-mg_DEFINE_IF_NOT([#include <X11/keysym.h>],
+-  [defined XK_Page_Up && defined XK_Page_Down],
+-  [COMPAT_OLD_KEYSYMDEF], [$X_CFLAGS],
+-  [Old AIX systems (3.2.5) don't define some common keysyms.])
+-AH_VERBATIM([_COMPAT_OLD_KEYSYMDEF],
+-[#ifdef COMPAT_OLD_KEYSYMDEF
++#mg_DEFINE_IF_NOT([#include <X11/keysym.h>],
++#  [defined XK_Page_Up && defined XK_Page_Down],
++#  [COMPAT_OLD_KEYSYMDEF], [$X_CFLAGS],
++#  [Old AIX systems (3.2.5) don't define some common keysyms.])
++#AH_VERBATIM([_COMPAT_OLD_KEYSYMDEF],
++#[#ifdef COMPAT_OLD_KEYSYMDEF
+ #  define XK_Page_Up   XK_Prior
+ #  define XK_Page_Down XK_Next
+ #endif])
