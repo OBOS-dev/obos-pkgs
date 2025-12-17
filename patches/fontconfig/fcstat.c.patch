@@ -1,0 +1,13 @@
+--- a/fcstat.c
++++ b/fcstat.c
+@@ -385,6 +385,10 @@
+ 	}
+ 
+ 	return ret;
++#elif defined __obos__
++    statb->is_remote_fs = FcFalse;
++    statb->is_mtime_broken = FcFalse;
++    return 0;
+ #  else
+ #    error "BUG: No way to figure out with fstatfs()"
+ #  endif
