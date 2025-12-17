@@ -1,0 +1,20 @@
+{
+    "name": "libxrandr",
+    "description": "idk",
+    "url": "https://www.x.org/archive//individual/lib/libXrandr-1.5.4.tar.xz",
+    "version": [ 1,5,4 ],
+    "depends": [ "mlibc", "libxext", "libxrender", "xorgproto" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libXrandr-${version}" ],
+        [ "${repo_directory}/libXrandr-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--with-sysroot=${destdir}", "--disable-malloc0returnsnull" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
