@@ -1,0 +1,22 @@
+{
+    "name": "libevent",
+    "description": "Event library",
+    "version": [ 2,1,12 ],
+    "url": "https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz",
+    "depends": [ "mlibc", "openssl" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cd", "${repo_directory}/libevent-2.1.12-stable" ],
+        [ "./autogen.sh" ],
+        [ "cd", "${bootstrap_directory}/${name}" ],
+        [ "${repo_directory}/libevent-2.1.12-stable/configure", "--host=${target_triplet}", "--prefix=${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
