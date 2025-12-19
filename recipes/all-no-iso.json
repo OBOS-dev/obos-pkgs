@@ -78,7 +78,13 @@
         "libxt",
         "libxext",
         "xeyes",
-        "libstdc++-v3"
+        "libstdc++-v3",
+        "fontconfig",
+        "libevent",
+        "libxrandr",
+        "libxft",
+        "libcursor",
+        "fvwm3"
     ],
     "build-depends": [],
     "patches": [],
