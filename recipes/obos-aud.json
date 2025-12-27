@@ -1,0 +1,27 @@
+{
+    "name": "obos-aud",
+    "description": "OBOS Audio Server",
+    "version": [ 1,0,0 ],
+    "depends": [ "mlibc" ],
+    "git-url": "https://github.com/OBOS-dev/obos-aud",
+    "git-commit": "v1.0.0",
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "cmake", "-S${repo_directory}/${name}", "-B.",
+          "--toolchain=${bootstrap_directory}/toolchain.cmake",
+          "-DCMAKE_INSTALL_PREFIX=${prefix}", 
+          "-DENABLE_SHARED=ON", "-DENABLE_STATIC=OFF",
+          "-DCMAKE_BUILD_TYPE=RelWithDebInfo", 
+          "-DBACKEND=obos-hda" ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "install-commands": [
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "cmake", "--install", "." ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
+    ]
+}
