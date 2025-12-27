@@ -1,6 +1,7 @@
 #!/bin/bash
 echo -e "\
 set(CMAKE_SYSTEM_NAME \"Linux\")\n\
+set(CMAKE_SYSTEM_PROCESSOR `echo $1 | cut -d '-' -f 1`)\
 \n\
 set(CMAKE_C_COMPILER $1-gcc CACHE STRING \"C compiler\" FORCE)\n\
 set(CMAKE_C_COMPILER_WORKS YES CACHE BOOLEAN \"C compiler works\" FORCE)\n\
