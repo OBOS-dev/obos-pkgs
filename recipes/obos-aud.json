@@ -1,10 +1,10 @@
 {
     "name": "obos-aud",
     "description": "OBOS Audio Server",
-    "version": [ 1,0,0 ],
+    "version": [ 1,0,1 ],
     "depends": [ "mlibc" ],
     "git-url": "https://github.com/OBOS-dev/obos-aud",
-    "git-commit": "v1.0.0",
+    "git-commit": "v1.0.1",
     "build-depends": [ "cross-gcc" ],
     "patches": [],
     "bootstrap-commands": [
