@@ -16,7 +16,7 @@
             ]
         },
         {
-            "interface": "e1000-eth0",
+            "interface": "enp0s2",
             "dynamic-config": true
         }
     ]
