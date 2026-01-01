@@ -1,0 +1,20 @@
+{
+    "name": "libfdk-aac",
+    "description": "Fraunhofer FDK AAC library",
+    "version": [ 2,0,3 ],
+    "url": "https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.3.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/fdk-aac-2.0.3/" ],
+        [ "${repo_directory}/fdk-aac-2.0.3/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
