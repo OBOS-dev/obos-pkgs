@@ -83,8 +83,14 @@
         "libevent",
         "libxrandr",
         "libxft",
-        "libcursor",
-        "fvwm3"
+        "libxcursor",
+        "fvwm3",
+        "obos-aud",
+        "fribidi",
+        "libicu",
+        "libaom",
+        "harfbuzz",
+        "libass"
     ],
     "build-depends": [],
     "patches": [],
