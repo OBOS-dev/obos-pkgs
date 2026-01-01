@@ -1,0 +1,19 @@
+{
+    "name": "harfbuzz",
+    "description": "HarfBuzz text shaping engine ",
+    "version": [ 12,3,0 ],
+    "url": "https://github.com/harfbuzz/harfbuzz/releases/download/12.3.0/harfbuzz-12.3.0.tar.xz",
+    "depends": [ "mlibc", "freetype", "libicu" ],
+    "build-depends": [ "cross-gcc", "meson-crossfile" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "meson", "setup", "--buildtype=release", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}-${version}" ]
+    ],
+    "build-commands": [
+        [ "meson", "compile" ]
+    ],
+    "install-commands": [
+        [ "meson", "install", "--destdir=${destdir}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ]
+    ]
+}
