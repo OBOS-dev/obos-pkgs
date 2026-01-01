@@ -1,0 +1,26 @@
+{
+    "comment1": "who named this?",
+    "name": "libass",
+    "description": "Portable subtitle renderer for the ASS/SSA",
+    "version": [ 0,17,4 ],
+    "url": "https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz",
+    "depends": [ "mlibc", "freetype", "fribidi", "harfbuzz", "fontconfig" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/libass/configure.ac.patch",
+            "modifies": "libass-0.17.4/configure.ac"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/libass-0.17.4/" ],
+        [ "${repo_directory}/libass-0.17.4/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
