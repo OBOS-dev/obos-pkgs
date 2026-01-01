@@ -1,0 +1,11 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -308,7 +308,7 @@
+                             ASFLAGS="$ASFLAGS -DPREFIX"
+                         ])
+                     ],
+-                    [linux*|solaris*|haiku*|gnu*], [
++                    [linux*|solaris*|haiku*|gnu*|obos*], [
+                         ASFLAGS="$ASFLAGS -f elf$BITTYPE -DSTACK_ALIGNMENT=16"
+                     ],
+                     [dragonfly*|*bsd*], [
