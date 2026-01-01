@@ -1,0 +1,20 @@
+{
+    "name": "libmp3lame",
+    "description": "LAME is a high quality MPEG Audio Layer III (MP3) encoder",
+    "version": [ 3,100,0 ],
+    "url": "https://downloads.sourceforge.net/lame/lame-3.100.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/lame-3.100/" ],
+        [ "${repo_directory}/lame-3.100/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared", "--enable-mp3rtp", "--enable-nasm" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
