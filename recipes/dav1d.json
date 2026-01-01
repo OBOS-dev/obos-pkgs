@@ -1,0 +1,19 @@
+{
+    "name": "dav1d",
+    "description": "AV1 Decoder",
+    "version": [ 1,5,3 ],
+    "url": "https://downloads.videolan.org/videolan/dav1d/1.5.3/dav1d-1.5.3.tar.xz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "meson-crossfile" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "meson", "setup", "--buildtype=release", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}-${version}" ]
+    ],
+    "build-commands": [
+        [ "meson", "compile" ]
+    ],
+    "install-commands": [
+        [ "meson", "install", "--destdir=${destdir}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ]
+    ]
+}
