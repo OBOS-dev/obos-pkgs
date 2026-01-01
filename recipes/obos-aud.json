@@ -13,7 +13,8 @@
           "-DCMAKE_INSTALL_PREFIX=${prefix}", 
           "-DENABLE_SHARED=ON", "-DENABLE_STATIC=OFF",
           "-DCMAKE_BUILD_TYPE=RelWithDebInfo", 
-          "-DBACKEND=obos-hda" ]
+          "-DBACKEND=obos-hda",
+          "-GNinja" ]
     ],
     "build-commands": [
         [ "cmake", "--build", "." ]
