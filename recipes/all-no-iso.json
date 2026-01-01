@@ -93,7 +93,8 @@
         "libass",
         "dav1d",
         "libfdk-aac",
-        "libmp3lame"
+        "libmp3lame",
+        "opus"
     ],
     "build-depends": [],
     "patches": [],

@@ -1,0 +1,19 @@
+{
+    "name": "opus",
+    "description": "Modern audio compression for the internet. ",
+    "version": [ 1,6,0 ],
+    "url": "https://downloads.xiph.org/releases/opus/opus-1.6.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "meson-crossfile" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "meson", "setup", "--buildtype=release", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}-1.6" ]
+    ],
+    "build-commands": [
+        [ "meson", "compile" ]
+    ],
+    "install-commands": [
+        [ "meson", "install", "--destdir=${destdir}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ]
+    ]
+}
