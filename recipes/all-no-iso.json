@@ -95,7 +95,9 @@
         "libfdk-aac",
         "libmp3lame",
         "opus",
-        "svt-av1"
+        "svt-av1",
+        "libogg",
+        "libvorbis"
     ],
     "build-depends": [],
     "patches": [],
