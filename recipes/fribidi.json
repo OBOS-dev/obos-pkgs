@@ -1,0 +1,19 @@
+{
+    "name": "fribidi",
+    "description": "The Free Implementation of the Unicode Bidirectional Algorithm.",
+    "version": [ 1,0,16 ],
+    "url": "https://github.com/fribidi/fribidi/releases/download/v1.0.16/fribidi-1.0.16.tar.xz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "meson-crossfile" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "meson", "setup", "--buildtype=release", "--cross-file=${bootstrap_directory}/meson-crossfile.txt", "--prefix=${prefix}", "${repo_directory}/${name}-${version}" ]
+    ],
+    "build-commands": [
+        [ "meson", "compile" ]
+    ],
+    "install-commands": [
+        [ "meson", "install", "--destdir=${destdir}" ],
+        [ "meson", "install", "--destdir=${bin_package_prefix}" ]
+    ]
+}
