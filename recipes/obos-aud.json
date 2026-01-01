@@ -5,7 +5,7 @@
     "depends": [ "mlibc" ],
     "git-url": "https://github.com/OBOS-dev/obos-aud",
     "git-commit": "v1.0.1",
-    "build-depends": [ "cross-gcc" ],
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
     "patches": [],
     "bootstrap-commands": [
         [ "cmake", "-S${repo_directory}/${name}", "-B.",
