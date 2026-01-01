@@ -1,0 +1,21 @@
+{
+    "name": "libicu",
+    "description": "International Components for Unicode",
+    "version": [ 78,1,0 ],
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc", "host-libicu" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "rm", "${repo_directory}/icu/source/config.sub", "${repo_directory}/icu/source/config.guess", "${repo_directory}/icu/source/configure" ],
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/icu/source" ],
+        [ "cp", "${repo_directory}/icu/source/config/mh-linux", "${repo_directory}/icu/source/config/mh-unknown" ],
+        [ "${repo_directory}/icu/source/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-static", "--enable-shared", "--with-cross-build=${bootstrap_directory}/host-libicu" ]
+    ],
+    "build-commands": [
+        [ "make", "-j4" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
