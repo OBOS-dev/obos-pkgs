@@ -97,7 +97,9 @@
         "opus",
         "svt-av1",
         "libogg",
-        "libvorbis"
+        "libvorbis",
+        "libvpx",
+        "x264"
     ],
     "build-depends": [],
     "patches": [],

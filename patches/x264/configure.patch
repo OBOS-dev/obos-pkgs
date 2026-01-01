@@ -1,0 +1,11 @@
+--- a/configure
++++ b/configure
+@@ -699,7 +699,7 @@
+         SYS="OPENBSD"
+         libm="-lm"
+         ;;
+-    *linux*)
++    *linux*|*obos*)
+         SYS="LINUX"
+         define HAVE_MALLOC_H
+         libm="-lm"

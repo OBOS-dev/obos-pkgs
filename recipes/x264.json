@@ -1,0 +1,25 @@
+{
+    "name": "x264",
+    "description": "Library for encoding video streams into the H.264/MPEG-4 AVC format",
+    "version": [ 25,8,15 ],
+    "url": "https://anduin.linuxfromscratch.org/BLFS/x264/x264-20250815.tar.xz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/x264/configure.patch",
+            "modifies": "x264-20250815/configure"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cp", "${host_prefix}/share/automake-1.17/config.sub", "${repo_directory}/x264-20250815/" ],
+        [ "${repo_directory}/x264-20250815/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--enable-shared", "--disable-cli" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}", "CC=${target_triplet}-gcc", "CXX=${target_triplet}-g++", "LD=${target_triplet}-gcc -o" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
