@@ -1,4 +1,14 @@
 #!/bin/bash
+
+pointer_size=0
+if [ $1 == 'x86_64-obos' ]
+then
+    pointer_size=8
+elif [ $1 == 'm68k-obos' ]
+then
+    pointer_size=4
+fi
+
 echo -e "\
 set(CMAKE_SYSTEM_NAME \"Linux\")\n\
 set(CMAKE_SYSTEM_PROCESSOR `echo $1 | cut -d '-' -f 1`)\
@@ -18,6 +28,8 @@ execute_process(COMMAND \${CMAKE_C_COMPILER} -print-sysroot OUTPUT_VARIABLE CMAK
 \n\
 set(CMAKE_SHARED_LIBRARY_SONAME_C_FLAG \"-Wl,-soname,\")\n\
 set(CMAKE_PLATFORM_USES_PATH_WHEN_NO_SONAME 1)\n\
+\n\
+set(CMAKE_SIZEOF_VOID_P $pointer_size)\n\
 \n\
 # impersonate linux\n\
 set (LINUX 1)\n\
