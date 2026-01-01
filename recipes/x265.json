@@ -1,0 +1,31 @@
+{
+    "name": "x265",
+    "description": "A library for encoding video streams into the H.265/HEVC format.",
+    "version": [ 4,1,0 ],
+    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+    "depends": [ "mlibc", "libstdc++-v3" ],
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
+    "patches": [],
+    "comment1": "sed command taken from LFS",
+    "bootstrap-commands": [
+        [ "sed", "-r", "'/cmake_policy.*(0025|0054)/d'", "-i", "${repo_directory}/${name}_4.1/source/CMakeLists.txt" ],
+        [ "cmake",
+          "-B.", "-S${repo_directory}/${name}_4.1/source", 
+          "-DCMAKE_INSTALL_PREFIX=${prefix}",
+          "-DCMAKE_BUILD_TYPE=Release",
+          "-DGIT_ARCHETYPE=1",
+          "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+          "-GNinja",
+          "-Wno-dev",
+          "--toolchain=${bootstrap_directory}/toolchain.cmake" ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "install-commands": [
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "cmake", "--install", "." ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
+    ]
+}
