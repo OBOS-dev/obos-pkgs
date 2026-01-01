@@ -3,6 +3,7 @@
     "description": "Minimal distribution packages (does not generate an iso).",
     "version": [],
     "depends": [
+        "libstdc++-v3",
         "bash",
         "coreutils",
         "diffutils",

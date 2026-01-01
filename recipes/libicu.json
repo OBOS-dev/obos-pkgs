@@ -2,7 +2,7 @@
     "name": "libicu",
     "description": "International Components for Unicode",
     "version": [ 78,1,0 ],
-    "depends": [ "mlibc" ],
+    "depends": [ "mlibc", "libstdc++-v3" ],
     "build-depends": [ "cross-gcc", "host-libicu" ],
     "patches": [],
     "bootstrap-commands": [

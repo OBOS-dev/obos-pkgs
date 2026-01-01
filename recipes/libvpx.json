@@ -4,7 +4,7 @@
     "version": [ 1,15,2 ],
     "url": "https://github.com/webmproject/libvpx/archive/v1.15.2/libvpx-1.15.2.tar.gz",
     "depends": [ "mlibc" ],
-    "build-depends": [ "cross-gcc" ],
+    "build-depends": [ "cross-gcc", "libstdc++-v3" ],
     "patches": [],
     "bootstrap-commands": [
         [ "${root_directory}/scripts/configure-libvpx.sh", "${repo_directory}", "${name}", "${version}", "${target_triplet}", "${prefix}" ]

@@ -3,6 +3,7 @@
     "description": "All packages (does not generate an iso).",
     "version": [],
     "depends": [
+        "libstdc++-v3",
         "libmpc",
         "make",
         "bash",
