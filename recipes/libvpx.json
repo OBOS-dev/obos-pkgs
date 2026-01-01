@@ -1,0 +1,19 @@
+{
+    "name": "libvpx",
+    "description": "Reference implementation of the VP8 codec.",
+    "version": [ 1,15,2 ],
+    "url": "https://github.com/webmproject/libvpx/archive/v1.15.2/libvpx-1.15.2.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/configure-libvpx.sh", "${repo_directory}", "${name}", "${version}", "${target_triplet}", "${prefix}" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "-j${nproc}", "install", "DESTDIR=${destdir}" ],
+        [ "make", "-j${nproc}", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
