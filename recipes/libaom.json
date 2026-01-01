@@ -4,11 +4,15 @@
     "version": [ 3,13,1 ],
     "url": "https://storage.googleapis.com/aom-releases/libaom-3.13.1.tar.gz",
     "depends": [ "mlibc" ],
-    "build-depends": [ "cross-gcc" ],
+    "build-depends": [ "cross-gcc", "cmake-toolchain" ],
     "patches": [
         {
             "patch": "patches/libaom/aom_optimization.cmake.patch",
             "modifies": "libaom-3.13.1/build/cmake/aom_optimization.cmake"
+        },
+        {
+            "patch": "patches/libaom/CMakeLists.txt.patch",
+            "modifies": "libaom-3.13.1/CMakeLists.txt"
         }
     ],
     "bootstrap-commands": [
@@ -19,6 +23,7 @@
           "-DBUILD_SHARED_LIBS=ON",
           "-DENABLE_DOCS=no",
           "-GNinja",
+          "--toolchain=${bootstrap_directory}/toolchain.cmake",
           "-DENABLE_NASM=YES" ]
     ],
     "build-commands": [
