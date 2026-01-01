@@ -3,7 +3,7 @@
     "description": "Image processing and manipulation library",
     "version": [ 0,46,4 ],
     "url": "https://www.x.org/archive/individual/lib/pixman-0.46.4.tar.xz",
-    "depends": [ "libpng" ],
+    "depends": [ "mlibc", "libpng" ],
     "build-depends": [ "cross-gcc", "meson-crossfile" ],
     "patches": [],
     "bootstrap-commands": [
