@@ -94,7 +94,8 @@
         "dav1d",
         "libfdk-aac",
         "libmp3lame",
-        "opus"
+        "opus",
+        "svt-av1"
     ],
     "build-depends": [],
     "patches": [],
