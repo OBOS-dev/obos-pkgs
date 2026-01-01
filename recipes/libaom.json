@@ -1,0 +1,33 @@
+{
+    "name": "libaom",
+    "description": "AV1 Codec Library",
+    "version": [ 3,13,1 ],
+    "url": "https://storage.googleapis.com/aom-releases/libaom-3.13.1.tar.gz",
+    "depends": [ "mlibc" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [
+        {
+            "patch": "patches/libaom/aom_optimization.cmake.patch",
+            "modifies": "libaom-3.13.1/build/cmake/aom_optimization.cmake"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "cmake",
+          "-B.", "-S${repo_directory}/${name}-${version}", 
+          "-DCMAKE_INSTALL_PREFIX=${prefix}",
+          "-DCMAKE_BUILD_TYPE=Release",
+          "-DBUILD_SHARED_LIBS=ON",
+          "-DENABLE_DOCS=no",
+          "-GNinja",
+          "-DENABLE_NASM=YES" ]
+    ],
+    "build-commands": [
+        [ "cmake", "--build", "." ]
+    ],
+    "install-commands": [
+        [ "export", "DESTDIR=${destdir}" ],
+        [ "cmake", "--install", "." ],
+        [ "export", "DESTDIR=${bin_package_prefix}" ],
+        [ "cmake", "--install", "." ]
+    ]
+}
