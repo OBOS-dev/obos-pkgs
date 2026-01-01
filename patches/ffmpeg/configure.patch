@@ -1,0 +1,20 @@
+--- a/configure
++++ b/configure
+@@ -6042,7 +6042,7 @@
+         objformat="coff"
+         enable dos_paths
+         ;;
+-    linux)
++    linux | obos)
+         enable section_data_rel_ro
+         enabled_any arm aarch64 && enable_weak linux_perf
+         ;;
+@@ -7534,7 +7534,7 @@
+ 
+ if enabled x86; then
+     case $target_os in
+-        freebsd|mingw32*|mingw64*|win32|win64|linux|cygwin*)
++        freebsd|mingw32*|mingw64*|win32|win64|linux|cygwin*|obos*)
+             ;;
+         *)
+             disable ffnvcodec cuvid nvdec nvenc

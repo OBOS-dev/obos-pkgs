@@ -1,0 +1,37 @@
+{
+    "name": "ffmpeg",
+    "description": "FFMpeg",
+    "version": [ 8,0,1 ],
+    "url": "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz",
+    "depends": [ "mlibc", "libstdc++-v3",
+                 "libaom",
+                 "libass",
+                 "dav1d",
+                 "openssl",
+                 "libfdk-aac",
+                 "libvorbis",
+                 "svt-av1",
+                 "opus",
+                 "libmp3lame",
+                 "freetype",
+                 "libvpx",
+                 "x264",
+                 "x265" ],
+    "build-depends": [ "cross-gcc" ],
+    "patches": [ 
+        {
+            "patch": "patches/ffmpeg/configure.patch",
+            "modifies": "ffmpeg-8.0.1/configure"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/configure-ffmpeg.sh", "${repo_directory}", "${name}", "${version}", "${target_triplet}", "${prefix}", "${destdir}" ]
+    ],
+    "build-commands": [
+        [ "make", "-j${nproc}" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
