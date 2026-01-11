@@ -16,6 +16,7 @@
                  "freetype",
                  "libvpx",
                  "x264",
+                 "libxcb",
                  "x265" ],
     "build-depends": [ "cross-gcc" ],
     "patches": [ 
