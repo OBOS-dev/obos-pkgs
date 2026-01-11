@@ -1,6 +1,6 @@
 --- /dev/null   	2025-07-14 11:11:43.724410394 -0400
 +++ hyper.disk.cfg	2025-07-14 14:33:47.926611260 -0400
-@@ -0,0 +1,30 @@
+@@ -0,0 +1,34 @@
 +default-entry = "OBOS"
 +
 +[OBOS]
@@ -30,4 +30,8 @@
 +module:
 +	type="memory"
 +	name="FLANTERM_BUFF"
++	size=16777216
++module:
++	type="memory"
++	name="BUMP_REGION"
 +	size=16777216

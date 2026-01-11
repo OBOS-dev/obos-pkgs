@@ -50,6 +50,7 @@
         [ "cp", "${repo_directory}/obos/out/extfs", "tar/" ],
         [ "cd", "tar" ],
         [ "mkdir", "-p", "dev" ],
+        [ "mkdir", "-p", "sys/perm" ],
         [ "tar", "-H", "ustar", "-cf", "../initrd.tar", "*" ],
         [ "cd", ".." ],
         [ "cp", "initrd.tar", "efi_mnt/obos/" ]
@@ -66,7 +67,7 @@
           "-enable-kvm", "-cpu", "host",
           "-debugcon", "file:/dev/stdout", "-monitor", "stdio",
           "-smp", "1",
-          "-s", 
+          "-s", "-nic", "none",
           "-drive", "if=pflash,format=raw,readonly=on,file=$OVMF",
           "-audio", "driver=sdl,model=hda"
         ]
