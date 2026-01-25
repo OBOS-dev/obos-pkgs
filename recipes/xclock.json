@@ -1,0 +1,20 @@
+{
+    "name": "xclock",
+    "description": "X Clock",
+    "version": [ 1,1,1 ],
+    "url": "https://www.x.org/releases/individual/app/xclock-1.1.1.tar.xz",
+    "depends": [ "mlibc", "libxaw", "libxmu", "libx11", "libxrender", "libxft", "xkbfile", "libxt" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
+    "patches": [],
+    "bootstrap-commands": [
+        [ "${root_directory}/scripts/do-autoreconf.sh", "${repo_directory}/${name}-${version}" ],
+        [ "${repo_directory}/${name}-${version}/configure", "--host=${target_triplet}", "--prefix=${prefix}", "--disable-malloc0returnsnull", "--disable-static", "--enable-shared" ]
+    ],
+    "build-commands": [
+        [ "make" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
