@@ -15,7 +15,7 @@
     "bootstrap-commands": [
         [ "cd", "${repo_directory}/fvwm3-1.1.2" ],
         [ "./autogen.sh" ],
-        [ "./configure", "--host=${target_triplet}", "--prefix=${prefix}", "has_safety_mkstemp=yes", "ac_cv_func_setpgrp_void=yes", "ac_cv_func_mkstemp=yes" ],
+        [ "./configure", "--host=${target_triplet}", "--prefix=${prefix}", "has_safety_mkstemp=yes", "ac_cv_func_setpgrp_void=yes", "ac_cv_func_mkstemp=yes", "--disable-bidi" ],
         [ "cd", "${bootstrap_directory}/${name}" ]
     ],
     "build-commands": [
