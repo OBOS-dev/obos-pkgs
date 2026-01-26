@@ -1,0 +1,11 @@
+--- a/misc.c
++++ b/misc.c
+@@ -52,6 +52,8 @@
+  * SOFTWARE.
+  */
+ 
++#include <stdlib.h>
++
+ #include <version.h>
+ #include <main.h>
+ #include <xterm.h>

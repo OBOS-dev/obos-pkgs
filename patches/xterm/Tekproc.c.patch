@@ -1,0 +1,12 @@
+--- a/Tekproc.c
++++ b/Tekproc.c
+@@ -52,6 +52,9 @@
+ 
+ /* Tekproc.c */
+ 
++#define _BSD_SOURCE 1
++#include <sys/types.h>
++
+ #define RES_OFFSET(field)	XtOffsetOf(TekWidgetRec, field)
+ 
+ #include <xterm.h>

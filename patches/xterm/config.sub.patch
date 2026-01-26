@@ -1,0 +1,10 @@
+--- a/config.sub
++++ b/config.sub
+@@ -2072,6 +2072,7 @@ case $os in
+ 	| nx6 \
+ 	| nx7 \
+ 	| oabi* \
++	| obos* \
+ 	| ohos* \
+ 	| onefs* \
+ 	| openbsd* \

@@ -1,0 +1,37 @@
+{
+    "comment1": "This package's build system is insane",
+    "name": "xterm",
+    "description": "X Terminal",
+    "version": [ 4,0,6 ],
+    "url": "https://invisible-mirror.net/archives/xterm/xterm-406.tgz",
+    "depends": [ "mlibc", "libxaw", "libx11", "ncurses" ],
+    "build-depends": [ "cross-gcc", "xorgproto" ],
+    "patches": [
+        {
+            "patch": "patches/xterm/Tekproc.c.patch",
+            "modifies": "xterm-406/Tekproc.c"
+        },
+        {
+            "patch": "patches/xterm/main.c.patch",
+            "modifies": "xterm-406/main.c"
+        },
+        {
+            "patch": "patches/xterm/misc.c.patch",
+            "modifies": "xterm-406/misc.c"
+        },
+        {
+            "patch": "patches/xterm/config.sub.patch",
+            "modifies": "xterm-406/config.sub"
+        }
+    ],
+    "bootstrap-commands": [
+        [ "${repo_directory}/${name}-406/configure", "--prefix=${prefix}", "--disable-tcap-fkeys", "--disable-tcap-query", "--enable-256-color", "--host=${target_triplet}" ]
+    ],
+    "build-commands": [
+        [ "make", "-j20", "CFLAGS=-DUSE_POSIX_TERMIOS=1 -DHAVE_POSIX_OPENPT=1 -D_XOPEN_SOURCE=1 -D_GNU_SOURCE=1 -g -O0", "LDFLAGS=-ltinfow -lncursesw" ]
+    ],
+    "install-commands": [
+        [ "make", "install", "DESTDIR=${destdir}" ],
+        [ "make", "install", "DESTDIR=${bin_package_prefix}" ]
+    ]
+}
