@@ -1,7 +1,7 @@
 {
     "name": "mlibc-headers",
     "description": "mlibc header files",
-    "version": [],
+    "version": [ 6,3,1 ],
     "git-url": "https://github.com/managarm/mlibc",
     "git-commit": "master",
     "depends": [],
